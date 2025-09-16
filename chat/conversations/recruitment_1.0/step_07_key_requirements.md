@@ -1,9 +1,7 @@
 Great, I've extracted some key criteria:
 
-Prospects should be within a commutable distance to **Wilmington, North Carolina, USA**.
+Candidates must-have the following core skills: **Agile methodologies**, **Product roadmap development**, **Stakeholder management** and **User story creation**
 
-The must-have all of the following skills: **Agile methodologies**, **Product roadmap development**, **Stakeholder management** and **User story creation**
-
-Ideal companies to source from would be **Microsoft**, **Google**, **Amazon** or **Salesforce**.
+Ideal companies to start sourcing from should be: **Microsoft**, **Google**, **Amazon** or **Salesforce**.
 
 Does this sound about right?
