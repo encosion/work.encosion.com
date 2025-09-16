@@ -1,0 +1,14 @@
+{
+    "title": "Sourcing Agent",
+    "description": "Interactive recruitment conversation simulation",
+    "agent_name": "Sourcing Agent 1.0",
+    "user_name": "Client",
+    "theme": "light",
+    "welcome_message": "Welcome to the recruitment chat simulation! This demonstrates a realistic job sourcing conversation.",
+    "settings": {
+        "typing_delay": 40,
+        "auto_advance_delay": 1500,
+        "enable_suggestions": true,
+        "enable_typing_indicator": true
+    }
+}

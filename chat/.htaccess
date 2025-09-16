@@ -1,0 +1,16 @@
+# Cache Control for Development
+# Disable caching for CSS, JS, and PHP files during development
+
+<FilesMatch "\.(css|js|php)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
+# Enable mod_headers if not already enabled
+<IfModule mod_headers.c>
+    # Additional cache control for development
+    Header always set Cache-Control "no-cache, no-store, must-revalidate"
+    Header always set Pragma "no-cache"
+    Header always set Expires 0
+</IfModule>
