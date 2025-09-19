@@ -1,6 +1,6 @@
 Fantastic. I've created a focussed search for you.
 
-### Exact • *Results loaded* 👉
+### Exact roles • *Results loaded* 👉
 * **Roles:** Direct job title synonyms – Sr/Senior Product Owner, Lead Product Owner
 * **Core skills:** Agile methodologies, Product roadmap development, Stakeholder management, User story creation
 * **Location:** Wilmington, NC, USA

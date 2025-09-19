@@ -553,9 +553,9 @@ class ChatSystem {
             emojiSection.innerHTML = `
                 <div class="candidate-table-container">
                     <div class="table-header">
-                        <button class="view-people-btn">View in People</button>
-                        <h2>Senior Product Owner</h2>
-                        <p>Senior Product Owner roles at target companies (Microsoft, Amazon, Google, Meta, internal opportunities for ACME employees)</p>
+                        <h2>Exact roles</h2>
+                        <p><b>Senior Product Owner</b> roles at target companies (Microsoft, Amazon, Google, Meta, internal opportunities for ACME employees) with Agile methodologies, Product roadmap development, Stakeholder management, User story creation
+within commutable distance of Wilmington, NC, USA</p>
                     </div>
                     <div class="candidate-cards">
                         <div class="candidate-card">
