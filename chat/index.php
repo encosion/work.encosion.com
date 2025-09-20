@@ -50,8 +50,8 @@ $config = array_merge($default_config, $conversation_config);
             <div class="chat-container">
                 <div class="chat-header">
                     <div class="logo-section">
-                        <!-- <img src="images/logo.svg" alt="Ray Logo"> -->
-                        <h1><?php echo htmlspecialchars($config['agent_name']); ?></h1>
+                        <img src="images/logo.svg" alt="Ray Logo">
+                        <!-- <h1><?php echo htmlspecialchars($config['agent_name']); ?></h1> -->
                     </div>
                     <div class="button-group">
                         <button class="reset-button" id="resetButton" title="Reset conversation"></button>
