@@ -547,257 +547,17 @@ class ChatSystem {
         }
     }
 
-    replaceSpinnerWithTable() {
+    async replaceSpinnerWithTable() {
         const emojiSection = document.querySelector('.emoji-section');
         if (emojiSection) {
-            emojiSection.innerHTML = `
-                <div class="candidate-table-container">
-                    <div class="table-header">
-                        <h2>Exact roles</h2>
-                        <p><b>Senior Product Owner</b> roles at target companies (Microsoft, Amazon, Google, Meta, internal opportunities for ACME employees) with Agile methodologies, Product roadmap development, Stakeholder management, User story creation
-within commutable distance of Wilmington, NC, USA</p>
-                    </div>
-                    <div class="candidate-cards">
-                        <div class="candidate-card">
-                            <div class="candidate-name">Sarah Chen</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Microsoft (2 years 1 month)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Amazon (3 years 4 months)
-                                </div>
-                                <div class="job-item">
-                                    Associate Product Manager, Google (2 years 8 months)
-                                </div>
-                            </div>
-                            <div class="location">Seattle, Washington, USA</div>
-                            <div class="rating">★★★★★ 4.8</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Jane Cooper</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Amazon (1 year 9 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Meta (3 years 1 month)
-                                </div>
-                                <div class="job-item">
-                                    Product Analyst, Salesforce (2 years 6 months)
-                                </div>
-                            </div>
-                            <div class="location">San Francisco, California, USA</div>
-                            <div class="rating">★★★★★ 4.7</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Cameron Williamson</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Google (2 years 3 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Microsoft (3 years 7 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Specialist, Adobe (2 years 2 months)
-                                </div>
-                            </div>
-                            <div class="location">Mountain View, California, USA</div>
-                            <div class="rating">★★★★★ 4.9</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Jacob Jones</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Meta (1 year 11 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Netflix (3 years 3 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Coordinator, Spotify (2 years 4 months)
-                                </div>
-                            </div>
-                            <div class="location">Menlo Park, California, USA</div>
-                            <div class="rating">★★★★★ 4.6</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Floyd Miles</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Netflix (2 years 5 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Uber (3 years 8 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Associate, Airbnb (2 years 1 month)
-                                </div>
-                            </div>
-                            <div class="location">Los Gatos, California, USA</div>
-                            <div class="rating">★★★★★ 4.8</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Alexandra Rodriguez</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Shopify (1 year 8 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Stripe (3 years 2 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Analyst, Square (2 years 3 months)
-                                </div>
-                            </div>
-                            <div class="location">Toronto, Ontario, Canada</div>
-                            <div class="rating">★★★★★ 4.7</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Marcus Thompson</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Atlassian (2 years 1 month)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Slack (3 years 6 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Specialist, Trello (2 years 4 months)
-                                </div>
-                            </div>
-                            <div class="location">Sydney, New South Wales, Australia</div>
-                            <div class="rating">★★★★★ 4.9</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Priya Patel</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Zoom (1 year 11 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Cisco (3 years 4 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Coordinator, WebEx (2 years 7 months)
-                                </div>
-                            </div>
-                            <div class="location">San Jose, California, USA</div>
-                            <div class="rating">★★★★★ 4.6</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">David Kim</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Dropbox (2 years 3 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Box (3 years 1 month)
-                                </div>
-                                <div class="job-item">
-                                    Product Associate, OneDrive (2 years 5 months)
-                                </div>
-                            </div>
-                            <div class="location">San Francisco, California, USA</div>
-                            <div class="rating">★★★★★ 4.8</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Elena Volkov</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Palantir (1 year 10 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Snowflake (3 years 3 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Analyst, Databricks (2 years 2 months)
-                                </div>
-                            </div>
-                            <div class="location">Denver, Colorado, USA</div>
-                            <div class="rating">★★★★★ 4.7</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">James Wilson</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Twilio (2 years 4 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, SendGrid (3 years 7 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Specialist, Mailgun (2 years 1 month)
-                                </div>
-                            </div>
-                            <div class="location">Austin, Texas, USA</div>
-                            <div class="rating">★★★★★ 4.9</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Maria Santos</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, HubSpot (1 year 9 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Salesforce (3 years 5 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Coordinator, Pipedrive (2 years 6 months)
-                                </div>
-                            </div>
-                            <div class="location">Boston, Massachusetts, USA</div>
-                            <div class="rating">★★★★★ 4.6</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Ryan O'Connor</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, GitHub (2 years 2 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, GitLab (3 years 8 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Associate, Bitbucket (2 years 4 months)
-                                </div>
-                            </div>
-                            <div class="location">Seattle, Washington, USA</div>
-                            <div class="rating">★★★★★ 4.8</div>
-                        </div>
-                        
-                        <div class="candidate-card">
-                            <div class="candidate-name">Lisa Chen</div>
-                            <div class="job-history">
-                                <div class="job-item">
-                                    <strong>Senior Product Owner</strong>, Canva (1 year 7 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Manager, Figma (3 years 2 months)
-                                </div>
-                                <div class="job-item">
-                                    Product Analyst, Adobe Creative Suite (2 years 8 months)
-                                </div>
-                            </div>
-                            <div class="location">Melbourne, Victoria, Australia</div>
-                            <div class="rating">★★★★★ 4.7</div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            try {
+                const response = await fetch('search_results.php');
+                const html = await response.text();
+                emojiSection.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading search results:', error);
+                emojiSection.innerHTML = '<p>Error loading search results. Please try again.</p>';
+            }
         }
     }
 
@@ -814,24 +574,32 @@ style.textContent = `
 .suggestions-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    gap: 8px;
+    margin-top: 8px;
 }
 
 .suggestion-button {
-    padding: 0.5rem 1rem;
-    background-color: var(--bg-tertiary);
+    padding: 8px 16px;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 14px;
+    font-weight: 500;
     transition: all 0.2s ease;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .suggestion-button:hover {
-    background-color: var(--hover);
-    border-color: var(--accent);
+    background-color: var(--bg-tertiary);
+}
+
+.suggestion-button:active {
+    background-color: var(--text-muted);
 }
 `;
 document.head.appendChild(style);
