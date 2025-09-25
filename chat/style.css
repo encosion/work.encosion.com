@@ -38,6 +38,9 @@
     --input-border: #DBDBE0;
     --header-bg: #ffffff;
     --gradient-bg: linear-gradient(135deg, #67BFFF 0%, #492FF4 25%, #B241DE 50%, #DA886D 100%);
+    
+    /* Input cursor colors */
+    --input-cursor: hotpink;
 }
 
 * {
@@ -135,6 +138,7 @@ body {
     min-width: 200px;
     outline: none;
     transition: all 0.2s ease;
+    caret-color: var(--input-cursor);
 }
 
 .chat-header .search-input:focus {
@@ -418,6 +422,7 @@ body {
     line-height: 1.4;
     color: var(--text-primary);
     transition: background-color 0.2s ease;
+    caret-color: var(--input-cursor);
 }
 
 .chat-input textarea::placeholder {
