@@ -41,6 +41,12 @@
     
     /* Input cursor colors */
     --input-cursor: hotpink;
+    
+    /* Gradient colors for animated caret */
+    --gradient-blue: #67BFFF;
+    --gradient-purple: #492FF4;
+    --gradient-magenta: #B241DE;
+    --gradient-orange: #DA886D;
 }
 
 * {
@@ -59,6 +65,15 @@ body {
     font-weight: 400;
     height: 100vh;
     overflow: hidden;
+}
+
+/* Animated caret color keyframes */
+@keyframes caret-rainbow {
+    0% { caret-color: var(--gradient-blue); }
+    25% { caret-color: var(--gradient-purple); }
+    50% { caret-color: var(--gradient-magenta); }
+    75% { caret-color: var(--gradient-orange); }
+    100% { caret-color: var(--gradient-blue); }
 }
 
 .page-layout {
@@ -139,6 +154,7 @@ body {
     outline: none;
     transition: all 0.2s ease;
     caret-color: var(--input-cursor);
+    animation: caret-rainbow 3s ease-in-out infinite;
 }
 
 .chat-header .search-input:focus {
@@ -423,6 +439,7 @@ body {
     color: var(--text-primary);
     transition: background-color 0.2s ease;
     caret-color: var(--input-cursor);
+    animation: caret-rainbow 3s ease-in-out infinite;
 }
 
 .chat-input textarea::placeholder {
