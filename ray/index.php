@@ -15,7 +15,7 @@ $site_url = "https://work.encosion.com";
 $version = time();
 
 // Get conversation ID from URL parameter
-$conversation_id = $_GET['conversation'] ?? 'ray_1.0';
+$conversation_id = $_GET['conversation'] ?? 'recruitment_1.1';
 
 // Load conversation configuration
 $conversation_config = [];
@@ -42,12 +42,12 @@ $config = array_merge($default_config, $conversation_config);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($config['title']); ?></title>
     <link rel="stylesheet" href="style.css?v=<?php echo $version; ?>">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>

@@ -6,21 +6,22 @@
 
 :root {
     /* Beamery Design System Colors */
-    --bg-primary: #ffffff;
+    --bg-white: #ffffff;
+    --bg-default: #F6F6F7;
     --bg-secondary: #F1F1F3;
     --bg-secondary-ongray: #E7E7E9;
     --bg-tertiary: #DBDBE0;
     --bg-accent: #EBEBFE;
+
     --text-primary: #1F1F23;
     --text-secondary: #6C6C7A;
     --text-muted: #A0A0AB;
+
     --accent: #492FF4;
     --accent-hover: #391EE6;
     --accent-active: #2222C3;
-    --accent-light: #F0EDFF;
-    --border: #DBDBE0;
+
     --border-color: #DBDBE0;
-    --hover: #F1F1F3;
     
     /* Beamery Semantic Colors */
     --success: #06742B;
@@ -63,7 +64,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: var(--bg-secondary);
+    background: var(--bg-default);
     background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.4;
@@ -193,7 +194,7 @@ body {
    ========================================================================== */
 
 .icon-nav {
-    background: var(--bg-primary);
+    background: var(--bg-white);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -274,7 +275,7 @@ body {
     height: calc(100% - 16px);
     display: flex;
     flex-direction: column;
-    background: var(--bg-primary);
+    background: var(--bg-white);
     border-radius: 6px;
     margin: 8px;
     transition: transform 0.3s ease;
@@ -425,10 +426,10 @@ body {
     background-color: var(--user-bubble);
     color: var(--user-text);
     border-bottom-right-radius: 2px;
-    box-shadow: 0 2px 4px rgba(73, 47, 244, 0.31);
     padding: 8px 12px;
     border-radius: 6px;
     border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .message-content {
@@ -561,7 +562,7 @@ body {
 
 .chat-input-container {
     position: relative;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-white);
     padding: 16px;
     z-index: 10;
 }
@@ -591,16 +592,16 @@ body {
     display: flex;
     align-items: flex-end;
     gap: 8px;
-    background: var(--border);
+    background: var(--border-color);
     border-radius: 6px;
     transition: all 0.2s ease;
     padding: 8px 12px;
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-color);
 }
 
 .chat-input:focus-within {
     border: 2px solid transparent;
-    background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    background: linear-gradient(var(--bg-white), var(--bg-white)) padding-box,
                 linear-gradient(135deg, #492FF4 0%, #7E4BBC 50%, #F15852 100%) border-box;
 }
 
@@ -640,7 +641,7 @@ body {
 
 .chat-input:focus-within button {
     background: var(--accent);
-    color: var(--bg-primary);
+    color: var(--bg-white);
 }
 
 .chat-input button svg {
@@ -701,7 +702,7 @@ body {
 /* Thinking state */
 .chat-input.thinking {
     border: 1px solid var(--border-color);
-    background: var(--bg-primary);
+    background: var(--bg-white);
 }
 
 .chat-input.thinking textarea {
@@ -946,13 +947,13 @@ body {
 }
 
 .segment-button.active {
-    background: var(--bg-primary);
+    background: var(--bg-white);
     color: var(--text-primary);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .segment-button:hover:not(.active) {
-    background: var(--hover);
+    background: var(--bg-secondary);
 }
 
 .action-buttons {
@@ -1043,8 +1044,8 @@ body {
 }
 
 .candidate-card {
-    background: var(--bg-primary);
-    border-left: 4px solid var(--bg-primary);
+    background: var(--bg-white);
+    border-left: 4px solid var(--bg-white);
     padding: 12px 16px 16px 44px;
     transition: box-shadow 0.2s ease;
     position: relative;
@@ -1060,7 +1061,7 @@ body {
 }
 
 .candidate-card.selected {
-    background: var(--accent-light);
+    background: var(--bg-accent);
     border-left: 4px solid var(--accent);
 }
 
@@ -1077,7 +1078,7 @@ body {
     height: 20px;
     border: 2px solid var(--border-color);
     border-radius: 4px;
-    background: var(--bg-primary);
+    background: var(--bg-white);
     cursor: pointer;
     transition: all 0.2s ease;
     z-index: 10;
@@ -1180,7 +1181,7 @@ body {
     width: 800px;
     max-width: 800px;
     min-width: 480px;
-    background: var(--bg-primary);
+    background: var(--bg-white);
     color: var(--text-primary);
     padding: 16px 24px;
     display: flex;
@@ -1209,7 +1210,7 @@ body {
     height: 20px;
     border: 2px solid var(--border-color);
     border-radius: 4px;
-    background: var(--bg-primary);
+    background: var(--bg-white);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -1282,7 +1283,7 @@ body {
 
 .action-button.primary {
     background: var(--accent);
-    color: var(--bg-primary);
+    color: var(--bg-white);
 }
 
 .action-button.primary:hover {
@@ -1302,7 +1303,7 @@ body {
     position: absolute;
     bottom: 100%;
     right: 0;
-    background: var(--bg-primary);
+    background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
