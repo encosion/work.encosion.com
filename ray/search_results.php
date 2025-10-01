@@ -3,7 +3,7 @@
 // Dynamic candidate table HTML for recruitment search results
 
 // Load candidate data from JSON file
-$jsonFile = 'candidates.json';
+$jsonFile = 'candidates-exact.json';
 $candidateData = null;
 
 if (file_exists($jsonFile)) {

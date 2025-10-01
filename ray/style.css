@@ -436,6 +436,19 @@ body {
     margin: 0;
 }
 
+/* Typing cursor animation */
+.typing-cursor {
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+    margin-left: 4px;
+    opacity: 0.3;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 .message-content p {
     margin-bottom: 8px;
 }

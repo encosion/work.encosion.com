@@ -1,6 +1,6 @@
 /**
  * Chat Prototype JavaScript
- * Handles the interactive chat simulation with markdown file streaming
+ * Handles the interactive chat simulation with HTML file streaming
  */
 
 class ChatSystem {
@@ -178,6 +178,7 @@ class ChatSystem {
     }
 
     async startConversation() {
+        console.log('Starting conversation with steps:', this.conversationSteps);
         if (this.conversationSteps.length === 0) {
             this.showErrorMessage('No conversation steps found.');
             return;
@@ -194,6 +195,7 @@ class ChatSystem {
         }
 
         const step = this.conversationSteps[this.currentStep];
+        console.log(`Processing step ${this.currentStep}:`, step);
         
         if (step.type === 'agent') {
             await this.showAgentMessage(step);
@@ -220,20 +222,19 @@ class ChatSystem {
                 this.showLoadingSpinner();
             }
 
-            // Load markdown content
+            // Load HTML content
             const response = await fetch(`conversations/${this.conversationId}/${step.file}`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${step.file}`);
             }
             
-            const markdownContent = await response.text();
-            const htmlContent = this.parseMarkdown(markdownContent);
+            const htmlContent = await response.text();
             
             // Remove typing indicator
             this.hideTypingIndicator();
             
             // Show message with typing effect
-            await this.typeMessage(htmlContent, step.delay || 50);
+            await this.typeMessage(htmlContent, step.delay || 10);
             
             this.isTyping = false;
             this.currentStep++;
@@ -279,14 +280,14 @@ class ChatSystem {
             const nextStep = this.conversationSteps[this.currentStep];
             
             if (nextStep.type === 'user') {
-                // Load user response from markdown file if available
+                // Load user response from HTML file if available
                 if (nextStep.file) {
                     try {
                         const response = await fetch(`conversations/${this.conversationId}/${nextStep.file}`);
                         if (response.ok) {
                             const userResponse = await response.text();
                             
-                            // Auto-populate with the content from markdown file
+                            // Auto-populate with the content from HTML file
                             setTimeout(() => {
                                 this.userInput.value = userResponse.trim();
                                 this.userInput.disabled = false;
@@ -405,19 +406,49 @@ class ChatSystem {
         
         const contentElement = messageElement.querySelector('.message-content');
         
-        // Simple typing effect - reveal content progressively
-        const words = content.split(' ');
-        let currentText = '';
+        // Check if content contains HTML tags
+        const hasHtmlTags = /<[^>]*>/g.test(content);
         
-        for (let i = 0; i < words.length; i++) {
-            currentText += (i > 0 ? ' ' : '') + words[i];
-            contentElement.innerHTML = currentText;
+        if (hasHtmlTags) {
+            // For HTML content, create a typing effect by revealing characters
+            let currentText = '';
+            let i = 0;
             
-            // Scroll to bottom
-            this.scrollToBottom();
+            // Add blinking cursor SVG using Ray icon
+            const cursorSvg = '<svg class="typing-cursor" width="12" height="12" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.41601 12.2368L7.42382 16.2515C7.4238 16.4324 7.37535 16.6138 7.28613 16.77C7.19692 16.9262 7.0749 17.0575 6.92089 17.1479C6.76683 17.2384 6.59634 17.2875 6.41796 17.2876C6.23959 17.2876 6.0691 17.2383 5.91503 17.1479C5.76103 17.0576 5.63902 16.9261 5.5498 16.77C5.46057 16.6138 5.41115 16.4324 5.41113 16.2515V11.0356L7.41601 12.2368ZM13.915 13.1421C14.069 13.2326 14.1989 13.3639 14.2881 13.52C14.3772 13.6762 14.4257 13.849 14.4258 14.0298C14.4258 14.2108 14.3851 14.3842 14.2959 14.5405C14.2066 14.6967 14.0769 14.8202 13.9228 14.9106C13.7687 15.0011 13.5896 15.0425 13.4111 15.0425C13.2328 15.0424 13.0544 14.9922 12.9004 14.9019L8.44628 12.2944L10.4746 11.1343L13.915 13.1421ZM4.94921 10.1147L1.52538 12.1216C1.37132 12.212 1.19302 12.2621 1.01464 12.2622C0.836144 12.2622 0.65708 12.2209 0.502922 12.1304C0.348861 12.0399 0.219108 11.9164 0.129875 11.7603C0.0406267 11.604 -7.62939e-06 11.4305 -7.62939e-06 11.2495C6.92342e-05 11.0687 0.0485155 10.8959 0.137688 10.7397C0.226935 10.5835 0.357555 10.4523 0.511711 10.3618L4.96581 7.75342L4.94921 10.1147ZM14.9853 5.74658C15.1638 5.74658 15.3429 5.78793 15.4971 5.87842C15.6511 5.9689 15.7809 6.09231 15.8701 6.24854C15.9593 6.40475 16 6.57742 16 6.7583C16 6.93907 15.9514 7.11191 15.8623 7.26807C15.773 7.42436 15.6424 7.5565 15.4883 7.64697L11.0342 10.2632L11.0508 7.90186L14.4746 5.88623C14.6286 5.79587 14.807 5.74663 14.9853 5.74658ZM9.58202 0.712402C9.76042 0.712402 9.93087 0.761664 10.085 0.852051C10.2391 0.942537 10.3609 1.07466 10.4502 1.23096C10.5393 1.38713 10.5878 1.56773 10.5879 1.74854V6.96436L8.58398 5.771L8.57616 1.74854C8.5762 1.56781 8.62481 1.38709 8.71386 1.23096C8.8031 1.07468 8.92497 0.942536 9.07909 0.852051C9.23318 0.761602 9.40361 0.712445 9.58202 0.712402ZM2.58788 2.96631C2.76638 2.96631 2.94544 3.01547 3.0996 3.10596L7.5537 5.71338L5.52538 6.87354L2.08495 4.8667C1.93084 4.77621 1.80114 4.64406 1.71191 4.48779C1.62274 4.33156 1.57421 4.1589 1.57421 3.97803C1.57422 3.79708 1.61488 3.62453 1.70409 3.46826C1.79333 3.31199 1.92301 3.18862 2.07714 3.09814C2.2312 3.00771 2.4095 2.96636 2.58788 2.96631Z" fill="#492FF4"/></svg>';
             
-            await this.sleep(delay);
+            while (i < content.length) {
+                // Add one character at a time
+                currentText += content[i];
+                contentElement.innerHTML = currentText + cursorSvg;
+                
+                // Scroll to bottom
+                this.scrollToBottom();
+                
+                await this.sleep(delay);
+                i++;
+            }
+            
+            // Remove cursor when typing is complete
+            contentElement.innerHTML = content;
+        } else {
+            // For plain text, use word-by-word typing effect
+            const words = content.split(' ');
+            let currentText = '';
+            
+            for (let i = 0; i < words.length; i++) {
+                currentText += (i > 0 ? ' ' : '') + words[i];
+                contentElement.textContent = currentText;
+                
+                // Scroll to bottom
+                this.scrollToBottom();
+                
+                await this.sleep(delay);
+            }
         }
+        
+        // Scroll to bottom
+        this.scrollToBottom();
     }
 
     addMessage(type, content) {

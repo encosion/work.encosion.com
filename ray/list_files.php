@@ -14,15 +14,24 @@ if (!is_dir($conversationDir)) {
     exit;
 }
 
-// Get all markdown files in the conversation directory
-$files = glob("{$conversationDir}/*.md");
+// Get all HTML files in the conversation directory
+$files = glob("{$conversationDir}/*.html");
 $steps = [];
 
 foreach ($files as $file) {
     $filename = basename($file);
+    $stepName = pathinfo($filename, PATHINFO_FILENAME);
+    
+    // Determine step type based on filename
+    $type = 'agent'; // Default to agent message
+    if (strpos($stepName, 'user_response') !== false) {
+        $type = 'user';
+    }
+    
     $steps[] = [
         'file' => $filename,
-        'step' => pathinfo($filename, PATHINFO_FILENAME)
+        'step' => $stepName,
+        'type' => $type
     ];
 }
 
