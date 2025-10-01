@@ -28,16 +28,34 @@ window.initializeCandidateSelection = function initializeCandidateSelection() {
     function updateSelection() {
         const checkedBoxes = document.querySelectorAll('.candidate-checkbox:checked');
         const count = checkedBoxes.length;
+        const totalCount = checkboxes.length;
         
         // Update selection count
-        selectionCount.textContent = count === 1 ? '1 selected' : `${count} selected`;
-        
-        // Show/hide selection bar
-        if (count > 0) {
-            selectionBar.style.display = 'flex';
+        if (count === 0) {
+            selectionCount.textContent = 'Select all';
+        } else if (count === totalCount) {
+            selectionCount.textContent = `All selected (${totalCount})`;
         } else {
-            selectionBar.style.display = 'none';
+            selectionCount.textContent = count === 1 ? '1 selected' : `${count} selected`;
         }
+        
+        // Update select all checkbox state
+        const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+        if (selectAllCheckbox) {
+            if (count === 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            } else if (count === totalCount) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            } else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            }
+        }
+        
+        // Keep selection bar always visible
+        selectionBar.style.display = 'flex';
         
         // Update card visual states
         candidateCards.forEach((card, index) => {
@@ -55,6 +73,22 @@ window.initializeCandidateSelection = function initializeCandidateSelection() {
         checkbox.addEventListener('change', updateSelection);
     });
     
+    // Add event listener to select all checkbox
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+            const isChecked = this.checked;
+            
+            // Update all candidate checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = isChecked;
+            });
+            
+            // Update visual states
+            updateSelection();
+        });
+    }
+    
     // Add click handlers to candidate cards for easier selection
     candidateCards.forEach(card => {
         card.addEventListener('click', function(e) {
@@ -70,64 +104,101 @@ window.initializeCandidateSelection = function initializeCandidateSelection() {
     });
     
     // Action button handlers
-    document.getElementById('viewInPeopleBtn').addEventListener('click', function() {
-        const selectedIds = Array.from(document.querySelectorAll('.candidate-checkbox:checked'))
-            .map(checkbox => checkbox.id);
-        console.log('View in People:', selectedIds);
-        alert(`View in People: ${selectedIds.join(', ')}`);
-    });
+    const viewInPeopleBtn = document.getElementById('viewInPeopleBtn');
+    if (viewInPeopleBtn) {
+        viewInPeopleBtn.addEventListener('click', function() {
+            const selectedIds = Array.from(document.querySelectorAll('.candidate-checkbox:checked'))
+                .map(checkbox => checkbox.id);
+            console.log('View in People:', selectedIds);
+            // TODO: Implement actual "View in People" functionality
+        });
+    } else {
+        console.log('View in People button not found');
+    }
     
     // Dropdown functionality
     const addToBtn = document.getElementById('addToBtn');
     const dropdown = document.getElementById('addToDropdown');
-    
-    addToBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdown.classList.toggle('show');
+
+    console.log('Dropdown elements found:', {
+        addToBtn: !!addToBtn,
+        dropdown: !!dropdown,
+        addToBtnElement: addToBtn,
+        dropdownElement: dropdown
     });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!dropdown.contains(e.target) && !addToBtn.contains(e.target)) {
-            dropdown.classList.remove('show');
-        }
-    });
-    
-    // Handle dropdown item clicks
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const action = this.getAttribute('data-action');
-            const selectedIds = Array.from(document.querySelectorAll('.candidate-checkbox:checked'))
-                .map(checkbox => checkbox.id);
-            
-            console.log(`Add to ${action}:`, selectedIds);
-            
-            // Hide dropdown after selection
-            dropdown.classList.remove('show');
-            
-            // Show alert for demo purposes
-            alert(`Add to ${action}: ${selectedIds.join(', ')}`);
+
+    if (addToBtn && dropdown) {
+        addToBtn.addEventListener('click', function(e) {
+            console.log('Add to button clicked!');
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+            console.log('Dropdown show class toggled. Current classes:', dropdown.className);
         });
-    });
+        
+        // Close dropdown when clicking outside (only add once)
+        if (!document.hasDropdownClickListener) {
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target) && !addToBtn.contains(e.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+            document.hasDropdownClickListener = true;
+        }
+        
+        // Handle dropdown item clicks
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                const selectedIds = Array.from(document.querySelectorAll('.candidate-checkbox:checked'))
+                    .map(checkbox => checkbox.id);
+                
+                console.log(`Add to ${action}:`, selectedIds);
+                
+                // Hide dropdown after selection
+                dropdown.classList.remove('show');
+                
+                // TODO: Implement actual "Add to ${action}" functionality
+            });
+        });
+    } else {
+        console.log('Dropdown elements not found:', {
+            addToBtn: !!addToBtn,
+            dropdown: !!dropdown
+        });
+    }
 }
+
+// Prevent multiple initializations
+let isInitialized = false;
 
 // Always define the function, even if script loads multiple times
 console.log('Candidate selection script executing...');
 
 // Try to initialize immediately (for when script loads after HTML)
-window.initializeCandidateSelection();
+if (!isInitialized) {
+    window.initializeCandidateSelection();
+    isInitialized = true;
+}
 
 // Also try on DOMContentLoaded (for standalone pages)
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded fired, initializing candidate selection...');
-    window.initializeCandidateSelection();
-    initializeSegmentedControl();
-    initializeActionButtons();
+    if (!isInitialized) {
+        window.initializeCandidateSelection();
+        initializeSegmentedControl();
+        initializeActionButtons();
+        isInitialized = true;
+    }
 });
 
 // Initialize segmented control functionality
 function initializeSegmentedControl() {
     const segmentButtons = document.querySelectorAll('.segment-button');
+    
+    if (segmentButtons.length === 0) {
+        console.log('No segmented control buttons found, skipping initialization');
+        return;
+    }
     
     segmentButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -158,6 +229,8 @@ function initializeActionButtons() {
             // Add delete functionality here
             // For example: confirm deletion, remove results, etc.
         });
+    } else {
+        console.log('Delete button not found, skipping initialization');
     }
     
     if (editBtn) {
@@ -166,5 +239,7 @@ function initializeActionButtons() {
             // Add edit functionality here
             // For example: open edit modal, modify search criteria, etc.
         });
+    } else {
+        console.log('Edit button not found, skipping initialization');
     }
 }
