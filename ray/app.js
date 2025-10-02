@@ -411,9 +411,9 @@ class ChatSystem {
             contentElement.style.opacity = '0';
             
             if (renderMode === 'appear') {
-                // Quick fade-in for complex components
+                // Smooth progressive disclosure for complex components
                 console.log('Rendering in Appear mode');
-                await this.fadeInElement(contentElement, 200);
+                await this.progressiveDisclosure(contentElement);
             } else {
                 // Stream mode - character by character for text content
                 console.log('Rendering in Stream mode');
@@ -454,16 +454,14 @@ class ChatSystem {
                     currentText += (i > 0 ? ' ' : '') + words[i];
                     contentElement.textContent = currentText;
                     
-                    // Scroll to bottom
-                    this.scrollToBottom();
+                    // Don't auto-scroll during streaming
                     
                     await this.sleep(delay);
                 }
             }
         }
         
-        // Scroll to bottom
-        this.scrollToBottom();
+        // Don't auto-scroll after streaming
         
         // Check if we should auto-advance after rendering is complete
         if (this.autoAdvanceAfterRender) {
@@ -492,8 +490,7 @@ class ChatSystem {
                 const currentText = textContent.substring(0, i + 1);
                 contentElement.textContent = currentText;
                 
-                // Scroll to bottom
-                this.scrollToBottom();
+                // Don't auto-scroll during HTML streaming
                 
                 await this.sleep(delay);
             }
@@ -519,8 +516,7 @@ class ChatSystem {
             const streamedHtml = this.rebuildHtmlWithText(htmlContent, currentText);
             contentElement.innerHTML = streamedHtml;
             
-            // Scroll to bottom
-            this.scrollToBottom();
+            // Don't auto-scroll during structured HTML streaming
             
             await this.sleep(delay);
         }
@@ -569,10 +565,123 @@ class ChatSystem {
         });
     }
 
+    async progressiveDisclosure(contentElement) {
+        // Make content visible immediately
+        contentElement.style.opacity = '1';
+        
+        // Wait for content to render
+        await this.sleep(200);
+        
+        // Always show scroll indicator when there's more content
+        this.showScrollIndicator();
+        
+        // Don't auto-scroll - let user control their own scrolling
+    }
+
+    showScrollIndicator() {
+        // Remove existing indicator
+        this.hideScrollIndicator();
+        
+        // Create scroll indicator
+        const indicator = document.createElement('div');
+        indicator.className = 'scroll-indicator';
+        indicator.innerHTML = `
+            <div class="scroll-indicator-content">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 12L4 8L5.4 6.6L8 9.2L10.6 6.6L12 8L8 12Z" fill="currentColor"/>
+                </svg>
+            </div>
+        `;
+        
+        // Add to chat input container as an overlay
+        const chatInputContainer = document.querySelector('.chat-input-container');
+        if (chatInputContainer) {
+            chatInputContainer.appendChild(indicator);
+        } else {
+            // Fallback to message container
+            this.messageContainer.appendChild(indicator);
+        }
+        
+        // Add click handler to scroll to bottom
+        indicator.addEventListener('click', () => {
+            this.smoothScrollToBottom();
+        });
+        
+        // Add scroll listener to update indicator visibility
+        const scrollHandler = () => {
+            this.updateScrollIndicator();
+        };
+        this.messageContainer.addEventListener('scroll', scrollHandler);
+        
+        // Store the scroll handler for cleanup
+        this.scrollHandler = scrollHandler;
+    }
+
+    updateScrollIndicator() {
+        const chatContainer = this.messageContainer;
+        const isScrollable = chatContainer.scrollHeight > chatContainer.clientHeight;
+        const isAtBottom = chatContainer.scrollTop + chatContainer.clientHeight >= chatContainer.scrollHeight - 10;
+        
+        const indicator = document.querySelector('.scroll-indicator');
+        if (indicator) {
+            if (isScrollable && !isAtBottom) {
+                indicator.style.opacity = '1';
+                indicator.style.visibility = 'visible';
+                indicator.style.pointerEvents = 'auto';
+            } else {
+                indicator.style.opacity = '0';
+                indicator.style.visibility = 'hidden';
+                indicator.style.pointerEvents = 'none';
+            }
+        }
+    }
+
+    hideScrollIndicator() {
+        const existingIndicator = document.querySelector('.scroll-indicator');
+        if (existingIndicator) {
+            existingIndicator.remove();
+        }
+        
+        // Clean up scroll handler
+        if (this.scrollHandler) {
+            this.messageContainer.removeEventListener('scroll', this.scrollHandler);
+            this.scrollHandler = null;
+        }
+    }
+
+    smoothScrollToBottom() {
+        const chatContainer = this.messageContainer;
+        const targetScrollTop = chatContainer.scrollHeight - chatContainer.clientHeight;
+        const startScrollTop = chatContainer.scrollTop;
+        const distance = targetScrollTop - startScrollTop;
+        const duration = 800; // 800ms smooth scroll
+        const startTime = performance.now();
+
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const animateScroll = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutCubic(progress);
+            
+            chatContainer.scrollTop = startScrollTop + (distance * easedProgress);
+            
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+        };
+
+        requestAnimationFrame(animateScroll);
+    }
+
     addMessage(type, content) {
         const messageElement = this.createMessageElement(type, content);
         this.messageContainer.appendChild(messageElement);
-        this.scrollToBottom();
+        
+        // Auto-scroll for user messages to show agent response
+        if (type === 'user') {
+            this.smoothScrollToBottom();
+        }
     }
 
     createMessageElement(type, content) {
@@ -613,7 +722,7 @@ class ChatSystem {
         typingDiv.appendChild(bubbleDiv);
         
         this.messageContainer.appendChild(typingDiv);
-        this.scrollToBottom();
+        // Don't auto-scroll when showing typing indicator
     }
 
     hideTypingIndicator() {
@@ -639,7 +748,7 @@ class ChatSystem {
         thinkingDiv.appendChild(bubbleDiv);
         
         this.messageContainer.appendChild(thinkingDiv);
-        this.scrollToBottom();
+        // Don't auto-scroll when showing thinking animation
     }
 
     hideThinkingAnimation() {
@@ -780,7 +889,8 @@ class ChatSystem {
     }
 
     scrollToBottom() {
-        this.messageContainer.scrollTop = this.messageContainer.scrollHeight;
+        // Use smooth scrolling for better UX
+        this.smoothScrollToBottom();
     }
 
     sleep(ms) {
@@ -1341,6 +1451,11 @@ class ChatSystem {
 // Initialize the chat system when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     window.chatSystem = new ChatSystem();
+    
+    // Add scroll listener to update scroll indicator
+    window.chatSystem.messageContainer.addEventListener('scroll', () => {
+        window.chatSystem.updateScrollIndicator();
+    });
 });
 
 // Add CSS for suggestions
