@@ -232,6 +232,7 @@ class ChatSystem {
         }
 
         this.currentStep = 0;
+        console.log('About to process first step:', this.conversationSteps[0]);
         await this.processNextStep();
     }
 
@@ -259,47 +260,42 @@ class ChatSystem {
         // Initialize role selection components after message is displayed
         setTimeout(() => {
             this.initializeRoleSelectionComponents();
+            this.initializeLoadButtons();
         }, 100);
     }
 
     async showAgentMessage(step) {
+        console.log('showAgentMessage called with step:', step);
         this.isTyping = true;
         this.showTypingIndicator();
 
         try {
-            // Check if this is the last agent message in the conversation
-            const isLastAgentMessage = this.isLastAgentMessage();
-            if (isLastAgentMessage) {
-                // Show loading spinner in emoji section
-                this.showLoadingSpinner();
-            }
-
             // Load HTML content
+            console.log('Loading file:', `conversations/${this.conversationId}/${step.file}`);
             const response = await fetch(`conversations/${this.conversationId}/${step.file}`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${step.file}`);
             }
             
             const htmlContent = await response.text();
+            console.log('Loaded HTML content:', htmlContent);
+            
+            // Parse system commands from the HTML content
+            const { cleanContent, commands } = this.parseSystemCommands(htmlContent);
+            console.log('Parsed commands:', commands);
+            console.log('Clean content:', cleanContent);
             
             // Remove typing indicator
             this.hideTypingIndicator();
             
-            // Show message with typing effect
-            await this.typeMessage(htmlContent, step.delay || 10);
+            // Show message with appropriate rendering mode
+            await this.typeMessage(cleanContent, commands);
             
             this.isTyping = false;
             this.currentStep++;
             
-            // If this was the last agent message, replace spinner with table
-            if (isLastAgentMessage) {
-                this.replaceSpinnerWithTable();
-            }
-            
-            // Auto-populate input field with first suggestion if available
-            this.autoPopulateInput();
-            
-            // Auto-advance disabled - wait for user input
+            // Handle system commands
+            await this.handleSystemCommands(commands);
             
         } catch (error) {
             console.error('Error loading agent message:', error);
@@ -326,62 +322,6 @@ class ChatSystem {
         }
     }
 
-    async autoPopulateInput() {
-        // Check if the next step is a user input step
-        if (this.currentStep < this.conversationSteps.length) {
-            const nextStep = this.conversationSteps[this.currentStep];
-            
-            if (nextStep.type === 'user') {
-                // Load user response from HTML file if available
-                if (nextStep.file) {
-                    try {
-                        const response = await fetch(`conversations/${this.conversationId}/${nextStep.file}`);
-                        if (response.ok) {
-                            const userResponse = await response.text();
-                            
-                            // Auto-populate with the content from HTML file
-                            setTimeout(() => {
-                                this.userInput.value = userResponse.trim();
-                                this.userInput.disabled = false;
-                                this.sendButton.disabled = false;
-                                
-                                // Auto-populated visual indicator removed
-                                
-                                this.userInput.focus();
-                                
-                                // Set placeholder if available
-                                if (nextStep.placeholder) {
-                                    this.userInput.placeholder = nextStep.placeholder;
-                                }
-                            }, 500); // Small delay to let the agent message settle
-                        }
-                    } catch (error) {
-                        console.error('Error loading user response:', error);
-                    }
-                }
-                // Fallback to suggestions if no file
-                else if (nextStep.suggestions && nextStep.suggestions.length > 0) {
-                    setTimeout(() => {
-                        this.userInput.value = nextStep.suggestions[0];
-                        this.userInput.disabled = false;
-                        this.sendButton.disabled = false;
-                        
-                        // Auto-populated visual indicator removed
-                        
-                        this.userInput.focus();
-                        
-                        // Show suggestions
-                        this.showSuggestions(nextStep.suggestions);
-                        
-                        // Set placeholder if available
-                        if (nextStep.placeholder) {
-                            this.userInput.placeholder = nextStep.placeholder;
-                        }
-                    }, 500);
-                }
-            }
-        }
-    }
 
     async sendUserMessage() {
         const message = this.userInput.value.trim();
@@ -452,40 +392,99 @@ class ChatSystem {
         return responses.find(r => r.default) || null;
     }
 
-    async typeMessage(content, delay = 50) {
+    async typeMessage(content, commands = {}) {
         const messageElement = this.createMessageElement('agent', '');
         this.messageContainer.appendChild(messageElement);
         
         const contentElement = messageElement.querySelector('.message-content');
+        const renderMode = commands.render || 'stream';
+        const delay = commands.typingDelay || 50;
         
         // Check if content contains HTML tags
         const hasHtmlTags = /<[^>]*>/g.test(content);
         
         if (hasHtmlTags) {
-            // For HTML content, fade in block elements quickly
+            // For HTML content, handle based on render mode
             contentElement.innerHTML = content;
             contentElement.style.opacity = '0';
             
-            // Fade in the entire content
-            await this.fadeInElement(contentElement, 300);
+            if (renderMode === 'appear') {
+                // Quick fade-in for complex components
+                console.log('Rendering in Appear mode');
+                await this.fadeInElement(contentElement, 200);
+            } else {
+                // Stream mode - character by character for text content
+                console.log('Rendering in Stream mode');
+                await this.streamHtmlContent(contentElement, delay);
+            }
+            
+            // Check for different component types and initialize them
+            const streamingElement = contentElement.querySelector('[data-streaming-component="true"]');
+            const thinkingElement = contentElement.querySelector('#thinking-steps');
+            const contentElement_check = contentElement.querySelector('#content-section');
+            
+            if (streamingElement) {
+                console.log('Found streaming component element, initializing...');
+                this.initializeStreamingComponent(streamingElement);
+            } else if (thinkingElement) {
+                console.log('Found thinking component element, initializing...');
+                this.initializeThinkingComponent(thinkingElement);
+            } else if (contentElement_check) {
+                console.log('Found content component element, initializing...');
+                this.initializeContentComponent(contentElement_check);
+            } else {
+                console.log('No special component found');
+            }
         } else {
             // For plain text, use character-by-character typing effect
-            const words = content.split(' ');
-            let currentText = '';
-            
-            for (let i = 0; i < words.length; i++) {
-                currentText += (i > 0 ? ' ' : '') + words[i];
-                contentElement.textContent = currentText;
+            if (renderMode === 'appear') {
+                // Quick fade-in for plain text too
+                contentElement.textContent = content;
+                await this.fadeInElement(contentElement, 200);
+            } else {
+                // Stream mode - character by character
+                const words = content.split(' ');
+                let currentText = '';
                 
-                // Scroll to bottom
-                this.scrollToBottom();
-                
-                await this.sleep(delay);
+                for (let i = 0; i < words.length; i++) {
+                    currentText += (i > 0 ? ' ' : '') + words[i];
+                    contentElement.textContent = currentText;
+                    
+                    // Scroll to bottom
+                    this.scrollToBottom();
+                    
+                    await this.sleep(delay);
+                }
             }
         }
         
         // Scroll to bottom
         this.scrollToBottom();
+    }
+    
+    async streamHtmlContent(contentElement, delay) {
+        // Extract text content and stream it character by character
+        const textContent = contentElement.textContent || contentElement.innerText || '';
+        const htmlContent = contentElement.innerHTML;
+        
+        // Clear the content
+        contentElement.innerHTML = '';
+        
+        // Stream character by character
+        for (let i = 0; i < textContent.length; i++) {
+            const currentText = textContent.substring(0, i + 1);
+            contentElement.textContent = currentText;
+            
+            // Scroll to bottom
+            this.scrollToBottom();
+            
+            await this.sleep(delay);
+        }
+        
+        // After streaming is complete, restore the HTML structure
+        if (htmlContent.includes('<')) {
+            contentElement.innerHTML = htmlContent;
+        }
     }
 
     async fadeInElement(element, duration = 300) {
@@ -647,6 +646,33 @@ class ChatSystem {
             });
         });
     }
+    
+    initializeLoadButtons() {
+        const loadButtons = document.querySelectorAll('button[load-]');
+        
+        loadButtons.forEach(button => {
+            const filePath = button.getAttribute('load-');
+            if (filePath) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.loadContentIntoEmojiContainer(filePath);
+                });
+                
+                // Add loading state styling
+                button.addEventListener('click', () => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Loading...';
+                    button.disabled = true;
+                    
+                    // Reset button state after a delay
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                });
+            }
+        });
+    }
 
     handleRoleSelection(selectedOption, component) {
         const roleTitle = selectedOption.querySelector('.role-title').textContent;
@@ -716,51 +742,255 @@ class ChatSystem {
         this.addMessage('agent', '<strong>Conversation Complete!</strong><br>Click "Reset Conversation" to start over or "Load Example" to try a different scenario.');
     }
 
-    isLastAgentMessage() {
-        // Check if the current step is the last agent message in the conversation
-        // Check if there are any more agent messages after the current one
-        for (let i = this.currentStep + 1; i < this.conversationSteps.length; i++) {
-            if (this.conversationSteps[i].type === 'agent') {
-                return false; // There's another agent message after this one
-            }
-        }
-        return true; // This is the last agent message
+    
+    initializeStreamingComponent(streamingElement) {
+        console.log('Initializing streaming component...');
+        
+        // Create the streaming component
+        const firstLine = "Ok, so we're looking for Senior Product Owners. Let me dig into this and get a search started for you.";
+        
+        // Start the streaming animation
+        this.startStreamingAnimation(streamingElement, firstLine);
     }
-
-    showLoadingSpinner() {
-        const emojiSection = document.querySelector('.emoji-section');
-        if (emojiSection) {
-            emojiSection.innerHTML = `
-                <div class="loading-container">
-                    <div class="loading-spinner">
-                        <div class="spinner"></div>
-                        <p>Loading candidates...</p>
-                    </div>
-                </div>
-            `;
-        }
+    
+    initializeThinkingComponent(thinkingElement) {
+        console.log('Initializing thinking component...');
+        
+        // Start the thinking animation
+        this.startThinkingAnimation();
     }
-
-    async replaceSpinnerWithTable() {
-        const emojiSection = document.querySelector('.emoji-section');
-        if (emojiSection) {
-            try {
-                const response = await fetch('search_results.php');
-                const html = await response.text();
-                emojiSection.innerHTML = html;
-                
-                // Load and execute the candidate selection script
-                this.loadCandidateSelectionScript();
-                
-                // Update selection bar position now that candidate cards are loaded
-                this.updateSelectionBarPosition();
-            } catch (error) {
-                console.error('Error loading search results:', error);
-                emojiSection.innerHTML = '<p>Error loading search results. Please try again.</p>';
+    
+    initializeContentComponent(contentElement) {
+        console.log('Initializing content component...');
+        
+        // Show the content section
+        setTimeout(() => {
+            contentElement.classList.add('visible');
+            console.log('Content section revealed');
+        }, 100);
+    }
+    
+    async startStreamingAnimation(streamingElement, firstLine) {
+        console.log('Starting streaming animation...');
+        
+        // Stream the first line
+        console.log('Streaming first line:', firstLine);
+        await this.streamText(streamingElement, firstLine);
+        
+        console.log('Streaming complete');
+        
+        // Auto-advance to next step after streaming is complete
+        setTimeout(() => {
+            this.currentStep++;
+            this.processNextStep();
+        }, 1000);
+    }
+    
+    async startThinkingAnimation() {
+        console.log('Starting thinking animation...');
+        
+        const steps = document.querySelectorAll('.thinking-step');
+        
+        for (let i = 0; i < steps.length; i++) {
+            // Activate current step
+            steps[i].classList.add('active');
+            
+            // Wait for step duration
+            await this.delay(800);
+            
+            // Mark as completed and move to next
+            steps[i].classList.add('completed');
+            steps[i].classList.remove('active');
+        }
+        
+        console.log('Thinking complete');
+        
+        // Auto-advance to next step after thinking is complete
+        setTimeout(() => {
+            this.currentStep++;
+            this.processNextStep();
+        }, 1000);
+    }
+    
+    async streamText(element, text) {
+        console.log('Streaming to element:', element.id, 'Element found:', !!element);
+        
+        if (!element) {
+            console.error('Element not found');
+            return;
+        }
+        
+        element.innerHTML = '';
+        
+        for (let i = 0; i < text.length; i++) {
+            element.innerHTML += text[i];
+            await this.delay(30); // Adjust speed as needed
+        }
+        
+        console.log('Streaming complete for:', element.id);
+    }
+    
+    
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    parseSystemCommands(htmlContent) {
+        const commands = {
+            render: 'stream', // Default to stream mode
+            load: null,
+            nextAction: null,
+            suggestedResponse: null,
+            autoAdvance: null,
+            typingDelay: null
+        };
+        
+        // Parse HTML comments for system commands
+        const commentRegex = /<!--\s*([A-Z-]+):\s*(.*?)\s*-->/g;
+        let match;
+        let cleanContent = htmlContent;
+        
+        while ((match = commentRegex.exec(htmlContent)) !== null) {
+            const [, command, value] = match;
+            const cleanValue = value.trim();
+            
+            switch (command) {
+                case 'RENDER':
+                    commands.render = cleanValue.toLowerCase();
+                    break;
+                case 'LOAD':
+                    commands.load = cleanValue;
+                    break;
+                case 'NEXT-ACTION':
+                    commands.nextAction = cleanValue.toLowerCase();
+                    break;
+                case 'SUGGESTED-RESPONSE':
+                    commands.suggestedResponse = cleanValue;
+                    break;
+                case 'AUTO-ADVANCE':
+                    commands.autoAdvance = parseInt(cleanValue) || 1000;
+                    break;
+                case 'TYPING-DELAY':
+                    commands.typingDelay = parseInt(cleanValue) || 50;
+                    break;
             }
+            
+            // Remove the comment from the content
+            cleanContent = cleanContent.replace(match[0], '');
+        }
+        
+        console.log('Parsed system commands:', commands);
+        return { cleanContent, commands };
+    }
+    
+    async handleSystemCommands(commands) {
+        // Handle load command - load PHP content into emoji container
+        if (commands.load) {
+            console.log('Loading content into emoji container:', commands.load);
+            await this.loadContentIntoEmojiContainer(commands.load);
+        }
+        
+        // Handle suggested response - populate input field immediately
+        if (commands.suggestedResponse) {
+            console.log('Populating input with suggested response:', commands.suggestedResponse);
+            setTimeout(() => {
+                this.userInput.value = commands.suggestedResponse;
+                this.userInput.disabled = false;
+                this.sendButton.disabled = false;
+                this.userInput.focus();
+            }, 500);
+        }
+        
+        // Handle next action
+        if (commands.nextAction === 'proceed') {
+            // Auto-advance to next step
+            const delay = commands.autoAdvance || 1000;
+            setTimeout(() => {
+                this.processNextStep();
+            }, delay);
+        } else if (commands.nextAction === 'wait') {
+            // Wait for user input (default behavior)
+            // Input field is already populated above if suggestedResponse exists
         }
     }
     
+    async loadContentIntoEmojiContainer(filePath) {
+        const emojiSection = document.querySelector('.emoji-section');
+        if (!emojiSection) {
+            console.error('Emoji section not found');
+            return;
+        }
+        
+        try {
+            console.log('Loading content from:', filePath);
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}`);
+            }
+            
+            const html = await response.text();
+            emojiSection.innerHTML = html;
+            
+            // Load and execute the candidate selection script if it exists
+            this.loadCandidateSelectionScript();
+            
+            // Update selection bar position now that candidate cards are loaded
+            this.updateSelectionBarPosition();
+            
+            console.log('Content loaded successfully into emoji container');
+        } catch (error) {
+            console.error('Error loading content into emoji container:', error);
+            emojiSection.innerHTML = '<p>Error loading content. Please try again.</p>';
+        }
+    }
+    
+    autoPopulateInput(suggestedResponse = null) {
+        // Check if the next step is a user input step
+        if (this.currentStep < this.conversationSteps.length) {
+            const nextStep = this.conversationSteps[this.currentStep];
+            
+            if (nextStep.type === 'user') {
+                // Load user response from HTML file if available
+                if (nextStep.file) {
+                    try {
+                        fetch(`conversations/${this.conversationId}/${nextStep.file}`)
+                            .then(response => response.ok ? response.text() : null)
+                            .then(userResponse => {
+                                if (userResponse) {
+                                    setTimeout(() => {
+                                        this.userInput.value = userResponse.trim();
+                                        this.userInput.disabled = false;
+                                        this.sendButton.disabled = false;
+                                        this.userInput.focus();
+                                        
+                                        if (nextStep.placeholder) {
+                                            this.userInput.placeholder = nextStep.placeholder;
+                                        }
+                                    }, 500);
+                                }
+                            })
+                            .catch(error => console.error('Error loading user response:', error));
+                    } catch (error) {
+                        console.error('Error loading user response:', error);
+                    }
+                }
+                // Use suggested response if provided
+                else if (suggestedResponse) {
+                    setTimeout(() => {
+                        this.userInput.value = suggestedResponse;
+                        this.userInput.disabled = false;
+                        this.sendButton.disabled = false;
+                        this.userInput.focus();
+                        
+                        if (nextStep.placeholder) {
+                            this.userInput.placeholder = nextStep.placeholder;
+                        }
+                    }, 500);
+                }
+            }
+        }
+    }
+
     loadCandidateSelectionScript() {
         console.log('Loading candidate selection functionality...');
         

@@ -1,0 +1,332 @@
+{
+  "searchTitle": "📏 Close",
+  "searchDescription": "<b>Senior Product Owners</b> at target companies (Microsoft, Google, Amazon, Salesforce) with Agile methodologies, Product roadmap development, Stakeholder management, User story creation within commutable distance of Wilmington, NC, USA",
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Michael Rodriguez",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Microsoft",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Amazon",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Product Analyst",
+          "company": "Google",
+          "duration": "2y 1m"
+        }
+      ],
+      "location": "Wilmington, North Carolina, USA"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Chen",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Google",
+          "duration": "2y 6m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Microsoft",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Product Specialist",
+          "company": "Salesforce",
+          "duration": "2y 3m"
+        }
+      ],
+      "location": "Raleigh, North Carolina, USA"
+    },
+    {
+      "id": 3,
+      "name": "Jennifer Martinez",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Lead Product Owner",
+          "company": "Amazon",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Senior Product Owner",
+          "company": "Google",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Microsoft",
+          "duration": "2y 7m"
+        }
+      ],
+      "location": "Charlotte, North Carolina, USA"
+    },
+    {
+      "id": 4,
+      "name": "David Thompson",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Salesforce",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Amazon",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Product Analyst",
+          "company": "Google",
+          "duration": "2y 2m"
+        }
+      ],
+      "location": "Durham, North Carolina, USA"
+    },
+    {
+      "id": 5,
+      "name": "Amanda Foster",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Microsoft",
+          "duration": "2y 1m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Salesforce",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Product Coordinator",
+          "company": "Google",
+          "duration": "2y 4m"
+        }
+      ],
+      "location": "Richmond, Virginia, USA"
+    },
+    {
+      "id": 6,
+      "name": "Robert Kim",
+      "rating": "★★★★★ 4.6",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Lead Product Owner",
+          "company": "Google",
+          "duration": "1 year 11m"
+        },
+        {
+          "title": "Senior Product Owner",
+          "company": "Amazon",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Microsoft",
+          "duration": "2y 8m"
+        }
+      ],
+      "location": "Atlanta, Georgia, USA"
+    },
+    {
+      "id": 7,
+      "name": "Lisa Johnson",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Amazon",
+          "duration": "2y 3m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Salesforce",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Product Specialist",
+          "company": "Google",
+          "duration": "2y 5m"
+        }
+      ],
+      "location": "Columbia, South Carolina, USA"
+    },
+    {
+      "id": 8,
+      "name": "Christopher Lee",
+      "rating": "★★★★★ 4.5",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Salesforce",
+          "duration": "1 year 10m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Microsoft",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Product Analyst",
+          "company": "Amazon",
+          "duration": "2y 6m"
+        }
+      ],
+      "location": "Norfolk, Virginia, USA"
+    },
+    {
+      "id": 9,
+      "name": "Michelle Davis",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Lead Product Owner",
+          "company": "Microsoft",
+          "duration": "1 year 8m"
+        },
+        {
+          "title": "Senior Product Owner",
+          "company": "Google",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Amazon",
+          "duration": "2y 9m"
+        }
+      ],
+      "location": "Charleston, South Carolina, USA"
+    },
+    {
+      "id": 10,
+      "name": "Kevin Wilson",
+      "rating": "★★★★★ 4.6",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Google",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Salesforce",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Jacksonville, Florida, USA"
+    },
+    {
+      "id": 11,
+      "name": "Rachel Brown",
+      "rating": "★★★★★ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Amazon",
+          "duration": "1 year 7m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Google",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "Product Specialist",
+          "company": "Salesforce",
+          "duration": "2y 4m"
+        }
+      ],
+      "location": "Savannah, Georgia, USA"
+    },
+    {
+      "id": 12,
+      "name": "Thomas Anderson",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Lead Product Owner",
+          "company": "Salesforce",
+          "duration": "2y 2m"
+        },
+        {
+          "title": "Senior Product Owner",
+          "company": "Microsoft",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Amazon",
+          "duration": "2y 7m"
+        }
+      ],
+      "location": "Greenville, South Carolina, USA"
+    },
+    {
+      "id": 13,
+      "name": "Nicole Taylor",
+      "rating": "★★★★★ 4.5",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Microsoft",
+          "duration": "1 year 9m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Google",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Product Analyst",
+          "company": "Amazon",
+          "duration": "2y 8m"
+        }
+      ],
+      "location": "Asheville, North Carolina, USA"
+    },
+    {
+      "id": 14,
+      "name": "Daniel Garcia",
+      "rating": "★★★★★ 4.3",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Product Owner",
+          "company": "Google",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Salesforce",
+          "duration": "3y 6m"
+        }
+      ],
+      "location": "Knoxville, Tennessee, USA"
+    }
+  ]
+}

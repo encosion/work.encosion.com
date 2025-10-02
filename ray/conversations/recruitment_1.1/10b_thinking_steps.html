@@ -1,0 +1,45 @@
+<!-- RENDER: Appear -->
+<!-- NEXT-ACTION: proceed -->
+<!-- AUTO-ADVANCE: 1000 -->
+<div class="thinking-steps" id="thinking-steps">
+    <div class="thinking-step" data-step="0">
+        <div class="thinking-spinner"></div>
+        <span class="thinking-text">Extracting core skills</span>
+    </div>
+    <div class="thinking-step" data-step="1">
+        <div class="thinking-spinner"></div>
+        <span class="thinking-text">Mapping target locations</span>
+    </div>
+    <div class="thinking-step" data-step="2">
+        <div class="thinking-spinner"></div>
+        <span class="thinking-text">Identifying ideal companies</span>
+    </div>
+    <div class="thinking-step" data-step="3">
+        <div class="thinking-spinner"></div>
+        <span class="thinking-text">Finding equivalent job titles</span>
+    </div>
+    <div class="thinking-step" data-step="4">
+        <div class="thinking-spinner"></div>
+        <span class="thinking-text">Building search</span>
+    </div>
+</div>
+
+<script>
+// Make the function globally accessible
+window.initializeThinkingComponent = function() {
+    console.log('Initializing thinking component...');
+    
+    // Start the thinking animation
+    setTimeout(() => {
+        this.startThinkingAnimation();
+    }, 100);
+};
+
+// Auto-initialize if this HTML is loaded directly (for testing)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.initializeThinkingComponent);
+} else {
+    // DOM is already loaded, initialize immediately
+    window.initializeThinkingComponent();
+}
+</script>

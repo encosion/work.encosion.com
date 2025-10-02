@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php include 'search_results.php'; ?>
+    <?php include 'results-exact.php'; ?>
     
     <script src="candidate-selection.js"></script>
 </body>
