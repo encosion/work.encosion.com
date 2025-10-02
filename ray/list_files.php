@@ -14,8 +14,10 @@ if (!is_dir($conversationDir)) {
     exit;
 }
 
-// Get all HTML files in the conversation directory
-$files = glob("{$conversationDir}/*.html");
+// Get all HTML and PHP files in the conversation directory
+$htmlFiles = glob("{$conversationDir}/*.html");
+$phpFiles = glob("{$conversationDir}/*.php");
+$files = array_merge($htmlFiles, $phpFiles);
 $steps = [];
 
 foreach ($files as $file) {

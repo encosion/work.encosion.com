@@ -1,6 +1,15 @@
-<!-- RENDER: Stream -->
-<!-- NEXT-ACTION: wait -->
-<!-- SUGGESTED-RESPONSE: Can you remove Amazon? -->
+<?php
+header('Content-Type: text/html; charset=utf-8');
+
+// System commands
+$commands = [
+    'render' => 'stream',
+    'nextAction' => 'wait',
+    'suggestedResponse' => 'Can you remove Amazon?'
+];
+
+// Output the content
+?>
 <p>Great, I've extracted the key criteria and created a comprehensive search starting with the most focused:</p>
 
 <h3>Exact</h3>
@@ -29,3 +38,7 @@
 </ul>
 
 <p>After reviewing, let me know if you would like to make any changes, or how you would like me to broaden the search for you.</p>
+
+<script type="application/json" id="system-commands">
+<?php echo json_encode($commands); ?>
+</script>

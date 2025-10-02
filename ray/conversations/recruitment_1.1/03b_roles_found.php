@@ -1,6 +1,15 @@
-<!-- RENDER: Appear -->
-<!-- NEXT-ACTION: proceed -->
-<!-- AUTO-ADVANCE: 1000 -->
+<?php
+header('Content-Type: text/html; charset=utf-8');
+
+// System commands
+$commands = [
+    'render' => 'appear',
+    'nextAction' => 'proceed',
+    'autoAdvance' => 1000
+];
+
+// Output the content
+?>
 <div class="role-selection-component" data-component="role-selection">
     <div class="role-option" data-role="associate-product-owner">
         <span class="role-title">Associate Product Owner</span>
@@ -18,3 +27,7 @@
         <span class="role-title">Principal Product Owner</span>
     </div>
 </div>
+
+<script type="application/json" id="system-commands">
+<?php echo json_encode($commands); ?>
+</script>

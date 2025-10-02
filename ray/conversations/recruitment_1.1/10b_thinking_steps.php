@@ -1,6 +1,15 @@
-<!-- RENDER: Appear -->
-<!-- NEXT-ACTION: proceed -->
-<!-- AUTO-ADVANCE: 1000 -->
+<?php
+header('Content-Type: text/html; charset=utf-8');
+
+// System commands
+$commands = [
+    'render' => 'appear',
+    'nextAction' => 'proceed',
+    'autoAdvance' => 1000
+];
+
+// Output the content
+?>
 <div class="thinking-steps" id="thinking-steps">
     <div class="thinking-step" data-step="0">
         <div class="thinking-spinner"></div>
@@ -24,22 +33,6 @@
     </div>
 </div>
 
-<script>
-// Make the function globally accessible
-window.initializeThinkingComponent = function() {
-    console.log('Initializing thinking component...');
-    
-    // Start the thinking animation
-    setTimeout(() => {
-        this.startThinkingAnimation();
-    }, 100);
-};
-
-// Auto-initialize if this HTML is loaded directly (for testing)
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.initializeThinkingComponent);
-} else {
-    // DOM is already loaded, initialize immediately
-    window.initializeThinkingComponent();
-}
+<script type="application/json" id="system-commands">
+<?php echo json_encode($commands); ?>
 </script>

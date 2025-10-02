@@ -232,7 +232,6 @@ class ChatSystem {
         }
 
         this.currentStep = 0;
-        console.log('About to process first step:', this.conversationSteps[0]);
         await this.processNextStep();
     }
 
@@ -265,25 +264,20 @@ class ChatSystem {
     }
 
     async showAgentMessage(step) {
-        console.log('showAgentMessage called with step:', step);
         this.isTyping = true;
         this.showTypingIndicator();
 
         try {
             // Load HTML content
-            console.log('Loading file:', `conversations/${this.conversationId}/${step.file}`);
             const response = await fetch(`conversations/${this.conversationId}/${step.file}`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${step.file}`);
             }
             
             const htmlContent = await response.text();
-            console.log('Loaded HTML content:', htmlContent);
             
             // Parse system commands from the HTML content
             const { cleanContent, commands } = this.parseSystemCommands(htmlContent);
-            console.log('Parsed commands:', commands);
-            console.log('Clean content:', cleanContent);
             
             // Remove typing indicator
             this.hideTypingIndicator();
@@ -845,10 +839,44 @@ class ChatSystem {
             typingDelay: null
         };
         
-        // Parse HTML comments for system commands
+        let cleanContent = htmlContent;
+        
+        // Parse JSON script tag for system commands
+        const scriptRegex = /<script[^>]*id="system-commands"[^>]*>(.*?)<\/script>/s;
+        const scriptMatch = htmlContent.match(scriptRegex);
+        
+        if (scriptMatch) {
+            try {
+                const scriptCommands = JSON.parse(scriptMatch[1]);
+                console.log('Found JSON system commands:', scriptCommands);
+                
+                // Merge commands from JSON
+                Object.assign(commands, scriptCommands);
+                
+                // Remove the script tag from content
+                cleanContent = htmlContent.replace(scriptRegex, '');
+            } catch (error) {
+                console.error('Error parsing JSON system commands:', error);
+            }
+        }
+        
+        // Parse data attributes from hidden div (backward compatibility)
+        const dataAttrRegex = /<div[^>]*data-render="([^"]*)"[^>]*data-next-action="([^"]*)"[^>]*data-suggested-response="([^"]*)"[^>]*>/;
+        const dataMatch = htmlContent.match(dataAttrRegex);
+        
+        if (dataMatch) {
+            console.log('Found data attributes:', dataMatch);
+            commands.render = dataMatch[1] || 'stream';
+            commands.nextAction = dataMatch[2] || null;
+            commands.suggestedResponse = dataMatch[3] || null;
+            
+            // Remove the data div from content
+            cleanContent = htmlContent.replace(/<div[^>]*data-render[^>]*><\/div>\s*/, '');
+        }
+        
+        // Also parse HTML comments for system commands (backward compatibility)
         const commentRegex = /<!--\s*([A-Z-]+):\s*(.*?)\s*-->/g;
         let match;
-        let cleanContent = htmlContent;
         
         while ((match = commentRegex.exec(htmlContent)) !== null) {
             const [, command, value] = match;
