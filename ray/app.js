@@ -10,6 +10,7 @@ class ChatSystem {
         this.currentStep = 0;
         this.conversationSteps = [];
         this.isTyping = false;
+        this.autoAdvanceAfterRender = false;
         this.messageContainer = null;
         this.userInput = null;
         this.sendButton = null;
@@ -237,7 +238,7 @@ class ChatSystem {
 
     async processNextStep() {
         if (this.currentStep >= this.conversationSteps.length) {
-            this.showConversationComplete();
+            // Conversation ended - no message needed
             return;
         }
 
@@ -282,14 +283,21 @@ class ChatSystem {
             // Remove typing indicator
             this.hideTypingIndicator();
             
+            // Handle system commands first to set up auto-advance
+            await this.handleSystemCommands(commands);
+            
             // Show message with appropriate rendering mode
             await this.typeMessage(cleanContent, commands);
             
             this.isTyping = false;
-            this.currentStep++;
             
-            // Handle system commands
-            await this.handleSystemCommands(commands);
+            // Only increment step if not waiting for user input
+            if (commands.nextAction === 'wait') {
+                // Don't increment - wait for user input
+            } else {
+                // Auto-advance cases will handle their own step increment
+                // No need to increment here
+            }
             
         } catch (error) {
             console.error('Error loading agent message:', error);
@@ -392,7 +400,7 @@ class ChatSystem {
         
         const contentElement = messageElement.querySelector('.message-content');
         const renderMode = commands.render || 'stream';
-        const delay = commands.typingDelay || 50;
+        const delay = commands.typingDelay || 10;
         
         // Check if content contains HTML tags
         const hasHtmlTags = /<[^>]*>/g.test(content);
@@ -422,7 +430,9 @@ class ChatSystem {
                 this.initializeStreamingComponent(streamingElement);
             } else if (thinkingElement) {
                 console.log('Found thinking component element, initializing...');
-                this.initializeThinkingComponent(thinkingElement);
+                await this.initializeThinkingComponent(thinkingElement, commands.thinkingSteps);
+                // Thinking components handle their own auto-advance, so we're done here
+                return;
             } else if (contentElement_check) {
                 console.log('Found content component element, initializing...');
                 this.initializeContentComponent(contentElement_check);
@@ -454,31 +464,98 @@ class ChatSystem {
         
         // Scroll to bottom
         this.scrollToBottom();
+        
+        // Check if we should auto-advance after rendering is complete
+        if (this.autoAdvanceAfterRender) {
+            this.autoAdvanceAfterRender = false;
+            setTimeout(() => {
+                this.currentStep++;
+                this.processNextStep();
+            }, 100); // Small delay to ensure UI is settled
+        }
     }
     
     async streamHtmlContent(contentElement, delay) {
-        // Extract text content and stream it character by character
-        const textContent = contentElement.textContent || contentElement.innerText || '';
         const htmlContent = contentElement.innerHTML;
         
-        // Clear the content
+        // Clear the content and make it visible
         contentElement.innerHTML = '';
+        contentElement.style.opacity = '1';
         
-        // Stream character by character
+        // If content has HTML tags, stream while preserving structure
+        if (htmlContent.includes('<')) {
+            await this.streamHtmlWithStructure(contentElement, htmlContent, delay);
+        } else {
+            // Simple text streaming for content without HTML
+            const textContent = htmlContent;
+            for (let i = 0; i < textContent.length; i++) {
+                const currentText = textContent.substring(0, i + 1);
+                contentElement.textContent = currentText;
+                
+                // Scroll to bottom
+                this.scrollToBottom();
+                
+                await this.sleep(delay);
+            }
+        }
+    }
+    
+    async streamHtmlWithStructure(contentElement, htmlContent, delay) {
+        // Create a temporary element to parse the HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+        
+        // Extract text content while preserving structure
+        const textContent = tempDiv.textContent || tempDiv.innerText || '';
+        
+        // Stream character by character while maintaining HTML structure
+        let currentText = '';
+        let currentIndex = 0;
+        
         for (let i = 0; i < textContent.length; i++) {
-            const currentText = textContent.substring(0, i + 1);
-            contentElement.textContent = currentText;
+            currentText += textContent[i];
+            
+            // Rebuild HTML structure with current text
+            const streamedHtml = this.rebuildHtmlWithText(htmlContent, currentText);
+            contentElement.innerHTML = streamedHtml;
             
             // Scroll to bottom
             this.scrollToBottom();
             
             await this.sleep(delay);
         }
+    }
+    
+    rebuildHtmlWithText(originalHtml, currentText) {
+        // Simple approach: replace text content while preserving tags
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = originalHtml;
         
-        // After streaming is complete, restore the HTML structure
-        if (htmlContent.includes('<')) {
-            contentElement.innerHTML = htmlContent;
+        // Get all text nodes and replace with current text
+        const walker = document.createTreeWalker(
+            tempDiv,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+        );
+        
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+            textNodes.push(node);
         }
+        
+        // Replace text content
+        let textIndex = 0;
+        for (const textNode of textNodes) {
+            const originalText = textNode.textContent;
+            const remainingText = currentText.substring(textIndex);
+            const textToShow = remainingText.substring(0, originalText.length);
+            textNode.textContent = textToShow;
+            textIndex += originalText.length;
+        }
+        
+        return tempDiv.innerHTML;
     }
 
     async fadeInElement(element, duration = 300) {
@@ -633,10 +710,15 @@ class ChatSystem {
             const roleOptions = component.querySelectorAll('.role-option');
             
             roleOptions.forEach(option => {
+                // Check if event listener is already attached
+                if (!option.hasAttribute('data-listener-attached')) {
                 option.addEventListener('click', (e) => {
                     e.preventDefault();
                     this.handleRoleSelection(option, component);
                 });
+                    // Mark as having listener attached
+                    option.setAttribute('data-listener-attached', 'true');
+                }
             });
         });
     }
@@ -673,6 +755,14 @@ class ChatSystem {
         
         // Add selected state
         selectedOption.classList.add('selected');
+        
+        // Disable all role options to prevent further selection
+        const allRoleOptions = component.querySelectorAll('.role-option');
+        allRoleOptions.forEach(option => {
+            option.style.pointerEvents = 'none';
+            option.style.opacity = '0.6';
+            option.classList.add('disabled');
+        });
         
         // Add user message with selected role after a brief delay
         setTimeout(() => {
@@ -732,9 +822,6 @@ class ChatSystem {
         this.addMessage('agent', `<strong>Error:</strong> ${message}`);
     }
 
-    showConversationComplete() {
-        this.addMessage('agent', '<strong>Conversation Complete!</strong><br>Click "Reset Conversation" to start over or "Load Example" to try a different scenario.');
-    }
 
     
     initializeStreamingComponent(streamingElement) {
@@ -747,11 +834,38 @@ class ChatSystem {
         this.startStreamingAnimation(streamingElement, firstLine);
     }
     
-    initializeThinkingComponent(thinkingElement) {
+    async initializeThinkingComponent(thinkingElement, thinkingSteps = null) {
         console.log('Initializing thinking component...');
         
-        // Start the thinking animation
-        this.startThinkingAnimation();
+        if (thinkingSteps && thinkingSteps.length > 0) {
+            // Generate thinking steps dynamically
+            this.generateThinkingSteps(thinkingElement, thinkingSteps);
+        }
+        
+        // Start the thinking animation and wait for it to complete
+        await this.startThinkingAnimation();
+    }
+    
+    generateThinkingSteps(container, steps) {
+        container.innerHTML = '';
+        
+        steps.forEach((stepText, index) => {
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'thinking-step';
+            stepDiv.setAttribute('data-step', index);
+            
+            const spinnerDiv = document.createElement('div');
+            spinnerDiv.className = 'thinking-spinner';
+            spinnerDiv.innerHTML = '<svg class="spinning-ray-icon" width="16" height="16" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.41601 12.2368L7.42382 16.2515C7.4238 16.4324 7.37535 16.6138 7.28613 16.77C7.19692 16.9262 7.0749 17.0575 6.92089 17.1479C6.76683 17.2384 6.59634 17.2875 6.41796 17.2876C6.23959 17.2876 6.0691 17.2383 5.91503 17.1479C5.76103 17.0576 5.63902 16.9261 5.5498 16.77C5.46057 16.6138 5.41115 16.4324 5.41113 16.2515V11.0356L7.41601 12.2368ZM13.915 13.1421C14.069 13.2326 14.1989 13.3639 14.2881 13.52C14.3772 13.6762 14.4257 13.849 14.4258 14.0298C14.4258 14.2108 14.3851 14.3842 14.2959 14.5405C14.2066 14.6967 14.0769 14.8202 13.9228 14.9106C13.7687 15.0011 13.5896 15.0425 13.4111 15.0425C13.2328 15.0424 13.0544 14.9922 12.9004 14.9019L8.44628 12.2944L10.4746 11.1343L13.915 13.1421ZM4.94921 10.1147L1.52538 12.1216C1.37132 12.212 1.19302 12.2621 1.01464 12.2622C0.836144 12.2622 0.65708 12.2209 0.502922 12.1304C0.348861 12.0399 0.219108 11.9164 0.129875 11.7603C0.0406267 11.604 -7.62939e-06 11.4305 -7.62939e-06 11.2495C6.92342e-05 11.0687 0.0485155 10.8959 0.137688 10.7397C0.226935 10.5835 0.357555 10.4523 0.511711 10.3618L4.96581 7.75342L4.94921 10.1147ZM14.9853 5.74658C15.1638 5.74658 15.3429 5.78793 15.4971 5.87842C15.6511 5.9689 15.7809 6.09231 15.8701 6.24854C15.9593 6.40475 16 6.57742 16 6.7583C16 6.93907 15.9514 7.11191 15.8623 7.26807C15.773 7.42436 15.6424 7.5565 15.4883 7.64697L11.0342 10.2632L11.0508 7.90186L14.4746 5.88623C14.6286 5.79587 14.807 5.74663 14.9853 5.74658ZM9.58202 0.712402C9.76042 0.712402 9.93087 0.761664 10.085 0.852051C10.2391 0.942537 10.3609 1.07466 10.4502 1.23096C10.5393 1.38713 10.5878 1.56773 10.5879 1.74854V6.96436L8.58398 5.771L8.57616 1.74854C8.5762 1.56781 8.62481 1.38709 8.71386 1.23096C8.8031 1.07468 8.92497 0.942536 9.07909 0.852051C9.23318 0.761602 9.40361 0.712445 9.58202 0.712402ZM2.58788 2.96631C2.76638 2.96631 2.94544 3.01547 3.0996 3.10596L7.5537 5.71338L5.52538 6.87354L2.08495 4.8667C1.93084 4.77621 1.80114 4.64406 1.71191 4.48779C1.62274 4.33156 1.57421 4.1589 1.57421 3.97803C1.57422 3.79708 1.61488 3.62453 1.70409 3.46826C1.79333 3.31199 1.92301 3.18862 2.07714 3.09814C2.2312 3.00771 2.4095 2.96636 2.58788 2.96631Z" fill="#492FF4"/></svg>';
+            
+            const textSpan = document.createElement('span');
+            textSpan.className = 'thinking-text';
+            textSpan.textContent = stepText;
+            
+            stepDiv.appendChild(spinnerDiv);
+            stepDiv.appendChild(textSpan);
+            container.appendChild(stepDiv);
+        });
     }
     
     initializeContentComponent(contentElement) {
@@ -792,18 +906,34 @@ class ChatSystem {
             // Wait for step duration
             await this.delay(800);
             
-            // Mark as completed and move to next
+            // Mark as completed and replace spinner with check icon
             steps[i].classList.add('completed');
             steps[i].classList.remove('active');
+            
+            // Replace spinner with check icon
+            const spinner = steps[i].querySelector('.thinking-spinner');
+            if (spinner) {
+                spinner.innerHTML = '<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4237 5.96938C11.4936 6.03905 11.5491 6.12185 11.5869 6.21301C11.6248 6.30417 11.6443 6.40191 11.6443 6.50063C11.6443 6.59934 11.6248 6.69708 11.5869 6.78824C11.5491 6.8794 11.4936 6.9622 11.4237 7.03188L7.92369 10.5319C7.85402 10.6018 7.77122 10.6573 7.68006 10.6951C7.58889 10.733 7.49115 10.7525 7.39244 10.7525C7.29373 10.7525 7.19599 10.733 7.10483 10.6951C7.01367 10.6573 6.93087 10.6018 6.86119 10.5319L5.36119 9.03187C5.29143 8.96211 5.23609 8.87929 5.19833 8.78814C5.16058 8.69698 5.14114 8.59929 5.14114 8.50062C5.14114 8.40196 5.16058 8.30427 5.19833 8.21311C5.23609 8.12196 5.29143 8.03914 5.36119 7.96938C5.43096 7.89961 5.51378 7.84427 5.60493 7.80651C5.69609 7.76876 5.79378 7.74932 5.89244 7.74932C5.99111 7.74932 6.0888 7.76876 6.17995 7.80651C6.27111 7.84427 6.35393 7.89961 6.42369 7.96938L7.39307 8.9375L10.3624 5.9675C10.4322 5.89789 10.515 5.84272 10.6062 5.80513C10.6973 5.76755 10.7949 5.7483 10.8935 5.74847C10.992 5.74865 11.0896 5.76825 11.1806 5.80615C11.2715 5.84405 11.3542 5.89952 11.4237 5.96938ZM15.1431 8C15.1431 9.33502 14.7472 10.6401 14.0055 11.7501C13.2638 12.8601 12.2096 13.7253 10.9762 14.2362C9.74278 14.7471 8.38558 14.8808 7.07621 14.6203C5.76684 14.3598 4.5641 13.717 3.6201 12.773C2.67609 11.829 2.03322 10.6262 1.77277 9.31686C1.51232 8.00749 1.64599 6.65029 2.15688 5.41689C2.66777 4.18349 3.53294 3.12928 4.64297 2.38758C5.753 1.64588 7.05805 1.25 8.39307 1.25C10.1827 1.25199 11.8984 1.96378 13.1638 3.22922C14.4293 4.49466 15.1411 6.2104 15.1431 8ZM13.6431 8C13.6431 6.96165 13.3352 5.94661 12.7583 5.08326C12.1814 4.2199 11.3615 3.54699 10.4022 3.14963C9.44284 2.75227 8.38725 2.6483 7.36884 2.85088C6.35044 3.05345 5.41498 3.55346 4.68076 4.28769C3.94653 5.02191 3.44652 5.95738 3.24395 6.97578C3.04137 7.99418 3.14534 9.04978 3.5427 10.0091C3.94006 10.9684 4.61297 11.7883 5.47633 12.3652C6.33968 12.9421 7.35472 13.25 8.39307 13.25C9.785 13.2485 11.1195 12.6949 12.1037 11.7107C13.088 10.7264 13.6416 9.39193 13.6431 8Z" fill="#06742B"/></svg>';
+            }
         }
         
         console.log('Thinking complete');
         
-        // Auto-advance to next step after thinking is complete
-        setTimeout(() => {
-            this.currentStep++;
-            this.processNextStep();
-        }, 1000);
+        // Check if we should auto-advance after thinking is complete
+        if (this.autoAdvanceAfterRender) {
+            console.log('Thinking complete, auto-advancing to next step');
+            this.autoAdvanceAfterRender = false;
+            setTimeout(() => {
+                this.currentStep++;
+                this.processNextStep();
+            }, 100);
+        } else {
+            // Default behavior - auto-advance after 1 second
+            setTimeout(() => {
+                this.currentStep++;
+                this.processNextStep();
+            }, 1000);
+        }
     }
     
     async streamText(element, text) {
@@ -930,10 +1060,15 @@ class ChatSystem {
         }
         
         // Handle next action
-        if (commands.nextAction === 'proceed') {
-            // Auto-advance to next step
-            const delay = commands.autoAdvance || 1000;
+        if (commands.nextAction === 'proceed-after-render') {
+            // Auto-advance after rendering is complete
+            this.autoAdvanceAfterRender = true;
+        } else if (commands.nextAction && commands.nextAction.startsWith('proceed-after-')) {
+            // Extract delay from nextAction (e.g., 'proceed-after-1000' = 1000ms)
+            const delayMatch = commands.nextAction.match(/proceed-after-(\d+)/);
+            const delay = delayMatch ? parseInt(delayMatch[1]) : 1000;
             setTimeout(() => {
+                this.currentStep++;
                 this.processNextStep();
             }, delay);
         } else if (commands.nextAction === 'wait') {
@@ -956,17 +1091,30 @@ class ChatSystem {
                 throw new Error(`Failed to load ${filePath}`);
             }
             
-            const html = await response.text();
-            emojiSection.innerHTML = html;
+                const html = await response.text();
+                emojiSection.innerHTML = html;
+                
+            // Execute any scripts in the loaded content
+            const scripts = emojiSection.querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                if (script.src) {
+                    newScript.src = script.src;
+                } else {
+                    newScript.textContent = script.textContent;
+                }
+                document.head.appendChild(newScript);
+                document.head.removeChild(newScript);
+            });
             
             // Load and execute the candidate selection script if it exists
-            this.loadCandidateSelectionScript();
-            
-            // Update selection bar position now that candidate cards are loaded
-            this.updateSelectionBarPosition();
+                this.loadCandidateSelectionScript();
+                
+                // Update selection bar position now that candidate cards are loaded
+                this.updateSelectionBarPosition();
             
             console.log('Content loaded successfully into emoji container');
-        } catch (error) {
+            } catch (error) {
             console.error('Error loading content into emoji container:', error);
             emojiSection.innerHTML = '<p>Error loading content. Please try again.</p>';
         }
@@ -1018,7 +1166,7 @@ class ChatSystem {
             }
         }
     }
-
+    
     loadCandidateSelectionScript() {
         console.log('Loading candidate selection functionality...');
         

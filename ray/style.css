@@ -316,6 +316,7 @@ body {
 
 .wave-emoji {
     font-size: 6rem;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -834,7 +835,7 @@ body {
    Role Selection Component
    ========================================================================== */
 .role-selection-component {
-    margin: 16px 0;
+    margin: -1rem 0;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -868,6 +869,14 @@ body {
 
 .role-option.selected .role-title {
     color: var(--text-secondary);
+}
+
+.role-option.disabled {
+    cursor: not-allowed;
+}
+
+.role-option.disabled:hover {
+    background-color: var(--bg-white);
 }
 
 /* ==========================================================================
@@ -945,7 +954,7 @@ body {
 .table-header {
     text-align: left;
     position: relative;
-    padding: 8px 24px 8px 24px;
+    padding: 8px 0px;
 }
 
 .table-header h2 {
@@ -1002,6 +1011,11 @@ body {
 
 .segment-button:hover:not(.active) {
     background: var(--bg-secondary);
+}
+
+p.description {
+    font-size: 12px;
+    line-height: 1.2;
 }
 
 .action-buttons {
@@ -1407,14 +1421,14 @@ body {
 .thinking-steps {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin: 20px 0;
+    gap: 4px;
+    margin: -1rem 0;
 }
 
 .thinking-step {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 4px;
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
@@ -1430,20 +1444,19 @@ body {
     transform: translateY(0);
 }
 
-.thinking-step.completed .thinking-spinner {
-    display: none;
-}
-
 .thinking-step.completed .thinking-text {
-    color: #28a745;
+    color: var(--success);
 }
 
 .thinking-spinner {
     width: 16px;
     height: 16px;
-    border: 2px solid #e0e0e0;
-    border-top: 2px solid #007bff;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thinking-spinner .spinning-ray-icon {
     animation: spin 1s linear infinite;
 }
 
@@ -1453,9 +1466,9 @@ body {
 }
 
 .thinking-text {
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 /* ==========================================================================
@@ -1463,22 +1476,21 @@ body {
    ========================================================================== */
 
 button[load-] {
-    background: var(--accent);
-    color: var(--bg-white);
+    background: var(--bg-accent);
+    color: var(--accent);
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(73, 47, 244, 0.31);
 }
 
 button[load-]:hover {
     background: var(--accent-hover);
+    color: var(--bg-accent);
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(73, 47, 244, 0.4);
 }
 
 button[load-]:active {
@@ -1490,6 +1502,64 @@ button[load-]:disabled {
     background: var(--text-muted);
     cursor: not-allowed;
     transform: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     opacity: 0.7;
+}
+
+
+/* ==========================================================================
+   Loading Spinner Component
+   ========================================================================== */
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+/* When loaded in emoji section, make it cover the entire emoji section */
+.emoji-section {
+    position: relative;
+}
+
+.emoji-section .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.loading-spinner-large {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinning-ray-icon-large {
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin: 0;
 }

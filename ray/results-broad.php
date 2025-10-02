@@ -2,6 +2,9 @@
 // search_results.php
 // Dynamic candidate table HTML for recruitment search results
 
+// Include loading spinner
+include 'includes/loading-spinner.php';
+
 // Load candidate data from JSON file
 $jsonFile = 'candidates-broad.json';
 $candidateData = null;
@@ -43,7 +46,7 @@ if (!$candidateData) {
                 </div>
             </div>
         </div>
-        <p><?php echo $candidateData['searchDescription']; ?></p>
+        <p class="description"><?php echo $candidateData['searchDescription']; ?></p>
     </div>
     <div class="candidate-cards">
         <?php foreach ($candidateData['candidates'] as $candidate): ?>
