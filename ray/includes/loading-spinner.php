@@ -28,7 +28,7 @@
             
             // Start fade out
             loadingOverlay.style.opacity = '0';
-            loadingOverlay.style.transition = 'opacity 0.3s ease-out';
+            loadingOverlay.style.transition = 'opacity 0.1s ease-out';
             
             // After fade completes, remove overlay and show results
             setTimeout(() => {
@@ -38,10 +38,10 @@
                 // Show the results content
                 if (candidateContainer) {
                     candidateContainer.style.opacity = '1';
-                    candidateContainer.style.transition = 'opacity 0.3s ease-in';
+                    candidateContainer.style.transition = 'opacity 0.1s ease-in';
                 }
             }, 300);
         }
-    }, 3000);
+    }, 1000);
 })();
 </script>

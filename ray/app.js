@@ -16,6 +16,8 @@ class ChatSystem {
         this.sendButton = null;
         this.resetButton = null;
         this.loadButton = null;
+        this.userHasScrolled = false;
+        this.isAutoScrolling = false;
     }
 
     init(conversationId, config) {
@@ -26,6 +28,28 @@ class ChatSystem {
         this.sendButton = document.getElementById('sendButton');
         this.resetButton = document.getElementById('resetButton');
         this.loadButton = document.getElementById('loadButton');
+        
+        // Add scroll listener to update scroll indicator and detect manual scrolling
+        if (this.messageContainer) {
+            this.messageContainer.addEventListener('scroll', () => {
+                this.updateScrollIndicator();
+            });
+            
+            // Add specific listeners for user-initiated scroll events
+            this.messageContainer.addEventListener('wheel', () => {
+                this.handleUserScroll();
+            });
+            
+            this.messageContainer.addEventListener('touchstart', () => {
+                this.handleUserScroll();
+            });
+            
+            this.messageContainer.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'PageUp' || e.key === 'PageDown') {
+                    this.handleUserScroll();
+                }
+            });
+        }
         
         this.setupEventListeners();
         this.setupNavigationToggle();
@@ -447,21 +471,30 @@ class ChatSystem {
                 await this.fadeInElement(contentElement, 200);
             } else {
                 // Stream mode - character by character
-                const words = content.split(' ');
-                let currentText = '';
+            const words = content.split(' ');
+            let currentText = '';
+            
+            for (let i = 0; i < words.length; i++) {
+                currentText += (i > 0 ? ' ' : '') + words[i];
+                contentElement.textContent = currentText;
                 
-                for (let i = 0; i < words.length; i++) {
-                    currentText += (i > 0 ? ' ' : '') + words[i];
-                    contentElement.textContent = currentText;
-                    
-                    // Don't auto-scroll during streaming
-                    
-                    await this.sleep(delay);
+                // Auto-scroll during streaming if user hasn't scrolled manually
+                if (!this.userHasScrolled && i % 3 === 0) { // Every 3 words to avoid too many scroll calls
+                    this.autoScrollToBottom();
+                }
+                
+                await this.sleep(delay);
                 }
             }
         }
         
-        // Don't auto-scroll after streaming
+        // Auto-scroll for agent messages unless user has manually scrolled
+        if (!this.userHasScrolled) {
+            this.autoScrollToBottom();
+        }
+        
+        // Always show scroll indicator when there's more content
+        this.showScrollIndicator();
         
         // Check if we should auto-advance after rendering is complete
         if (this.autoAdvanceAfterRender) {
@@ -490,7 +523,10 @@ class ChatSystem {
                 const currentText = textContent.substring(0, i + 1);
                 contentElement.textContent = currentText;
                 
-                // Don't auto-scroll during HTML streaming
+                // Auto-scroll during streaming if user hasn't scrolled manually
+                if (!this.userHasScrolled && i % 5 === 0) { // Every 5 characters to avoid too many scroll calls
+                    this.autoScrollToBottom();
+                }
                 
                 await this.sleep(delay);
             }
@@ -516,7 +552,10 @@ class ChatSystem {
             const streamedHtml = this.rebuildHtmlWithText(htmlContent, currentText);
             contentElement.innerHTML = streamedHtml;
             
-            // Don't auto-scroll during structured HTML streaming
+            // Auto-scroll during streaming if user hasn't scrolled manually
+            if (!this.userHasScrolled && i % 5 === 0) { // Every 5 characters to avoid too many scroll calls
+                this.autoScrollToBottom();
+            }
             
             await this.sleep(delay);
         }
@@ -572,10 +611,13 @@ class ChatSystem {
         // Wait for content to render
         await this.sleep(200);
         
+        // Auto-scroll for agent messages unless user has manually scrolled
+        if (!this.userHasScrolled) {
+            this.autoScrollToBottom();
+        }
+        
         // Always show scroll indicator when there's more content
         this.showScrollIndicator();
-        
-        // Don't auto-scroll - let user control their own scrolling
     }
 
     showScrollIndicator() {
@@ -604,7 +646,7 @@ class ChatSystem {
         
         // Add click handler to scroll to bottom
         indicator.addEventListener('click', () => {
-            this.smoothScrollToBottom();
+            this.autoScrollToBottom();
         });
         
         // Add scroll listener to update indicator visibility
@@ -624,6 +666,7 @@ class ChatSystem {
         
         const indicator = document.querySelector('.scroll-indicator');
         if (indicator) {
+            // Show indicator when there's more content and user has scrolled manually
             if (isScrollable && !isAtBottom) {
                 indicator.style.opacity = '1';
                 indicator.style.visibility = 'visible';
@@ -647,6 +690,31 @@ class ChatSystem {
             this.messageContainer.removeEventListener('scroll', this.scrollHandler);
             this.scrollHandler = null;
         }
+    }
+
+    handleUserScroll() {
+        // Only mark as user scrolled if not currently auto-scrolling
+        if (!this.isAutoScrolling) {
+            const chatContainer = this.messageContainer;
+            const isAtBottom = chatContainer.scrollTop + chatContainer.clientHeight >= chatContainer.scrollHeight - 10;
+            
+            // If user scrolls to bottom, reset the flag
+            if (isAtBottom) {
+                this.userHasScrolled = false;
+            } else {
+                this.userHasScrolled = true;
+            }
+        }
+    }
+
+    autoScrollToBottom() {
+        this.isAutoScrolling = true;
+        this.smoothScrollToBottom();
+        
+        // Reset flag after scroll completes
+        setTimeout(() => {
+            this.isAutoScrolling = false;
+        }, 850);
     }
 
     smoothScrollToBottom() {
@@ -678,9 +746,9 @@ class ChatSystem {
         const messageElement = this.createMessageElement(type, content);
         this.messageContainer.appendChild(messageElement);
         
-        // Auto-scroll for user messages to show agent response
-        if (type === 'user') {
-            this.smoothScrollToBottom();
+        // Auto-scroll unless user has manually scrolled
+        if (!this.userHasScrolled) {
+            this.autoScrollToBottom();
         }
     }
 
@@ -1451,11 +1519,6 @@ class ChatSystem {
 // Initialize the chat system when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     window.chatSystem = new ChatSystem();
-    
-    // Add scroll listener to update scroll indicator
-    window.chatSystem.messageContainer.addEventListener('scroll', () => {
-        window.chatSystem.updateScrollIndicator();
-    });
 });
 
 // Add CSS for suggestions
