@@ -1,9 +1,9 @@
 <?php
-// centene-exact.php
+// results-close.php
 // Dynamic candidate table HTML for recruitment search results
 
 // Load JSON data to get search criteria
-$jsonFile = 'centene-exact.json';
+$jsonFile = 'close.json';
 $jsonData = json_decode(file_get_contents($jsonFile), true);
 $searchCriteria = $jsonData['searchCriteria'] ?? [];
 
@@ -14,7 +14,7 @@ include '../../includes/loading-spinner.php';
 include '../../includes/filters.php';
 
 // Set up page-specific variables
-$pageName = 'centene-exact';
+$pageName = 'close';
 
 // Include the common layout
 include '../../includes/results-layout.php';

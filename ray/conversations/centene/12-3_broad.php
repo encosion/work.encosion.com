@@ -15,7 +15,7 @@ $commands = [
 <li><strong>Core skills:</strong> RN License, Prior authorization experience, Medical necessity review, Clinical documentation, HIPAA compliance</li>
 <li><strong>Location:</strong> California, Nevada, Washington, Oregon, Arizona, Idaho</li>
 <li><strong>Ideal companies:</strong> N/A</li>
-<button load-="centene-broad.php">Load results 👉</button>
+<button load-="broad.php">Load results 👉</button>
 </ul>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>

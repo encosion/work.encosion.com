@@ -15,7 +15,7 @@ $commands = [
 <li><strong>Core skills:</strong> Agile methodologies, Product roadmap development, Stakeholder management and User story creation</li>
 <li><strong>Location:</strong> Commutable distance from Wilmington, NC (50 miles)</li>
 <li><strong>Ideal companies:</strong> N/A</li>
-<button load-="results-broad.php">Load results 👉</button>
+<button load-="broad.php">Load results 👉</button>
 </ul>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>
