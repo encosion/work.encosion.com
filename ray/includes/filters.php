@@ -38,6 +38,7 @@
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
+            <input type="text" class="add-filter-input hidden" placeholder="Enter new job role...">
         </div>
 
         <!-- Core Skills Section -->
@@ -67,6 +68,7 @@
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
+            <input type="text" class="add-filter-input hidden" placeholder="Enter new core skill...">
         </div>
 
         <!-- Locations Section -->
@@ -90,6 +92,7 @@
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
+            <input type="text" class="add-filter-input hidden" placeholder="Enter new location...">
         </div>
 
         <!-- Ideal Companies Section -->
@@ -143,6 +146,7 @@
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
+            <input type="text" class="add-filter-input hidden" placeholder="Enter new company...">
         </div>
     </div>
 </div>
@@ -210,6 +214,7 @@ if (typeof FilterPanelManager === 'undefined') {
         
         this.bindEvents();
         this.setupFilterPills();
+        this.setupAddButtons();
         this.isInitialized = true;
         
         // Make instance globally available
@@ -276,6 +281,99 @@ if (typeof FilterPanelManager === 'undefined') {
                 pill.style.boxShadow = 'none';
             });
         });
+    }
+    
+    setupAddButtons() {
+        const addButtons = document.querySelectorAll('.add-filter-btn');
+        const addInputs = document.querySelectorAll('.add-filter-input');
+        
+        addButtons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showAddInput(button, addInputs[index]);
+            });
+        });
+        
+        addInputs.forEach((input, index) => {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.addNewFilter(input, index);
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    this.hideAddInput(input, addButtons[index]);
+                }
+            });
+            
+            input.addEventListener('blur', (e) => {
+                // Small delay to allow for clicking on the created pill
+                setTimeout(() => {
+                    this.hideAddInput(input, addButtons[index]);
+                }, 150);
+            });
+        });
+    }
+    
+    showAddInput(button, input) {
+        button.classList.add('hidden');
+        input.classList.remove('hidden');
+        input.focus();
+    }
+    
+    hideAddInput(input, button) {
+        input.classList.add('hidden');
+        button.classList.remove('hidden');
+        input.value = '';
+    }
+    
+    addNewFilter(input, sectionIndex) {
+        const text = input.value.trim();
+        if (!text) return;
+        
+        // Find the section this input belongs to
+        const section = input.closest('.filter-section');
+        if (!section) return;
+        
+        // Find the filter items container
+        const filterItems = section.querySelector('.filter-items');
+        if (!filterItems) return;
+        
+        // Determine the logic type based on section
+        let logic = 'OR'; // default
+        const existingLogic = section.querySelector('.pill-logic');
+        if (existingLogic && existingLogic.textContent.trim() === 'AND') {
+            logic = 'AND';
+        }
+        
+        // Create new filter item wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'filter-item-wrapper';
+        wrapper.innerHTML = `
+            <div class="filter-pill">
+                <span class="pill-text">${text}</span>
+            </div>
+            <span class="pill-logic">${logic}</span>
+        `;
+        
+        // Add to filter items
+        filterItems.appendChild(wrapper);
+        
+        // Bind events to new pill
+        const newPill = wrapper.querySelector('.filter-pill');
+        this.bindPillEvents(newPill);
+        
+        // Clear input and hide it
+        input.value = '';
+        this.hideAddInput(input, section.querySelector('.add-filter-btn'));
+        
+        // Add visual feedback
+        wrapper.style.opacity = '0';
+        wrapper.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            wrapper.style.transition = 'all 0.3s ease';
+            wrapper.style.opacity = '1';
+            wrapper.style.transform = 'scale(1)';
+        }, 50);
     }
     
     removeFilterPillAndLogic(pill) {

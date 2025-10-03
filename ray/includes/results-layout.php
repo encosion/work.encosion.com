@@ -54,6 +54,7 @@ if (!$candidateData) {
                     <?php if ($candidate['hasAttachment']): ?>
                     <img src="images/icon-attachment.svg" alt="CV/Resume" class="attachment-icon" width="16" height="16">
                     <?php endif; ?>
+                    <div class="candidate-location"><?php echo htmlspecialchars($candidate['location']); ?></div>
                 </div>
                 <div class="rating"><?php echo htmlspecialchars($candidate['rating']); ?></div>
             </div>
@@ -64,7 +65,6 @@ if (!$candidateData) {
                 </div>
                 <?php endforeach; ?>
             </div>
-            <div class="candidate-location"><?php echo htmlspecialchars($candidate['location']); ?></div>
         </div>
         <?php endforeach; ?>
         <!-- Selection Bar - inside candidate-cards for perfect width alignment -->
