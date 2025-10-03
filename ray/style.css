@@ -1298,27 +1298,23 @@ p.description {
    ========================================================================== */
 
 .selection-bar {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     background: var(--bg-white);
     color: var(--text-primary);
-    padding: 12px 16px;
+    padding: 8px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    
-    /* Fill the emoji-section area automatically */
-    left: 48px; /* icon-nav */
-    width: auto;
-    max-width: none;
-    
-    /* Default to chat visible position */
-    left: calc(48px + 354px);
-    right: 24px; /* Account for emoji-section padding */
+    margin-top: 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .selection-info {
@@ -1659,6 +1655,8 @@ body:has(.filter-panel.open) .candidate-table-container {
     margin-right: 320px;
     transition: margin-right 0.3s ease-in-out;
 }
+
+/* Selection bar adjusts automatically with candidate-cards container */
 
 .filter-panel-header {
     display: flex;
