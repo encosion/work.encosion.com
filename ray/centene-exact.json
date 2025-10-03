@@ -1,6 +1,36 @@
 {
   "searchTitle": "🎯 Exact",
-  "searchDescription": "Clinical Review Nurse, Senior Clinical Review Nurse, Prior Authorization Nurse, Utilization Review Nurse with RN License, Prior authorization experience, Medical necessity review, Clinical documentation, HIPAA compliance within California, Nevada, Washington, Oregon, Arizona, Idaho",
+  "searchDescription": "Registered nurses with RN licenses and experience in prior authorisation, medical necessity review, clinical documentation, and HIPAA compliance, currently working in clinical review, utilisation review, or prior authorisation roles at Centene, UnitedHealth Group, Aetna, Cigna, or Anthem across California, Nevada, Washington, Oregon, Arizona, or Idaho",
+  "searchCriteria": {
+    "jobRoles": [
+      "Clinical Review Nurse",
+      "Senior Clinical Review Nurse", 
+      "Prior Authorization Nurse",
+      "Utilization Review Nurse"
+    ],
+    "coreSkills": [
+      "RN License",
+      "Prior authorization experience",
+      "Medical necessity review",
+      "Clinical documentation",
+      "HIPAA compliance"
+    ],
+    "locations": [
+      "California",
+      "Nevada", 
+      "Washington",
+      "Oregon",
+      "Arizona",
+      "Idaho"
+    ],
+    "idealCompanies": [
+      "Centene",
+      "UnitedHealth Group",
+      "Aetna",
+      "Cigna",
+      "Anthem"
+    ]
+  },
   "candidates": [
     {
       "id": 1,

@@ -18,6 +18,7 @@ class ChatSystem {
         this.loadButton = null;
         this.userHasScrolled = false;
         this.isAutoScrolling = false;
+        this.suggestedResponse = null;
     }
 
     init(conversationId, config) {
@@ -292,12 +293,7 @@ class ChatSystem {
     }
 
     waitForUserInput(step) {
-        // Only enable input if it's not already populated by autoPopulateInput
-        if (!this.userInput.value) {
-            this.userInput.disabled = false;
-            this.sendButton.disabled = false;
-            this.userInput.focus();
-        }
+        // Input field and send button are always enabled for user interaction
         
         if (step.placeholder) {
             this.userInput.placeholder = step.placeholder;
@@ -319,8 +315,6 @@ class ChatSystem {
         
         // Clear input
         this.userInput.value = '';
-        this.userInput.disabled = true;
-        this.sendButton.disabled = true;
         
         // Hide suggestions
         this.hideSuggestions();
@@ -347,8 +341,6 @@ class ChatSystem {
         
         // Clear input
         this.userInput.value = '';
-        this.userInput.disabled = true;
-        this.sendButton.disabled = true;
         
         // Hide suggestions
         this.hideSuggestions();
@@ -945,8 +937,6 @@ class ChatSystem {
         this.messageContainer.innerHTML = '';
         this.currentStep = 0;
         this.isTyping = false;
-        this.userInput.disabled = false;
-        this.sendButton.disabled = false;
         this.userInput.value = '';
         this.userInput.placeholder = 'Type your message...';
         this.hideSuggestions();
@@ -960,8 +950,6 @@ class ChatSystem {
         
         // Clear the input field
         this.userInput.value = '';
-        this.userInput.disabled = true;
-        this.sendButton.disabled = true;
         this.hideSuggestions();
         
         // Update the URL to reflect the new conversation
@@ -1202,15 +1190,11 @@ class ChatSystem {
             await this.loadContentIntoEmojiContainer(commands.load);
         }
         
-        // Handle suggested response - populate input field immediately
+        // Handle suggested response - store it for focus population
         if (commands.suggestedResponse) {
-            console.log('Populating input with suggested response:', commands.suggestedResponse);
-            setTimeout(() => {
-                this.userInput.value = commands.suggestedResponse;
-                this.userInput.disabled = false;
-                this.sendButton.disabled = false;
-                this.userInput.focus();
-            }, 500);
+            console.log('Storing suggested response for focus population:', commands.suggestedResponse);
+            this.suggestedResponse = commands.suggestedResponse;
+            this.setupSuggestedResponseFocus();
         }
         
         // Handle next action
@@ -1229,6 +1213,24 @@ class ChatSystem {
             // Wait for user input (default behavior)
             // Input field is already populated above if suggestedResponse exists
         }
+    }
+    
+    setupSuggestedResponseFocus() {
+        // Remove any existing focus listener to avoid duplicates
+        if (this.suggestedResponseFocusHandler) {
+            this.userInput.removeEventListener('focus', this.suggestedResponseFocusHandler);
+        }
+        
+        // Create the focus handler
+        this.suggestedResponseFocusHandler = () => {
+            if (this.suggestedResponse && !this.userInput.value) {
+                this.userInput.value = this.suggestedResponse;
+                this.suggestedResponse = null; // Clear after first use
+            }
+        };
+        
+        // Add the focus event listener
+        this.userInput.addEventListener('focus', this.suggestedResponseFocusHandler);
     }
     
     async loadContentIntoEmojiContainer(filePath) {
@@ -1288,8 +1290,6 @@ class ChatSystem {
                                 if (userResponse) {
                                     setTimeout(() => {
                                         this.userInput.value = userResponse.trim();
-                                        this.userInput.disabled = false;
-                                        this.sendButton.disabled = false;
                                         this.userInput.focus();
                                         
                                         if (nextStep.placeholder) {
@@ -1307,8 +1307,6 @@ class ChatSystem {
                 else if (suggestedResponse) {
                     setTimeout(() => {
                         this.userInput.value = suggestedResponse;
-                        this.userInput.disabled = false;
-                        this.sendButton.disabled = false;
                         this.userInput.focus();
                         
                         if (nextStep.placeholder) {

@@ -15,24 +15,37 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Job role</h3>
             <div class="filter-items">
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Senior Product Owner</span>
+                <?php if (isset($searchCriteria['jobRoles']) && !empty($searchCriteria['jobRoles'])): ?>
+                    <?php foreach ($searchCriteria['jobRoles'] as $index => $jobRole): ?>
+                        <div class="filter-item-wrapper">
+                            <div class="filter-pill">
+                                <span class="pill-text"><?php echo htmlspecialchars($jobRole); ?></span>
+                            </div>
+                            <?php if ($index < count($searchCriteria['jobRoles']) - 1): ?>
+                                <span class="pill-logic">OR</span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php elseif (!isset($searchCriteria['jobRoles'])): ?>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Senior Product Owner</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Sr. Product Owner</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Sr. Product Owner</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Lead Product Owner</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Lead Product Owner</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
+                <?php endif; ?>
             </div>
             <button class="add-filter-btn">
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
@@ -45,24 +58,37 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Core skills</h3>
             <div class="filter-items">
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">DevSecOps Practices</span>
+                <?php if (isset($searchCriteria['coreSkills']) && !empty($searchCriteria['coreSkills'])): ?>
+                    <?php foreach ($searchCriteria['coreSkills'] as $index => $skill): ?>
+                        <div class="filter-item-wrapper">
+                            <div class="filter-pill">
+                                <span class="pill-text"><?php echo htmlspecialchars($skill); ?></span>
+                            </div>
+                            <?php if ($index < count($searchCriteria['coreSkills']) - 1): ?>
+                                <span class="pill-logic">AND</span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php elseif (!isset($searchCriteria['coreSkills'])): ?>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">DevSecOps Practices</span>
+                        </div>
+                        <span class="pill-logic">AND</span>
                     </div>
-                    <span class="pill-logic">AND</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Application Security</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Application Security</span>
+                        </div>
+                        <span class="pill-logic">AND</span>
                     </div>
-                    <span class="pill-logic">AND</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Security Automation</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Security Automation</span>
+                        </div>
+                        <span class="pill-logic">AND</span>
                     </div>
-                    <span class="pill-logic">AND</span>
-                </div>
+                <?php endif; ?>
             </div>
             <button class="add-filter-btn">
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
@@ -75,18 +101,31 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Locations</h3>
             <div class="filter-items">
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Wealden, England, United Kingdom <span class="pill-distance">50 mi</span></span>
+                <?php if (isset($searchCriteria['locations']) && !empty($searchCriteria['locations'])): ?>
+                    <?php foreach ($searchCriteria['locations'] as $index => $location): ?>
+                        <div class="filter-item-wrapper">
+                            <div class="filter-pill">
+                                <span class="pill-text"><?php echo htmlspecialchars($location); ?></span>
+                            </div>
+                            <?php if ($index < count($searchCriteria['locations']) - 1): ?>
+                                <span class="pill-logic">OR</span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php elseif (!isset($searchCriteria['locations'])): ?>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Wealden, England, United Kingdom <span class="pill-distance">50 mi</span></span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Berlin, Germany <span class="pill-distance">30 mi</span></span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Berlin, Germany <span class="pill-distance">30 mi</span></span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
+                <?php endif; ?>
             </div>
             <button class="add-filter-btn">
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
@@ -99,48 +138,61 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Ideal companies</h3>
             <div class="filter-items">
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Bioserenity</span>
+                <?php if (isset($searchCriteria['idealCompanies']) && !empty($searchCriteria['idealCompanies'])): ?>
+                    <?php foreach ($searchCriteria['idealCompanies'] as $index => $company): ?>
+                        <div class="filter-item-wrapper">
+                            <div class="filter-pill">
+                                <span class="pill-text"><?php echo htmlspecialchars($company); ?></span>
+                            </div>
+                            <?php if ($index < count($searchCriteria['idealCompanies']) - 1): ?>
+                                <span class="pill-logic">OR</span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php elseif (!isset($searchCriteria['idealCompanies'])): ?>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Bioserenity</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Doctolib</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Doctolib</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Withings</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Withings</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Owkin</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Owkin</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Therapixel</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Therapixel</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Beamery</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Beamery</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
-                <div class="filter-item-wrapper">
-                    <div class="filter-pill">
-                        <span class="pill-text">Phenom</span>
+                    <div class="filter-item-wrapper">
+                        <div class="filter-pill">
+                            <span class="pill-text">Phenom</span>
+                        </div>
+                        <span class="pill-logic">OR</span>
                     </div>
-                    <span class="pill-logic">OR</span>
-                </div>
+                <?php endif; ?>
             </div>
             <button class="add-filter-btn">
                 <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">

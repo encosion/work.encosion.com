@@ -1,6 +1,30 @@
 {
   "searchTitle": "📏 Close",
   "searchDescription": "Senior Product Manager, Scrum Master, Agile Project Lead, Senior Project Manager, Senior Programme Manager with Agile methodologies, Product roadmap development, Stakeholder management within commutable distance of Wilmington, NC, USA",
+  "searchCriteria": {
+    "jobRoles": [
+      "Senior Product Manager",
+      "Scrum Master",
+      "Agile Project Lead",
+      "Senior Project Manager",
+      "Senior Programme Manager"
+    ],
+    "coreSkills": [
+      "Agile methodologies",
+      "Product roadmap development",
+      "Stakeholder management",
+      "User story creation"
+    ],
+    "locations": [
+      "Wilmington, NC (50 miles)"
+    ],
+    "idealCompanies": [
+      "Microsoft",
+      "Google",
+      "Amazon",
+      "Salesforce"
+    ]
+  },
   "candidates": [
     {
       "id": 1,

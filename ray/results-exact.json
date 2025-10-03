@@ -1,6 +1,28 @@
 {
   "searchTitle": "🎯 Exact",
   "searchDescription": "Senior Product Owners at target companies (Microsoft, Google, Amazon, Salesforce) with Agile methodologies, Product roadmap development, Stakeholder management, User story creation within commutable distance of Wilmington, NC, USA",
+  "searchCriteria": {
+    "jobRoles": [
+      "Sr Product Owner",
+      "Senior Product Owner",
+      "Lead Product Owner"
+    ],
+    "coreSkills": [
+      "Agile methodologies",
+      "Product roadmap development",
+      "Stakeholder management",
+      "User story creation"
+    ],
+    "locations": [
+      "Wilmington, NC (50 miles)"
+    ],
+    "idealCompanies": [
+      "Microsoft",
+      "Google",
+      "Amazon",
+      "Salesforce"
+    ]
+  },
   "candidates": [
     {
       "id": 1,

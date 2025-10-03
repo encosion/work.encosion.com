@@ -1,6 +1,19 @@
 {
   "searchTitle": "🤔 Broad",
   "searchDescription": "Must have skills of Agile methodologies, Product roadmap development, Stakeholder management within commutable distance of Wilmington, NC, USA",
+  "searchCriteria": {
+    "jobRoles": [],
+    "coreSkills": [
+      "Agile methodologies",
+      "Product roadmap development",
+      "Stakeholder management",
+      "User story creation"
+    ],
+    "locations": [
+      "Wilmington, NC (50 miles)"
+    ],
+    "idealCompanies": []
+  },
   "candidates": [
     {
       "id": 1,

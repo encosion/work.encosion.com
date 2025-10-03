@@ -1,6 +1,38 @@
 {
   "searchTitle": "📏 Close",
-  "searchDescription": "Clinical Review Nurse, Utilization Review Nurse, Case Manager Nurse, Care Coordinator RN, Medical Reviewer, Quality Improvement Nurse, Clinical Documentation Specialist with RN License, Prior authorization experience, Medical necessity review, Clinical documentation, HIPAA compliance within California, Nevada, Washington, Oregon, Arizona, Idaho",
+  "searchDescription": "Registered nurses with RN licences and experience in prior authorisation, medical necessity review, clinical documentation, and HIPAA compliance, currently working in case management, care coordination, medical review, utilisation management, quality improvement, or clinical documentation roles at Centene, UnitedHealth Group, Aetna, Cigna, or Anthem across California, Nevada, Washington, Oregon, Arizona, or Idaho",
+  "searchCriteria": {
+    "jobRoles": [
+      "Case Manager Nurse",
+      "Care Coordinator RN",
+      "Medical Reviewer",
+      "Utilization Management Nurse",
+      "Quality Improvement Nurse",
+      "Clinical Documentation Specialist"
+    ],
+    "coreSkills": [
+      "RN License",
+      "Prior authorization experience",
+      "Medical necessity review",
+      "Clinical documentation",
+      "HIPAA compliance"
+    ],
+    "locations": [
+      "California",
+      "Nevada", 
+      "Washington",
+      "Oregon",
+      "Arizona",
+      "Idaho"
+    ],
+    "idealCompanies": [
+      "Centene",
+      "UnitedHealth Group",
+      "Aetna",
+      "Cigna",
+      "Anthem"
+    ]
+  },
   "candidates": [
     {
       "id": 1,

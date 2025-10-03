@@ -1,6 +1,25 @@
 {
   "searchTitle": "🤔 Broad",
-  "searchDescription": "Any related roles with RN License, Prior authorization experience, Medical necessity review, Clinical documentation, HIPAA compliance within California, Nevada, Washington, Oregon, Arizona, Idaho",
+  "searchDescription": "Registered nurses with RN licences and experience in prior authorisation, medical necessity review, clinical documentation, and HIPAA compliance, working in any role across California, Nevada, Washington, Oregon, Arizona, or Idaho.",
+  "searchCriteria": {
+    "jobRoles": [],
+    "coreSkills": [
+      "RN License",
+      "Prior authorization experience",
+      "Medical necessity review",
+      "Clinical documentation",
+      "HIPAA compliance"
+    ],
+    "locations": [
+      "California",
+      "Nevada", 
+      "Washington",
+      "Oregon",
+      "Arizona",
+      "Idaho"
+    ],
+    "idealCompanies": []
+  },
   "candidates": [
     {
       "id": 1,
