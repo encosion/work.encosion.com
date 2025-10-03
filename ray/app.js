@@ -262,6 +262,9 @@ class ChatSystem {
             // Parse system commands from the HTML content
             const { cleanContent, commands } = this.parseSystemCommands(htmlContent);
             
+            // Replace dynamic user name placeholder with actual user name from config
+            const finalContent = cleanContent.replace(/\{\{USER_NAME\}\}/g, this.config.user_name);
+            
             // Remove typing indicator
             this.hideTypingIndicator();
             
@@ -269,7 +272,7 @@ class ChatSystem {
             await this.handleSystemCommands(commands);
             
             // Show message with appropriate rendering mode
-            await this.typeMessage(cleanContent, commands);
+            await this.typeMessage(finalContent, commands);
             
             this.isTyping = false;
             
@@ -864,23 +867,38 @@ class ChatSystem {
         loadButtons.forEach(button => {
             const filePath = button.getAttribute('load-');
             if (filePath) {
+                // Store original text for reset functionality
+                button.setAttribute('data-original-text', button.textContent);
+                
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
+                    
+                    // Set this button to loaded state
+                    this.setButtonLoaded(button);
+                    
+                    // Reset all other load buttons to default state
+                    this.resetAllLoadButtons(button);
+                    
+                    // Load the content
                     this.loadContentIntoEmojiContainer(filePath);
                 });
-                
-                // Add loading state styling
-                button.addEventListener('click', () => {
-                    const originalText = button.textContent;
-                    button.textContent = 'Loading...';
-                    button.disabled = true;
-                    
-                    // Reset button state after a delay
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                        button.disabled = false;
-                    }, 2000);
-                });
+            }
+        });
+    }
+    
+    setButtonLoaded(button) {
+        button.innerHTML = '<img src="images/icon-check-complete.svg" alt="Loaded" width="16" height="16"> Loaded';
+        button.disabled = true;
+        button.classList.add('loaded');
+    }
+    
+    resetAllLoadButtons(exceptButton) {
+        const allLoadButtons = document.querySelectorAll('button[load-]');
+        allLoadButtons.forEach(btn => {
+            if (btn !== exceptButton) {
+                btn.textContent = btn.getAttribute('data-original-text');
+                btn.disabled = false;
+                btn.classList.remove('loaded');
             }
         });
     }
@@ -1487,38 +1505,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.chatSystem = new ChatSystem();
 });
 
-// Add CSS for suggestions
-const style = document.createElement('style');
-style.textContent = `
-.suggestions-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
-}
-
-.suggestion-button {
-    padding: 8px 16px;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.suggestion-button:hover {
-    background-color: var(--bg-tertiary);
-}
-
-.suggestion-button:active {
-    background-color: var(--text-muted);
-}
-`;
-document.head.appendChild(style);

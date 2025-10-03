@@ -17,7 +17,7 @@
         </button>
         <div class="user-menu">
             <img src="images/icon-avatar.svg" alt="Profile" width="16" height="16" />
-            <span class="user-name">Andrew Smith</span>
+            <span class="user-name"><?php echo htmlspecialchars($header_user_name); ?></span>
             <img src="images/icon-chevron-down.svg" alt="Menu" width="16" height="16" />
         </div>
     </div>

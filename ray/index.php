@@ -17,7 +17,7 @@ $version = time();
 // Get conversation ID from URL parameter
 $conversation_id = $_GET['conversation'] ?? 'recruitment_1.1';
 
-// Load conversation configuration
+// Load conversation configuration (fallback to defaults if no config file)
 $conversation_config = [];
 $config_file = "conversations/{$conversation_id}/config.json";
 if (file_exists($config_file)) {
@@ -26,11 +26,7 @@ if (file_exists($config_file)) {
 
 // Default configuration
 $default_config = [
-    'title' => 'Ray Simulation',
-    'description' => 'Interactive Ray prototype',
-    'agent_name' => 'Ray',
-    'user_name' => 'User',
-    'theme' => 'light'
+    'user_name' => 'User'
 ];
 
 $config = array_merge($default_config, $conversation_config);
@@ -40,7 +36,7 @@ $config = array_merge($default_config, $conversation_config);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($config['title']); ?></title>
+    <title>Sourcing Agent</title>
     <link rel="stylesheet" href="style.css?v=<?php echo $version; ?>">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -52,7 +48,10 @@ $config = array_merge($default_config, $conversation_config);
 </head>
 <body>
     <!-- Top Header -->
-    <?php include 'includes/header.php'; ?>
+    <?php
+    $header_user_name = $config['user_name']; 
+    include 'includes/header.php'; 
+    ?>
     
     <!-- Icon Navigation -->
     <?php include 'includes/navigation.php'; ?>

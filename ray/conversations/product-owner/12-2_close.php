@@ -13,7 +13,7 @@ $commands = [
 <ul>
 <li>As above plus:</li>
 <li><strong>Close job role variations in the same domain:</strong> Senior Product Manager, Scrum Master, Agile Project Lead, Senior Project Manager, Senior Programme Manager.</li>
-<button load-="results-close.php">Load roles</button>
+<button load-="results-close.php">Load results 👉</button>
 </ul>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>

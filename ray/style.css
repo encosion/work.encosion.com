@@ -12,6 +12,7 @@
     --bg-secondary-ongray: #E7E7E9;
     --bg-tertiary: #DBDBE0;
     --bg-accent: #EBEBFE;
+    --bg-success: #ebfeed;
 
     --text-primary: #1F1F23;
     --text-secondary: #6C6C7A;
@@ -1536,40 +1537,6 @@ p.description {
     font-weight: 400;
 }
 
-/* ==========================================================================
-   Load Buttons
-   ========================================================================== */
-
-button[load-] {
-    background: var(--bg-accent);
-    color: var(--accent);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-button[load-]:hover {
-    background: var(--accent-hover);
-    color: var(--bg-accent);
-    transform: translateY(-1px);
-}
-
-button[load-]:active {
-    background: var(--accent-active);
-    transform: translateY(0);
-}
-
-button[load-]:disabled {
-    background: var(--text-muted);
-    cursor: not-allowed;
-    transform: none;
-    opacity: 0.7;
-}
-
 
 /* ==========================================================================
    Loading Spinner Component
@@ -1861,4 +1828,86 @@ body:has(.filter-panel.open) .candidate-table-container {
 /* Filter Overlay - Removed for integrated layout */
 .filter-overlay {
     display: none;
+}
+
+/* ==========================================================================
+   Suggestions Component
+   ========================================================================== */
+
+.suggestions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.suggestion-button {
+    padding: 8px 16px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion-button:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.suggestion-button:active {
+    background-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Load Buttons
+   ========================================================================== */
+
+button[load-] {
+    background: var(--bg-accent);
+    color: var(--accent);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button[load-]:hover {
+    background: var(--accent-hover);
+    color: var(--bg-accent);
+    transform: translateY(-1px);
+}
+
+button[load-]:active {
+    background: var(--accent-active);
+    transform: translateY(0);
+}
+
+button[load-]:disabled {
+    background: var(--text-muted);
+    cursor: not-allowed;
+    transform: none;
+    opacity: 1;
+}
+
+/* Load button loaded state */
+button[load-].loaded {
+    font-weight: 400;
+    padding: 8px 0;
+    background-color: var(--bg-white);
+    color: var(--success);
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
