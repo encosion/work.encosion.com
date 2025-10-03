@@ -168,26 +168,26 @@ window.initializeCandidateSelection = function initializeCandidateSelection() {
     }
 }
 
-// Prevent multiple initializations
-let isInitialized = false;
+// Prevent multiple initializations - use global flag to avoid conflicts with dynamically loaded script
+window.candidateSelectionAlreadyInitialized = window.candidateSelectionAlreadyInitialized || false;
 
 // Always define the function, even if script loads multiple times
-console.log('Candidate selection script executing...');
+// Candidate selection script executing...
 
 // Try to initialize immediately (for when script loads after HTML)
-if (!isInitialized) {
+if (!window.candidateSelectionAlreadyInitialized) {
     window.initializeCandidateSelection();
-    isInitialized = true;
+    window.candidateSelectionAlreadyInitialized = true;
 }
 
 // Also try on DOMContentLoaded (for standalone pages)
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired, initializing candidate selection...');
-    if (!isInitialized) {
+    // DOMContentLoaded fired, initializing candidate selection...
+    if (!window.candidateSelectionAlreadyInitialized) {
         window.initializeCandidateSelection();
         initializeSegmentedControl();
         initializeActionButtons();
-        isInitialized = true;
+        window.candidateSelectionAlreadyInitialized = true;
     }
 });
 

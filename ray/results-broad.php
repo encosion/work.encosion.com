@@ -72,11 +72,8 @@ if (!$candidateData) {
         </div>
         <?php endforeach; ?>
     </div>
-</div>
-
-<script src="candidate-selection.js"></script>
-
-<!-- Floating Selection Bar -->
+    
+    <!-- Selection Bar - now inside candidate-table-container for CSS alignment -->
 <div class="selection-bar" id="selectionBar">
     <div class="selection-info">
         <div class="select-all-container">
@@ -111,3 +108,5 @@ if (!$candidateData) {
         </div>
     </div>
 </div>
+
+<!-- Script loading handled by app.js dynamically -->

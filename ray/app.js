@@ -184,53 +184,11 @@ class ChatSystem {
             });
         }
         
-        // Update selection bar position when chat section is resized
-        this.updateSelectionBarPosition();
+        // Selection bar positioning is now handled by CSS only
     }
     
-    updateSelectionBarPosition() {
-        const chatSection = document.querySelector('.chat-section');
-        const selectionBar = document.querySelector('.selection-bar');
-        const candidateCards = document.querySelector('.candidate-cards');
-        
-        if (!chatSection || !selectionBar) return;
-        
-        const updatePosition = () => {
-            const chatRect = chatSection.getBoundingClientRect();
-            const pageLayout = document.querySelector('.page-layout');
-            const pageLayoutRect = pageLayout.getBoundingClientRect();
-            
-            // Position selection bar to start after the chat section
-            const leftOffset = chatRect.right - pageLayoutRect.left;
-            
-            // If candidate cards exist, match their width
-            if (candidateCards) {
-                const candidateCardsRect = candidateCards.getBoundingClientRect();
-                const candidateCardsWidth = candidateCardsRect.width;
-                
-                selectionBar.style.left = leftOffset + 'px';
-                selectionBar.style.width = candidateCardsWidth + 'px';
-                selectionBar.style.right = 'auto';
-            } else {
-                // Fallback to full width if candidate cards not loaded yet
-                selectionBar.style.left = leftOffset + 'px';
-                selectionBar.style.right = '0px';
-                selectionBar.style.width = 'auto';
-            }
-        };
-        
-        // Update position on resize
-        const resizeObserver = new ResizeObserver(updatePosition);
-        resizeObserver.observe(chatSection);
-        
-        // Also observe candidate cards if they exist
-        if (candidateCards) {
-            resizeObserver.observe(candidateCards);
-        }
-        
-        // Initial position
-        updatePosition();
-    }
+    // Selection bar positioning is now handled by CSS only
+    // No JavaScript positioning needed
 
     async loadConversation() {
         try {
@@ -1263,7 +1221,7 @@ class ChatSystem {
         }
         
         try {
-            console.log('Loading content from:', filePath);
+            // Loading content from: filePath
             const response = await fetch(filePath);
             if (!response.ok) {
                 throw new Error(`Failed to load ${filePath}`);
@@ -1288,10 +1246,9 @@ class ChatSystem {
             // Load and execute the candidate selection script if it exists
                 this.loadCandidateSelectionScript();
                 
-                // Update selection bar position now that candidate cards are loaded
-                this.updateSelectionBarPosition();
+                // Selection bar positioning is now handled by CSS only
             
-            console.log('Content loaded successfully into emoji container');
+            // Content loaded successfully
             } catch (error) {
             console.error('Error loading content into emoji container:', error);
             emojiSection.innerHTML = '<p>Error loading content. Please try again.</p>';
@@ -1346,7 +1303,13 @@ class ChatSystem {
     }
     
     loadCandidateSelectionScript() {
-        console.log('Loading candidate selection functionality...');
+        // Prevent duplicate loading
+        if (window.candidateSelectionLoaded) {
+            return;
+        }
+        
+            // Loading candidate selection functionality...
+            
         
         // Define the initialization function directly here
         window.initializeCandidateSelection = function() {
@@ -1512,6 +1475,9 @@ class ChatSystem {
         setTimeout(() => {
             window.initializeCandidateSelection();
         }, 100);
+        
+        // Mark as loaded to prevent duplicate loading
+        window.candidateSelectionLoaded = true;
     }
 
 }
