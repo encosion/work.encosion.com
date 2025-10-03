@@ -1000,15 +1000,15 @@ body {
 /* Candidate Table Styles */
 
 .candidate-table-container {
-    min-width: 0;
-    max-width: 100%;
-    width: 100%;
+    min-width: 320px;
+    max-width: 800px;
+    width: 800px;
     max-height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
@@ -1629,4 +1629,184 @@ button[load-]:disabled {
     font-weight: 400;
     color: var(--text-secondary);
     margin: 0;
+}
+
+
+
+/* FILTER PANEL STYLES */
+
+
+/* Filter Panel Styles - Integrated Layout */
+.filter-panel {
+    position: fixed;
+    right: 0;
+    width: 0;
+    height: calc(100vh - 40px - 16px); /* Full height minus header minus border */
+    background: var(--bg-white);
+    z-index: 1000;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 6px;
+}
+
+.filter-panel.open {
+    width: 320px;
+}
+
+/* When filter panel is open, adjust the page layout using :has() */
+body:has(.filter-panel.open) .candidate-table-container {
+    margin-right: 320px;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+.filter-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-icon {
+    opacity: 0.8;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.filter-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.filter-close-btn:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+
+.filter-content {
+    padding: 16px;
+    height: 100%;
+    overflow-y: auto;
+    min-width: 320px;
+    white-space: normal;
+}
+
+.filter-section {
+    margin-bottom: 28px;
+}
+
+.filter-section:last-child {
+    margin-bottom: 0;
+}
+
+.filter-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+}
+
+.filter-items {
+    margin-bottom: 16px;
+}
+
+.filter-item-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.filter-item-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-primary);
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.filter-pill:hover {
+    color: var(--error);
+    background: var(--bg-white);
+    border-color: var(--error);
+}
+
+.pill-text {
+    font-weight: 400;
+}
+
+.pill-text:hover {
+    color: var(--error);
+}
+
+.pill-distance {
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 3px;
+}
+
+.pill-logic {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.add-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 3px 0;
+    transition: color 0.2s ease;
+}
+
+.add-filter-btn:hover {
+    color: var(--text-primary);
+}
+
+.add-icon {
+    opacity: 0.8;
+}
+
+.add-text {
+    font-weight: 400;
+}
+
+/* Filter Overlay - Removed for integrated layout */
+.filter-overlay {
+    display: none;
 }

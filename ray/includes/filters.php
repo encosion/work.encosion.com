@@ -6,7 +6,7 @@
             <h2 class="filter-title">Filters</h2>
         </div>
         <button class="filter-close-btn" id="filterCloseBtn" title="Close filters">
-            <span class="close-arrow">>></span>
+            <img src="images/icon-double-caret-right.svg" alt="Close filters" width="17" height="16">
         </button>
     </div>
     
@@ -15,21 +15,27 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Job role</h3>
             <div class="filter-items">
-                <div class="filter-pill">
-                    <span class="pill-text">Senior Product Owner</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Senior Product Owner</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Sr. Product Owner</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Sr. Product Owner</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Lead Product Owner</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Lead Product Owner</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
             </div>
             <button class="add-filter-btn">
-                <span class="add-icon">+</span>
+                <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
         </div>
@@ -38,21 +44,27 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Core skills</h3>
             <div class="filter-items">
-                <div class="filter-pill">
-                    <span class="pill-text">DevSecOps Practices</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">DevSecOps Practices</span>
+                    </div>
                     <span class="pill-logic">AND</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Application Security</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Application Security</span>
+                    </div>
                     <span class="pill-logic">AND</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Security Automation</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Security Automation</span>
+                    </div>
                     <span class="pill-logic">AND</span>
                 </div>
             </div>
             <button class="add-filter-btn">
-                <span class="add-icon">+</span>
+                <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
         </div>
@@ -61,17 +73,21 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Locations</h3>
             <div class="filter-items">
-                <div class="filter-pill">
-                    <span class="pill-text">Wealden, England, United Kingdom <span class="pill-distance">50 mi</span></span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Wealden, England, United Kingdom <span class="pill-distance">50 mi</span></span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Berlin, Germany <span class="pill-distance">30 mi</span></span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Berlin, Germany <span class="pill-distance">30 mi</span></span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
             </div>
             <button class="add-filter-btn">
-                <span class="add-icon">+</span>
+                <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
         </div>
@@ -80,37 +96,51 @@
         <div class="filter-section">
             <h3 class="filter-section-title">Ideal companies</h3>
             <div class="filter-items">
-                <div class="filter-pill">
-                    <span class="pill-text">Bioserenity</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Bioserenity</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Doctolib</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Doctolib</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Withings</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Withings</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Owkin</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Owkin</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Therapixel</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Therapixel</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Beamery</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Beamery</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
-                <div class="filter-pill">
-                    <span class="pill-text">Phenom</span>
+                <div class="filter-item-wrapper">
+                    <div class="filter-pill">
+                        <span class="pill-text">Phenom</span>
+                    </div>
                     <span class="pill-logic">OR</span>
                 </div>
             </div>
             <button class="add-filter-btn">
-                <span class="add-icon">+</span>
+                <img src="images/icon-add.svg" alt="Add" class="add-icon" width="13" height="12">
                 <span class="add-text">Add</span>
             </button>
         </div>
@@ -119,188 +149,6 @@
 
 <!-- Filter Panel Overlay -->
 <div class="filter-overlay" id="filterOverlay"></div>
-
-<style>
-/* Filter Panel Styles */
-.filter-panel {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 400px;
-    height: 100vh;
-    background: #ffffff;
-    border-left: 1px solid #e5e7eb;
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    transition: right 0.3s ease-in-out;
-    border-top-left-radius: 12px;
-}
-
-.filter-panel.open {
-    right: 0;
-}
-
-.filter-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 24px 16px 24px;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.filter-header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.filter-icon {
-    opacity: 0.7;
-}
-
-.filter-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #374151;
-    margin: 0;
-}
-
-.filter-close-btn {
-    background: none:
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 6px;
-    color: #6b7280;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-}
-
-.filter-close-btn:hover {
-    background-color: #f9fafb;
-}
-
-.close-arrow {
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.filter-content {
-    padding: 24px;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-}
-
-.filter-section {
-    margin-bottom: 32px;
-}
-
-.filter-section:last-child {
-    margin-bottom: 0;
-}
-
-.filter-section-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #374151;
-    margin: 0 0 16px 0;
-}
-
-.filter-items {
-    margin-bottom: 16px;
-}
-
-.filter-pill {
-    display: inline-flex;
-    align-items: center;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 20px;
-    padding: 8px 12px 8px 16px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    font-size: 13px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.filter-pill:hover {
-    background: #f3f4f6;
-    border-color: #d1d5db;
-}
-
-.pill-text {
-    color: #374151;
-    font-weight: 400;
-}
-
-.pill-distance {
-    color: #9ca3af;
-    font-weight: 400;
-    margin-left: 4px;
-}
-
-.pill-logic {
-    color: #9ca3af;
-    font-size: 12px;
-    margin-left: 8px;
-    font-weight: 400;
-}
-
-.add-filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: none;
-    border: none;
-    color: #6b7280;
-    font-size: 13px;
-    cursor: pointer;
-    padding: 4px 0;
-    transition: color 0.2s ease;
-}
-
-.add-filter-btn:hover {
-    color: #374151;
-}
-
-.add-icon {
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.add-text {
-    font-weight: 400;
-}
-
-/* Filter Overlay */
-.filter-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
-}
-
-.filter-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .filter-panel {
-        width: 320px;
-        right: -320px;
-    }
-}
-</style>
 
 <script>
 // Filter Panel Management Module
@@ -357,12 +205,7 @@ class FilterPanelManager {
             });
         }
         
-        if (this.filterOverlay) {
-            this.filterOverlay.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.close();
-            });
-        }
+        // No overlay for integrated layout - clicking outside handled by escape key
         
         // Open event
         if (this.filterBtn) {
@@ -387,7 +230,7 @@ class FilterPanelManager {
             // Remove pill on click
             pill.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.removeFilterPill(pill);
+                this.removeFilterPillAndLogic(pill);
             });
             
             // Hover effects
@@ -403,22 +246,38 @@ class FilterPanelManager {
         });
     }
     
-    removeFilterPill(pill) {
-        // Add visual feedback for removal
-        pill.style.opacity = '0.5';
-        pill.style.transform = 'scale(0.95)';
+    removeFilterPillAndLogic(pill) {
+        // Find the wrapper that contains both the pill and the logic indicator
+        const wrapper = pill.closest('.filter-item-wrapper');
         
-        setTimeout(() => {
-            pill.remove();
-        }, 200);
+        if (wrapper) {
+            // Add visual feedback for removal
+            wrapper.style.opacity = '0.5';
+            wrapper.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                wrapper.remove();
+            }, 200);
+        } else {
+            // Fallback: remove just the pill if wrapper not found
+            pill.style.opacity = '0.5';
+            pill.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                pill.remove();
+            }, 200);
+        }
+    }
+    
+    removeFilterPill(pill) {
+        // Legacy method - now calls the new method
+        this.removeFilterPillAndLogic(pill);
     }
     
     open() {
         if (!this.isInitialized) return false;
         
         this.filterPanel.classList.add('open');
-        this.filterOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
         
         // Hide the filter button when panel is open
         if (this.filterBtn) {
@@ -435,8 +294,6 @@ class FilterPanelManager {
         if (!this.isInitialized) return false;
         
         this.filterPanel.classList.remove('open');
-        this.filterOverlay.classList.remove('active');
-        document.body.style.overflow = '';
         
         // Show the filter button when panel is closed
         if (this.filterBtn) {
@@ -482,7 +339,7 @@ class FilterPanelManager {
     bindPillEvents(pill) {
         pill.addEventListener('click', (e) => {
             e.preventDefault();
-            this.removeFilterPill(pill);
+            this.removeFilterPillAndLogic(pill);
         });
         
         pill.addEventListener('mouseenter', () => {
