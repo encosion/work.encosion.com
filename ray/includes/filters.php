@@ -151,14 +151,22 @@
 <div class="filter-overlay" id="filterOverlay"></div>
 
 <script>
-// Filter Panel Management Module
-class FilterPanelManager {
+// Check if FilterPanelManager is already declared
+if (typeof FilterPanelManager === 'undefined') {
+    // Filter Panel Management Module
+    class FilterPanelManager {
     constructor() {
         this.filterPanel = null;
         this.filterOverlay = null;
         this.filterCloseBtn = null;
         this.filterBtn = null;
         this.isInitialized = false;
+        
+        // Clean up any existing instance first
+        if (window.filterPanelManager) {
+            window.filterPanelManager.destroy();
+        }
+        
         this.init();
     }
     
@@ -179,12 +187,26 @@ class FilterPanelManager {
         // Try different selectors for filter button to be more flexible
         this.filterBtn = document.querySelector('.action-btn.edit-btn') || 
                         document.querySelector('[title="Filter"]') ||
-                        document.querySelector('button[title="Edit"]');
+                        document.querySelector('button[title="Edit"]') ||
+                        document.querySelector('.action-btn[title="Edit"]') ||
+                        document.querySelector('button:has(img[alt="Filter"])');
         
-        if (!this.filterPanel || !this.filterOverlay || !this.filterCloseBtn) {
-            console.warn('Filter panel elements not found');
+        if (!this.filterPanel) {
+            console.warn('Filter panel element not found');
             return;
         }
+        
+        if (!this.filterCloseBtn) {
+            console.warn('Filter close button not found');
+            return;
+        }
+        
+        console.log('Filter panel elements found:', {
+            panel: !!this.filterPanel,
+            closeBtn: !!this.filterCloseBtn,
+            filterBtn: !!this.filterBtn,
+            overlay: !!this.filterOverlay
+        });
         
         this.bindEvents();
         this.setupFilterPills();
@@ -194,6 +216,13 @@ class FilterPanelManager {
         window.filterPanelManager = this;
         
         console.log('Filter panel initialized successfully');
+    }
+    
+    destroy() {
+        // Clean up event listeners
+        this.isInitialized = false;
+        window.filterPanelManager = null;
+        console.log('Filter panel destroyed');
     }
     
     bindEvents() {
@@ -213,6 +242,9 @@ class FilterPanelManager {
                 e.preventDefault();
                 this.open();
             });
+            console.log('Filter button event listener attached');
+        } else {
+            console.warn('Filter button not found - panel can only be closed via close button');
         }
         
         // Keyboard escape key
@@ -352,15 +384,26 @@ class FilterPanelManager {
             pill.style.boxShadow = 'none';
         });
     }
+    }
+    
+    // Make class globally available
+    window.FilterPanelManager = FilterPanelManager;
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new FilterPanelManager();
-    });
-} else {
-    new FilterPanelManager();
+// Initialize when DOM is ready - only once
+if (!window.filterPanelInitialized && window.FilterPanelManager) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            new window.FilterPanelManager();
+            window.filterPanelInitialized = true;
+        });
+    } else {
+        new window.FilterPanelManager();
+        window.filterPanelInitialized = true;
+    }
+} else if (window.filterPanelInitialized && window.FilterPanelManager) {
+    // If already initialized, just recreate the instance
+    new window.FilterPanelManager();
 }
 
 // Global helper functions for easy reuse
