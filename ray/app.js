@@ -20,6 +20,7 @@ class ChatSystem {
         this.isAutoScrolling = false;
         this.suggestedResponse = null;
         this.resetButtonsInitialized = false;
+        this.scrollIndicatorTimeout = null;
     }
 
     init(conversationId, config) {
@@ -450,8 +451,8 @@ class ChatSystem {
             this.autoScrollToBottom();
         }
         
-        // Always show scroll indicator when there's more content
-        this.showScrollIndicator();
+        // Update scroll indicator based on current state
+        this.updateScrollIndicator();
         
         // Check if we should auto-advance after rendering is complete
         if (this.autoAdvanceAfterRender) {
@@ -573,11 +574,11 @@ class ChatSystem {
             this.autoScrollToBottom();
         }
         
-        // Always show scroll indicator when there's more content
-        this.showScrollIndicator();
+        // Update scroll indicator based on current state
+        this.updateScrollIndicator();
     }
 
-    showScrollIndicator() {
+    createScrollIndicator() {
         // Remove existing indicator
         this.hideScrollIndicator();
         
@@ -617,18 +618,46 @@ class ChatSystem {
     }
 
     updateScrollIndicator() {
+        // Clear existing timeout to debounce rapid updates
+        if (this.scrollIndicatorTimeout) {
+            clearTimeout(this.scrollIndicatorTimeout);
+        }
+        
+        // Debounce the update by 300ms to prevent flickering
+        this.scrollIndicatorTimeout = setTimeout(() => {
+            this.performScrollIndicatorUpdate();
+        }, 300);
+    }
+    
+    performScrollIndicatorUpdate() {
         const chatContainer = this.messageContainer;
         const isScrollable = chatContainer.scrollHeight > chatContainer.clientHeight;
         const isAtBottom = chatContainer.scrollTop + chatContainer.clientHeight >= chatContainer.scrollHeight - 10;
         
-        const indicator = document.querySelector('.scroll-indicator');
-        if (indicator) {
-            // Show indicator when there's more content and user has scrolled manually
-            if (isScrollable && !isAtBottom) {
+        let indicator = document.querySelector('.scroll-indicator');
+        
+        // Only show indicator if:
+        // 1. Content is scrollable
+        // 2. User is not at bottom (has scrolled manually)
+        // 3. Not currently auto-scrolling
+        const shouldShowIndicator = isScrollable && !isAtBottom && !this.isAutoScrolling;
+        
+        if (shouldShowIndicator) {
+            // Create indicator if it doesn't exist
+            if (!indicator) {
+                this.createScrollIndicator();
+                indicator = document.querySelector('.scroll-indicator');
+            }
+            
+            // Show indicator
+            if (indicator) {
                 indicator.style.opacity = '1';
                 indicator.style.visibility = 'visible';
                 indicator.style.pointerEvents = 'auto';
-            } else {
+            }
+        } else {
+            // Hide indicator
+            if (indicator) {
                 indicator.style.opacity = '0';
                 indicator.style.visibility = 'hidden';
                 indicator.style.pointerEvents = 'none';
@@ -1108,6 +1137,9 @@ class ChatSystem {
             // Activate current step
             steps[i].classList.add('active');
             
+            // Auto-scroll to keep the active step visible
+            this.scrollToElement(steps[i]);
+            
             // Wait for step duration
             await this.delay(800);
             
@@ -1139,6 +1171,19 @@ class ChatSystem {
                 this.processNextStep();
             }, 1000);
         }
+    }
+    
+    scrollToElement(element) {
+        if (!element || !this.messageContainer) return;
+        
+        const container = this.messageContainer;
+        
+        // Use scrollIntoView for simple, reliable scrolling
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center', // Center the element in the viewport
+            inline: 'nearest'
+        });
     }
     
     async streamText(element, text) {
