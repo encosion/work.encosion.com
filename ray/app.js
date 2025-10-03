@@ -1349,14 +1349,17 @@ class ChatSystem {
         }
         
         try {
-            // Loading content from: filePath
-            const response = await fetch(filePath);
+            // Construct the full path based on current conversation
+            const fullPath = `conversations/${this.conversationId}/${filePath}`;
+            console.log('Loading content from:', fullPath);
+            
+            const response = await fetch(fullPath);
             if (!response.ok) {
-                throw new Error(`Failed to load ${filePath}`);
+                throw new Error(`Failed to load ${fullPath}`);
             }
             
-                const html = await response.text();
-                emojiSection.innerHTML = html;
+            const html = await response.text();
+            emojiSection.innerHTML = html;
                 
             // Execute any scripts in the loaded content
             const scripts = emojiSection.querySelectorAll('script');

@@ -8,14 +8,14 @@ $jsonData = json_decode(file_get_contents($jsonFile), true);
 $searchCriteria = $jsonData['searchCriteria'] ?? [];
 
 // Include loading spinner
-include 'includes/loading-spinner.php';
+include '../../includes/loading-spinner.php';
 
 // Include filter panel with search criteria
-include 'includes/filters.php';
+include '../../includes/filters.php';
 
 // Set up page-specific variables
 $pageName = 'centene-broad';
 
 // Include the common layout
-include 'includes/results-layout.php';
+include '../../includes/results-layout.php';
 ?>
