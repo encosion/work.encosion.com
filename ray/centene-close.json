@@ -1,0 +1,327 @@
+{
+  "searchTitle": "📏 Close",
+  "searchDescription": "Clinical Review Nurse, Utilization Review Nurse, Case Manager Nurse, Care Coordinator RN, Medical Reviewer, Quality Improvement Nurse, Clinical Documentation Specialist with RN License, Prior authorization experience, Medical necessity review, Clinical documentation, HIPAA compliance within California, Nevada, Washington, Oregon, Arizona, Idaho",
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Katherine Walsh",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Clinical Review Nurse - Prior Authorization",
+          "company": "UnitedHealth Group",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Utilization Review Nurse",
+          "company": "Anthem",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Staff Nurse - Medical Surgical",
+          "company": "Kaiser Permanente",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Sacramento, California, USA"
+    },
+    {
+      "id": 2,
+      "name": "Daniel Morrison",
+      "rating": "★★★★☆ 4.3",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Clinical Review Nurse - Prior Authorization",
+          "company": "Aetna",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Utilization Review Nurse",
+          "company": "Cigna",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Registered Nurse - ICU",
+          "company": "Stanford Health Care",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "San Diego, California, USA"
+    },
+    {
+      "id": 3,
+      "name": "Nicole Chen",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Utilization Review Nurse",
+          "company": "Centene Corporation",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "Clinical Review Nurse",
+          "company": "Molina Healthcare",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Staff Nurse - Emergency Department",
+          "company": "UCSF Medical Center",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Oakland, California, USA"
+    },
+    {
+      "id": 4,
+      "name": "Andrew Kim",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Prior Authorization Nurse",
+          "company": "Blue Shield of California",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Utilization Management Nurse",
+          "company": "Health Net",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Registered Nurse - Med Surg",
+          "company": "Cedars-Sinai Medical Center",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Los Angeles, California, USA"
+    },
+    {
+      "id": 5,
+      "name": "Stephanie Davis",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Clinical Review Nurse - Concurrent Review",
+          "company": "Anthem Blue Cross",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Prior Authorization Coordinator RN",
+          "company": "UnitedHealthcare",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Staff Nurse - Cardiology",
+          "company": "Sutter Health",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Fresno, California, USA"
+    },
+    {
+      "id": 6,
+      "name": "Jessica Lopez",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Case Manager RN",
+          "company": "Providence Health",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "Discharge Planning Nurse",
+          "company": "Legacy Health",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Staff Nurse - Telemetry",
+          "company": "Oregon Health & Science University",
+          "duration": "4y 1m"
+        }
+      ],
+      "location": "Portland, Oregon, USA"
+    },
+    {
+      "id": 7,
+      "name": "Ryan Johnson",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Care Coordinator RN",
+          "company": "Banner Health",
+          "duration": "2y 10m"
+        },
+        {
+          "title": "Clinical Case Manager",
+          "company": "HonorHealth",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Registered Nurse - Oncology",
+          "company": "Mayo Clinic Arizona",
+          "duration": "3y 9m"
+        }
+      ],
+      "location": "Phoenix, Arizona, USA"
+    },
+    {
+      "id": 8,
+      "name": "Melanie Foster",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Quality Improvement Nurse",
+          "company": "Renown Health",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Clinical Documentation Specialist",
+          "company": "Saint Mary's Regional Medical Center",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Staff Nurse - Surgical Unit",
+          "company": "University Medical Center",
+          "duration": "4y 5m"
+        }
+      ],
+      "location": "Reno, Nevada, USA"
+    },
+    {
+      "id": 9,
+      "name": "Bradley Singh",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Medical Reviewer",
+          "company": "Optum",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "Utilization Management Coordinator",
+          "company": "Premera Blue Cross",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Registered Nurse - Critical Care",
+          "company": "Virginia Mason Medical Center",
+          "duration": "4y 3m"
+        }
+      ],
+      "location": "Seattle, Washington, USA"
+    },
+    {
+      "id": 10,
+      "name": "Ashley Taylor",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Clinical Documentation Specialist",
+          "company": "MultiCare Health System",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Case Management Nurse",
+          "company": "CHI Franciscan",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Staff Nurse - Pediatrics",
+          "company": "Seattle Children's Hospital",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Tacoma, Washington, USA"
+    },
+    {
+      "id": 11,
+      "name": "Brandon Carter",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Utilization Review Nurse",
+          "company": "St. Luke's Health System",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Registered Nurse - Emergency",
+          "company": "Saint Alphonsus Regional Medical Center",
+          "duration": "4y 7m"
+        }
+      ],
+      "location": "Boise, Idaho, USA"
+    },
+    {
+      "id": 12,
+      "name": "Amanda Wright",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Case Manager Nurse",
+          "company": "Sharp HealthCare",
+          "duration": "4y 2m"
+        },
+        {
+          "title": "Staff Nurse - Nephrology",
+          "company": "UC San Diego Health",
+          "duration": "3y 11m"
+        }
+      ],
+      "location": "San Diego, California, USA"
+    },
+    {
+      "id": 13,
+      "name": "Nathaniel Brown",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Quality Improvement Nurse",
+          "company": "Providence St. Joseph Health",
+          "duration": "4y 6m"
+        },
+        {
+          "title": "Registered Nurse - Medical Unit",
+          "company": "Swedish Medical Center",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Spokane, Washington, USA"
+    },
+    {
+      "id": 14,
+      "name": "Vanessa Miller",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Care Coordinator RN",
+          "company": "Dignity Health",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Patient Navigator RN",
+          "company": "Adventist Health",
+          "duration": "3y 7m"
+        },
+        {
+          "title": "Staff Nurse - Orthopaedics",
+          "company": "Community Regional Medical Center",
+          "duration": "4y 4m"
+        }
+      ],
+      "location": "Bakersfield, California, USA"
+    }
+  ]
+}

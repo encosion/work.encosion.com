@@ -6,7 +6,7 @@
 include 'includes/loading-spinner.php';
 
 // Load candidate data from JSON file
-$jsonFile = 'candidates-close.json';
+$jsonFile = 'results-close.json';
 $candidateData = null;
 
 if (file_exists($jsonFile)) {

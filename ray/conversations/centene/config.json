@@ -1,0 +1,14 @@
+{
+    "title": "Clinical Review Nurse Recruitment Agent",
+    "description": "Interactive healthcare recruitment conversation simulation for Clinical Review Nurse positions",
+    "agent_name": "Centene Sourcing Agent",
+    "user_name": "Client",
+    "theme": "light",
+    "welcome_message": "Welcome to Centene's Clinical Review Nurse recruitment simulation! Find qualified candidates for remote nursing positions.",
+    "settings": {
+        "typing_delay": 40,
+        "auto_advance_delay": 1500,
+        "enable_suggestions": true,
+        "enable_typing_indicator": true
+    }
+}
