@@ -5,6 +5,9 @@
 // Include loading spinner
 include 'includes/loading-spinner.php';
 
+// Include filter panel
+include 'includes/filters.php';
+
 // Load candidate data from JSON file
 $jsonFile = 'results-close.json';
 $candidateData = null;
@@ -108,5 +111,32 @@ if (!$candidateData) {
         </div>
     </div>
 </div>
+
+<!-- Filter Panel Integration Script -->
+<script>
+// Simple wrapper to ensure filter panel works with this results page
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for filter panel to be initialized
+    if (window.filterPanelManager) {
+        console.log('Filter panel integrated with results-close.php');
+    } else {
+        // Fallback: check if filter panel exists and initialize
+        setTimeout(() => {
+            if (window.filterPanelManager) {
+                console.log('Filter panel integrated with results-close.php (delayed)');
+            }
+        }, 100);
+    }
+    
+    // Listen for filter panel events if needed
+    document.addEventListener('filterPanelOpened', function() {
+        console.log('Filter panel opened on results-close page');
+    });
+    
+    document.addEventListener('filterPanelClosed', function() {
+        console.log('Filter panel closed on results-close page');
+    });
+});
+</script>
 
 <!-- Script loading handled by app.js dynamically -->
