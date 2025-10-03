@@ -1,7 +1,7 @@
 <!-- Left Icon Navigation -->
 <nav class="icon-nav">
     <div class="nav-top">
-        <button class="nav-icon active" title="Home">
+        <button class="nav-icon active" id="homeButton" title="Home">
             <img src="images/icon-home.svg" alt="Home" />
         </button>
         <button class="nav-icon" title="Tasks">

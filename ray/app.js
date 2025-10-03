@@ -19,6 +19,7 @@ class ChatSystem {
         this.userHasScrolled = false;
         this.isAutoScrolling = false;
         this.suggestedResponse = null;
+        this.resetButtonsInitialized = false;
     }
 
     init(conversationId, config) {
@@ -29,6 +30,9 @@ class ChatSystem {
         this.sendButton = document.getElementById('sendButton');
         this.resetButton = document.getElementById('resetButton');
         this.loadButton = document.getElementById('loadButton');
+        
+        // Initialize reset buttons once when DOM is ready
+        this.initializeResetButtons();
         
         // Add scroll listener to update scroll indicator and detect manual scrolling
         if (this.messageContainer) {
@@ -878,6 +882,41 @@ class ChatSystem {
         });
     }
     
+    initializeResetButtons() {
+        // Only initialize once to prevent multiple event listeners
+        if (this.resetButtonsInitialized) {
+            return;
+        }
+        
+        // Reset conversation when clicking Beamery logo
+        const beameryLogo = document.getElementById('beameryLogo');
+        if (beameryLogo) {
+            // Remove any existing listeners by cloning the element
+            const newBeameryLogo = beameryLogo.cloneNode(true);
+            beameryLogo.parentNode.replaceChild(newBeameryLogo, beameryLogo);
+            
+            newBeameryLogo.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.resetConversation();
+            });
+        }
+        
+        // Reset conversation when clicking Home button
+        const homeButton = document.getElementById('homeButton');
+        if (homeButton) {
+            // Remove any existing listeners by cloning the element
+            const newHomeButton = homeButton.cloneNode(true);
+            homeButton.parentNode.replaceChild(newHomeButton, homeButton);
+            
+            newHomeButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.resetConversation();
+            });
+        }
+        
+        this.resetButtonsInitialized = true;
+    }
+    
     setButtonLoaded(button) {
         button.innerHTML = '<img src="images/icon-check-complete.svg" alt="Loaded" width="16" height="16"> Loaded';
         button.disabled = true;
@@ -940,7 +979,31 @@ class ChatSystem {
         this.userInput.value = '';
         this.userInput.placeholder = 'Type your message...';
         this.hideSuggestions();
+        
+        // Reset emoji-container (results area)
+        this.resetEmojiContainer();
+        
         this.startConversation();
+    }
+    
+    resetEmojiContainer() {
+        const emojiSection = document.querySelector('.emoji-section');
+        if (emojiSection) {
+            // Clear the emoji container content
+            emojiSection.innerHTML = '';
+            
+            // Reset any loaded button states
+            const loadButtons = document.querySelectorAll('button[load-]');
+            loadButtons.forEach(button => {
+                // Reset button to original state
+                const originalText = button.getAttribute('data-original-text');
+                if (originalText) {
+                    button.textContent = originalText;
+                }
+                button.disabled = false;
+                button.classList.remove('loaded');
+            });
+        }
     }
 
     async loadExampleConversation() {

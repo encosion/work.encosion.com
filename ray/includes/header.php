@@ -1,7 +1,7 @@
 <!-- Top Header -->
 <header class="top-header">
     <div class="header-left">
-        <div class="beamery-logo">
+        <div class="beamery-logo" id="beameryLogo" style="cursor: pointer;">
             <img src="images/logo-beamery.svg" alt="Beamery" height="24" />
         </div>
     </div>
