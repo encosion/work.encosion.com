@@ -1,18 +1,6 @@
-# Work Portfolio - Encosion.com
+# Work Experiments
 
 A collection of interactive web applications and prototypes showcasing modern web development techniques.
-
-## Projects
-
-### Sourcing Agent – Conversational Prototype
-An interactive chat simulation demonstrating a realistic job sourcing conversation for Senior Product Owner roles.
-
-**Features:**
-- **Interactive Chat Interface**: Realistic conversation flow with typing indicators and auto-populated responses
-- **Dynamic Candidate Table**: Shows 15 Senior Product Owner candidates with loading spinner
-- **Responsive Design**: Works on desktop and mobile devices
-- **Cache-Busting**: Development-friendly with automatic cache invalidation
-- **Scrollable Results**: Candidate table with smooth scrolling
 
 ## Technology Stack
 
@@ -26,18 +14,6 @@ An interactive chat simulation demonstrating a realistic job sourcing conversati
 ```
 work/
 ├── index.html             # Main work portfolio page
-├── chat/                  # Chat prototype application
-│   ├── index.php         # Main chat interface
-│   ├── chat.js           # Chat system JavaScript
-│   ├── style.css         # Styling and responsive design
-│   ├── list_files.php    # Conversation file loader
-│   ├── .htaccess         # Cache control for development
-│   ├── conversations/    # Conversation data
-│   │   ├── recruitment_1.0/  # Original conversation
-│   │   ├── recruitment_1.1/  # Updated conversation with table
-│   │   ├── recruitment_1.1.2/ # Additional conversation variant
-│   │   └── recruitment_1.1.3/ # Additional conversation variant
-│   └── images/           # Chat interface assets
 └── README.md             # This file
 ```
 
