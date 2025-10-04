@@ -1,0 +1,215 @@
+:root {
+    /* Colors */
+    --accent: #c2464c;
+    --accent-hover: #a03a3f;
+    --dark: #1c1616;
+    --dark-lighter: #5f5050;
+    --light: white;
+    --light-darker: #f8f9fa;
+    --border-grey: #dee2e6;
+    --input-cursor: hotpink;
+    
+    /* Responsive unified sizing scale */
+    --xs: clamp(0.25rem, 0.5vw + 0.25rem, 0.5rem);    /* 4px to 8px */
+    --sm: clamp(0.75rem, 1vw + 0.5rem, 1rem);        /* 12px to 16px */
+    --md: clamp(1rem, 1.5vw + 0.75rem, 1.5rem);     /* 16px to 24px */
+    --lg: clamp(1.5rem, 2vw + 1rem, 2rem);           /* 24px to 32px */
+    --xl: clamp(2rem, 3vw + 1.5rem, 3rem);           /* 32px to 48px */
+    
+    /* Responsive font sizes using clamp() */
+    --h1: clamp(2rem, 4vw + 1rem, 3rem);     /* 2rem to 3rem */
+    --h2: clamp(1.25rem, 2.5vw + 0.5rem, 1.5rem); /* 1.25rem to 1.5rem */
+    --p: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);  /* 1rem to 1.2rem */
+    --p-small: clamp(0.875rem, 1vw + 0.5rem, 1rem); /* 0.875rem to 1rem */
+    
+    /* Responsive line-heights using clamp() */
+    --tight: clamp(1.1, 0.1vw + 1.0, 1.2);    /* 1.1 to 1.2 */
+    --normal: clamp(1.4, 0.2vw + 1.3, 1.6);  /* 1.4 to 1.6 */
+    --relaxed: clamp(1.5, 0.3vw + 1.4, 1.8); /* 1.5 to 1.8 */
+    
+    /* Border radius */
+    --radius: 0.5rem;
+    
+    /* Container */
+    --container-max-width: 600px;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--lg);
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: var(--relaxed);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: var(--h1);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: var(--sm);
+    line-height: var(--tight);
+}
+
+p {
+    font-size: var(--p);
+    color: var(--dark-lighter);
+    margin-bottom: var(--lg);
+    line-height: var(--relaxed);
+}
+
+.nav-link {
+    display: inline-block;
+    padding: var(--sm) var(--lg);
+    background-color: var(--accent);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--accent-hover);
+}
+
+.description {
+    padding: var(--md);
+    background-color: var(--light-darker);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-grey);
+}
+
+.content-left {
+    text-align: left;
+    max-width: none;
+}
+
+.content-left h2,
+.content-left h4 {
+    text-align: left;
+    margin-bottom: var(--sm);
+}
+
+.content-left p {
+    text-align: left;
+    margin-bottom: var(--md);
+}
+
+.content-left ul {
+    text-align: left;
+    margin-bottom: var(--md);
+    padding-left: var(--md);
+}
+
+.content-left li {
+    margin-bottom: var(--xs);
+    line-height: var(--normal);
+}
+
+.content-left .nav-link {
+    display: inline-block;
+    margin-top: var(--md);
+}
+
+footer {
+    margin-top: auto;
+    padding: var(--md) 0;
+    text-align: center;
+    border-top: 1px solid var(--border-grey);
+    width: 100%;
+}
+
+footer a {
+    color: var(--dark-lighter);
+    text-decoration: none;
+    font-size: var(--p-small);
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--light);
+    border-bottom: 1px solid var(--border-grey);
+    padding: 0;
+    transition: padding 0.1s ease-out, border-color 0.1s ease-out;
+    z-index: 100;
+    /* CSS custom properties for smooth scaling */
+    --header-scale: 1;
+    --description-opacity: 1;
+    --description-height: 1.2rem;
+    --button-scale: 1;
+    --title-scale: 1;
+}
+
+.header-content {
+    position: relative;
+    text-align: center;
+}
+
+h1.site-title {
+    position: relative;
+    text-align: center;
+    transform: scale(var(--title-scale));
+    font-size: clamp(1.5rem, calc(6vw + 1rem), 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0rem;
+}
+
+h1.site-title a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+h1.site-title a:hover {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+/* Description text */
+#description {
+    color: var(--dark-lighter);
+    text-align: center;
+    margin: var(--md) 0 var(--lg) 0;
+    font-size: var(--p-small);
+    opacity: var(--description-opacity);
+    transition: opacity 0.3s ease;
+}
+
+#description a {
+    text-decoration: none;
+    color: var(--dark-lighter);
+    transition: color 0.3s ease;
+}
+
+#description a:hover {
+    color: var(--accent);
+}
+
+input, textarea, select {
+    caret-color: var(--input-cursor);
+}

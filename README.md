@@ -4,7 +4,7 @@ A collection of interactive web applications and prototypes showcasing modern we
 
 ## Projects
 
-### Chat Prototype - Recruitment Assistant
+### Sourcing Agent – Conversational Prototype
 An interactive chat simulation demonstrating a realistic job sourcing conversation for Senior Product Owner roles.
 
 **Features:**
@@ -70,7 +70,7 @@ The application includes automatic cache-busting for rapid development:
 ### Adding New Conversations
 1. Create a new directory in `conversations/`
 2. Add `config.json` with conversation settings
-3. Create `step_*.md` files for the conversation flow
+3. Create sequential `*.php` files for the conversation flow
 4. Update the conversation ID in the URL
 
 ## Features in Detail

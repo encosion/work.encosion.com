@@ -3,108 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work - Encosion.com</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
-    <style>
-        :root {
-            /* Input cursor colors */
-            --input-cursor: hotpink;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #ffffff;
-            color: #212529;
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            max-width: 600px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #c2464c;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin-bottom: 2rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .nav-link {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #c2464c;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
-        }
-        
-        .nav-link:hover {
-            background-color: #a03a3f;
-        }
-        
-        .description {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-radius: 0.5rem;
-            border: 1px solid #dee2e6;
-        }
-        
-        .description h2 {
-            font-size: 1.5rem;
-            color: #212529;
-            margin-bottom: 1rem;
-        }
-        
-        .description p {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 0;
-        }
-        
-        /* Caret color styling for form inputs */
-        input, textarea, select {
-            caret-color: var(--input-cursor);
-        }
-    </style>
+    <title>Tim Ferguson works...</title>
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Work</h1>
-        <p>Professional tools and prototypes</p>
-        
-        <div class="nav-links">
-            <a href="chat/" class="nav-link">Chat Prototype</a>
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 class="site-title">
+                <a href="/">Tim Ferguson</a>
+            </h1>
+            
+            <p id="description">
+                <a href="https://thoughts.encosion.com" title="Thoughts / Blog">...has&nbsp;thoughts&nbsp;🤔</a>
+                <a href="/tagged/timusic" title="My own music experiments...">...makes&nbsp;🤘</a>
+                <!-- <a href="/tagged/lists" title="Music I obsessed over...">...consumes&nbsp;🎧</a> -->
+                <a href="/tagged/gigphoto" title="Mainly photos taken at gigs...">...shoots&nbsp;💛</a>
+                <a href="https://linkedin.com/in/trferguson" title="Work-focused networking... (External link)">...designs&nbsp;💰</a>
+                <a href="https://issues.encosion.com" title="A collection of comics">...has&nbsp;issues&nbsp;😃</a>
+            </p>
         </div>
-        
+    </header>
+
+    <div class="container">
         <div class="description">
-            <h2>Chat Prototype System</h2>
-            <p>Interactive conversational chat experiences powered by sequential markdown files. Perfect for rapid prototyping of recruitment, customer support, sales, and training conversations.</p>
+            <div class="content-left">
+                <h2>Sourcing Agent – Conversational Prototype</h2>
+                <p>An interactive chat simulation demonstrating a realistic top-of-funnel sourcing.</p>
+                <h4>Features</h4>
+                <ul>
+                    <li><strong>Interactive Chat Interface</strong>: Realistic conversation flow with typing indicators and auto-cued responses</li>
+                    <li><strong>Dynamic Candidate Table</strong>: Shows synthetic candidates with loading spinner and smooth scrolling</li>
+                    <li><strong>Responsive</strong>: Fluid adaptation to view port sizes (desktop-centric for SaaS users)</li>            
+                </ul>
+                
+                <h4>Technology Stack</h4>
+                <ul>
+                    <li><strong>Frontend</strong>: HTML5, CSS3, JavaScript (ES6+)</li>
+                    <li><strong>Backend</strong>: PHP</li>
+                    <li><strong>Styling</strong>: Custom CSS with CSS Variables</li>
+                    <li><strong>Data</strong>: JSON configuration files</li>
+                </ul>
+                <a href="ray?conversation=centene" class="nav-link">Check it out</a>
+            </div>
         </div>
     </div>
-    <footer><a href="https://linkedin.com/in/trferguson">Tim Ferguson 2025</a></footer>
+    
+    <footer><a href="https://linkedin.com/in/trferguson">Tim Ferguson © 2025</a></footer>
 </body>
 </html>
