@@ -1912,3 +1912,70 @@ button[load-].loaded {
     justify-content: center;
     gap: 4px;
 }
+
+/* MEET RAY STARTER */
+
+.meet-ray-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+    gap: 0;
+    margin-left: 1rem;
+}
+
+.meet-ray-logo-large {
+    margin-bottom: 1rem;
+}
+
+.meet-ray-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.meet-ray-description {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.meet-ray-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #EBEBFE;
+    border: none;
+    border-radius: 6px;
+    margin-top: 1.4rem;
+    color: #492FF4;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.meet-ray-button:hover {
+    background: #D6D6FC;
+    transform: translateY(-1px);
+}
+
+.rmeet-ray-button:active {
+    transform: translateY(0);
+}
+
+.meet-ray--title {
+    font-weight: 500;
+    color: #492FF4;
+}
+
+.meet-ray-button-icon {
+    flex-shrink: 0;
+}
