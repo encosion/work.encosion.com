@@ -1018,8 +1018,8 @@ class ChatSystem {
     resetEmojiContainer() {
         const emojiSection = document.querySelector('.emoji-section');
         if (emojiSection) {
-            // Clear the emoji container content
-            emojiSection.innerHTML = '';
+            // Load the homepage-default.php content
+            this.loadHomepageDefault();
             
             // Reset any loaded button states
             const loadButtons = document.querySelectorAll('button[load-]');
@@ -1032,6 +1032,31 @@ class ChatSystem {
                 button.disabled = false;
                 button.classList.remove('loaded');
             });
+        }
+    }
+    
+    async loadHomepageDefault() {
+        const emojiSection = document.querySelector('.emoji-section');
+        if (!emojiSection) {
+            console.error('Emoji section not found');
+            return;
+        }
+        
+        try {
+            // Load the homepage-default.php content
+            const response = await fetch('includes/homepage-default.php');
+            if (!response.ok) {
+                throw new Error('Failed to load homepage-default.php');
+            }
+            
+            const html = await response.text();
+            emojiSection.innerHTML = html;
+            
+            console.log('Homepage default content loaded successfully');
+        } catch (error) {
+            console.error('Error loading homepage default content:', error);
+            // Fallback to wave emoji if loading fails
+            emojiSection.innerHTML = '<div class="wave-emoji">👋</div>';
         }
     }
 

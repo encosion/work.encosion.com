@@ -86,7 +86,7 @@ $config = array_merge($default_config, $conversation_config);
         </div>
         
         <div class="emoji-section">
-            <div class="wave-emoji">👋</div>
+            <?php include 'includes/homepage-default.php'; ?>
         </div>
     </div>
     

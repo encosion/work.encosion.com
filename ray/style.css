@@ -1979,3 +1979,181 @@ button[load-].loaded {
 .meet-ray-button-icon {
     flex-shrink: 0;
 }
+
+/* ==========================================================================
+   Homepage Layout Styles
+   ========================================================================== */
+
+.homepage-container {
+    padding: 16px 0;
+    background: var(--bg-default);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.homepage-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.homepage-left,
+.homepage-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Tasks Section */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.task-count {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-left: 8px;
+}
+
+.create-task-btn:hover {
+    background: var(--accent-hover);
+}
+
+.status-box {
+    background: var(--bg-secondary-ongray);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.status-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.status-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.card {
+    background: var(--bg-white);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+.card-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.card-btn {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+.card-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+/* Assigned Section */
+.assigned-section {
+    background: var(--bg-white);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.assigned-list {
+    margin-top: 16px;
+}
+
+.assigned-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.assigned-item:last-child {
+    border-bottom: none;
+}
+
+.item-icon {
+    margin-right: 4px;
+    color: var(--accent);
+}
+
+.item-text {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Recent Section */
+.recent-section {
+    background: var(--bg-white);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.recent-card {
+    margin-top: 16px;
+}
+
+.recent-item {
+    display: flex;
+    align-items: center;
+}
+
+.recent-item .item-icon {
+    margin-right: 12px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.item-privacy {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
