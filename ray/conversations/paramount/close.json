@@ -1,0 +1,363 @@
+{
+  "searchTitle": "📏 Close",
+  "searchDescription": "Senior executives with corporate development, M&A, strategic partnerships, business development, or corporate strategy experience in tech companies across California, Washington, Oregon, Nevada, Arizona, or Utah",
+  "searchCriteria": {
+    "jobRoles": [
+      "VP Business Development",
+      "VP Strategic Partnerships",
+      "VP Corporate Strategy",
+      "Director M&A"
+    ],
+    "coreSkills": [
+      "M&A Experience",
+      "Strategic Partnerships",
+      "Due Diligence",
+      "Valuation Analysis",
+      "Deal Negotiation",
+      "Tech Industry Experience"
+    ],
+    "locations": [
+      "California",
+      "Washington", 
+      "Oregon",
+      "Nevada",
+      "Arizona",
+      "Utah"
+    ],
+    "idealCompanies": [
+      "Google",
+      "Apple",
+      "Microsoft",
+      "Amazon",
+      "Meta",
+      "Netflix",
+      "Salesforce",
+      "Oracle",
+      "Adobe",
+      "Tesla"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Katherine Walsh",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "Google",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Director Strategic Partnerships",
+          "company": "Microsoft",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Senior Manager M&A",
+          "company": "Salesforce",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "San Francisco, California, USA"
+    },
+    {
+      "id": 2,
+      "name": "Daniel Morrison",
+      "rating": "★★★★☆ 4.3",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "Apple",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Director M&A",
+          "company": "Amazon",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Senior Manager Corporate Strategy",
+          "company": "Netflix",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Cupertino, California, USA"
+    },
+    {
+      "id": 3,
+      "name": "Nicole Chen",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "Meta",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "Director Strategic Partnerships",
+          "company": "Adobe",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Senior Manager Strategic Initiatives",
+          "company": "Oracle",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Menlo Park, California, USA"
+    },
+    {
+      "id": 4,
+      "name": "Andrew Kim",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Business Development",
+          "company": "Tesla",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Director Corporate Development",
+          "company": "Uber",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Senior Manager M&A",
+          "company": "Airbnb",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Los Angeles, California, USA"
+    },
+    {
+      "id": 5,
+      "name": "Stephanie Davis",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "Microsoft",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Director Strategic Partnerships",
+          "company": "Google",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Senior Manager Corporate Strategy",
+          "company": "Intel",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Seattle, Washington, USA"
+    },
+    {
+      "id": 6,
+      "name": "Jessica Lopez",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Strategic Partnerships",
+          "company": "Netflix",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "Director Business Development",
+          "company": "Spotify",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Senior Manager Corporate Strategy",
+          "company": "Twitter",
+          "duration": "4y 1m"
+        }
+      ],
+      "location": "Portland, Oregon, USA"
+    },
+    {
+      "id": 7,
+      "name": "Ryan Johnson",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Strategy",
+          "company": "PayPal",
+          "duration": "2y 10m"
+        },
+        {
+          "title": "Director Corporate Development",
+          "company": "Square",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Senior Manager Strategic Partnerships",
+          "company": "Stripe",
+          "duration": "3y 9m"
+        }
+      ],
+      "location": "Phoenix, Arizona, USA"
+    },
+    {
+      "id": 8,
+      "name": "Melanie Foster",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Business Development",
+          "company": "Zoom",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Director Corporate Strategy",
+          "company": "Slack",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Senior Manager Strategic Initiatives",
+          "company": "Dropbox",
+          "duration": "4y 5m"
+        }
+      ],
+      "location": "Reno, Nevada, USA"
+    },
+    {
+      "id": 9,
+      "name": "Bradley Singh",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "Shopify",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "Director M&A",
+          "company": "Square",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Senior Manager Strategic Partnerships",
+          "company": "Stripe",
+          "duration": "4y 3m"
+        }
+      ],
+      "location": "Seattle, Washington, USA"
+    },
+    {
+      "id": 10,
+      "name": "Ashley Taylor",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Strategic Partnerships",
+          "company": "Twilio",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Director Business Development",
+          "company": "SendGrid",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Senior Manager Corporate Strategy",
+          "company": "Cloudflare",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Tacoma, Washington, USA"
+    },
+    {
+      "id": 11,
+      "name": "Brandon Carter",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Director Corporate Development",
+          "company": "Palantir",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Senior Manager Strategic Initiatives",
+          "company": "Snowflake",
+          "duration": "4y 7m"
+        }
+      ],
+      "location": "Salt Lake City, Utah, USA"
+    },
+    {
+      "id": 12,
+      "name": "Amanda Wright",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Corporate Development",
+          "company": "ServiceNow",
+          "duration": "4y 2m"
+        },
+        {
+          "title": "Director M&A",
+          "company": "Workday",
+          "duration": "3y 11m"
+        }
+      ],
+      "location": "San Diego, California, USA"
+    },
+    {
+      "id": 13,
+      "name": "Nathaniel Brown",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Business Development",
+          "company": "Splunk",
+          "duration": "4y 6m"
+        },
+        {
+          "title": "Director Corporate Strategy",
+          "company": "Okta",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Spokane, Washington, USA"
+    },
+    {
+      "id": 14,
+      "name": "Vanessa Miller",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "VP Strategic Partnerships",
+          "company": "Zendesk",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Director Business Development",
+          "company": "Box",
+          "duration": "3y 7m"
+        },
+        {
+          "title": "Senior Manager Corporate Development",
+          "company": "DocuSign",
+          "duration": "4y 4m"
+        }
+      ],
+      "location": "San Jose, California, USA"
+    }
+  ]
+}
