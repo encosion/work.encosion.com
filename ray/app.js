@@ -113,8 +113,85 @@ class ChatSystem {
         
         if (rayButton && chatSection) {
             rayButton.addEventListener('click', () => {
-                chatSection.classList.toggle('hidden');
+                this.toggleChatSection();
             });
+        }
+    }
+
+    toggleChatSection() {
+        const chatSection = document.querySelector('.chat-section');
+        
+        // Clear any inline styles that might interfere with animations
+        chatSection.style.width = '';
+        chatSection.style.minWidth = '';
+        chatSection.style.margin = '';
+        
+        if (chatSection.classList.contains('slide-out') || chatSection.classList.contains('hidden')) {
+            // Show chat section with slide-in animation
+            console.log('Starting slide-in animation');
+            chatSection.classList.remove('hidden');
+            
+            // Calculate the exact offset needed to slide out (current width + margin)
+            const rect = chatSection.getBoundingClientRect();
+            const slideOutOffset = -(rect.width + 16); // width + margin
+            
+            console.log('Slide-in calculation:', {
+                width: rect.width,
+                margin: 16,
+                totalOffset: slideOutOffset
+            });
+            
+            // Start off-screen
+            chatSection.style.transform = `translateX(${slideOutOffset}px)`;
+            chatSection.classList.add('slide-out');
+            
+            console.log('Slide-in: Set initial transform to:', chatSection.style.transform);
+            
+            // Force a reflow to ensure the initial state is applied
+            chatSection.offsetHeight;
+            
+            // Then slide in
+            requestAnimationFrame(() => {
+                chatSection.style.transform = 'translateX(0)';
+                chatSection.classList.remove('slide-out');
+                chatSection.classList.add('slide-in');
+                
+                // Restore proper width and margin after slide-in completes
+                setTimeout(() => {
+                    chatSection.style.width = '';
+                    chatSection.style.minWidth = '';
+                    chatSection.style.margin = '';
+                }, 300);
+                
+                console.log('Slide-in: Set final transform to:', chatSection.style.transform);
+            });
+        } else {
+            // Hide chat section with slide-out animation
+            console.log('Starting slide-out animation');
+            chatSection.classList.remove('slide-in');
+            
+            // Calculate the exact offset needed to slide out (current width + margin)
+            const rect = chatSection.getBoundingClientRect();
+            const slideOutOffset = -(rect.width + 16); // width + margin
+            
+            console.log('Slide out calculation:', {
+                width: rect.width,
+                margin: 16,
+                totalOffset: slideOutOffset
+            });
+            
+            // Use direct inline style instead of CSS custom property
+            chatSection.style.transform = `translateX(${slideOutOffset}px)`;
+            chatSection.classList.add('slide-out');
+            
+            console.log('Slide-out: Set transform to:', chatSection.style.transform);
+            
+            // After animation completes, add hidden class to prevent interaction
+            setTimeout(() => {
+                if (chatSection.classList.contains('slide-out')) {
+                    chatSection.classList.add('hidden');
+                }
+            }, 300); // Match the CSS transition duration
         }
     }
 
@@ -128,8 +205,8 @@ class ChatSystem {
 
             // Mouse down on resize handle
             chatSection.addEventListener('mousedown', (e) => {
-                // Don't allow resize if chat section is hidden
-                if (chatSection.classList.contains('hidden')) {
+                // Don't allow resize if chat section is hidden or sliding out
+                if (chatSection.classList.contains('hidden') || chatSection.classList.contains('slide-out')) {
                     return;
                 }
                 
@@ -172,7 +249,7 @@ class ChatSystem {
                     isResizing = false;
                     
                     // Re-enable transition
-                    chatSection.style.transition = 'transform 0.3s ease';
+                    chatSection.style.transition = 'transform 0.3s ease, opacity 0.3s ease, width 0.3s ease, min-width 0.3s ease, margin 0.3s ease';
                     
                     // Re-enable text selection
                     document.body.style.userSelect = '';
