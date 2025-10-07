@@ -2195,3 +2195,174 @@ button[load-].loaded {
     font-size: 12px;
     color: var(--text-secondary);
 }
+
+/* ROLE PAGE STYLES */
+
+.role-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--lg);
+    line-height: var(--relaxed);
+}
+
+.role-container h1,
+.role-container h2,
+.role-container p,
+.role-container ul,
+.role-container ol {
+    margin-bottom: var(--md);
+}
+
+.role-container ul,
+.role-container ol {
+    padding-left: var(--md);
+}
+
+/* Role page specific styles */
+.role-page-body {
+    background: var(--bg-default);
+    padding: 2rem;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.role-main-container {
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.role-page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.role-section {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.role-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-section-icon {
+    color: var(--accent);
+}
+
+.role-section-list {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.role-section-list li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.role-section-list li:last-child {
+    margin-bottom: 0;
+}
+
+.role-cta-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.role-cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(73, 47, 244, 0.3);
+}
+
+.role-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(73, 47, 244, 0.4);
+}
+
+/* Role index page styles */
+.role-index-body {
+    background: var(--bg-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.role-index-container {
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.role-index-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.role-index-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.role-index-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.role-index-item {
+    display: block;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-secondary) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.role-index-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.role-index-item-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
