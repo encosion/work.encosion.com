@@ -5,12 +5,12 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
+    'suggestedResponse' => 'I want to focus on candidates in California. Remove other states'
 ];
 
 // Output the content
 ?>
-<p>If none, let me know so we can figure out the best starting point.</p>
-
+<p style="margin-top:-1rem;">After reviewing, let me know if you would like to make any changes, or how you would like me to broaden the search for you.</p>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>
 </script>

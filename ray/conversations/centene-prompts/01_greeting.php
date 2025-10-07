@@ -5,6 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
+    'suggestedResponse' => 'I\'m looking for a clinical review nurse with prior authorization. Fully remote but serving patients in California',
     'typingDelay' => 10
 ];
 

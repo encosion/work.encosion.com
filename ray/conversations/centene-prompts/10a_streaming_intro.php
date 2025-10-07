@@ -4,13 +4,12 @@ header('Content-Type: text/html; charset=utf-8');
 // System commands
 $commands = [
     'render' => 'stream',
-    'nextAction' => 'wait',
+    'nextAction' => 'proceed-after-render'
 ];
 
 // Output the content
 ?>
-<p>If none, let me know so we can figure out the best starting point.</p>
-
+<p>Ok, so we're looking for Clinical Review Nurses with PST availability. Let me dig into this and get a search started for you.</p>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>
 </script>

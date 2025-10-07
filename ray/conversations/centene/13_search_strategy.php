@@ -5,7 +5,6 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
-    'suggestedResponse' => 'I want to focus on candidates in California. Remove other states'
 ];
 
 // Output the content

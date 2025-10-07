@@ -305,9 +305,10 @@ body {
     cursor: col-resize;
     background: transparent;
     z-index: 10;
+    transition: background-color 0.2s ease;
 }
 
-.chat-section:hover::after {
+.chat-section::after:hover {
     background: rgba(73, 47, 244, 0.1);
 }
 

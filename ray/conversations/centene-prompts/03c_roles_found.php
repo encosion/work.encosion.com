@@ -5,6 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
+    'suggestedResponse' => 'Clinical Review Nurse'
 ];
 
 // Output the content
