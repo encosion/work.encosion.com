@@ -10,10 +10,7 @@
         <div class="homepage-left">
             <!-- Tasks Section -->
             <div class="tasks-section">
-                <div class="section-header">
-                    <h2 class="section-title">Tasks</h2>
-                    <button class="meet-ray-button" style="margin-top: 0;">Create task</button>
-                </div>
+                <h2>Tasks</h2>
                 <div class="tasks-status">
                     <div class="status-box">
                         <p class="status-title">You're all caught up. Nice!</p>
@@ -24,7 +21,7 @@
 
             <!-- Get Started Section -->
             <div class="get-started-section">
-                <h2 class="section-title">Get started</h2>
+                <h2>Get started</h2>
                 <div class="cards-grid">
                     <div class="card">
                         <h3 class="card-title">Beamery Learn</h3>

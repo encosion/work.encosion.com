@@ -80,7 +80,7 @@ if (!$candidateData) {
             <div class="selection-actions">
                 <button class="action-button secondary disabled" id="viewInPeopleBtn">View in People</button>
                 <div class="dropdown-container">
-                    <button class="action-button primary" id="addToBtn">Add to...</button>
+                    <button class="action-button" id="addToBtn">Add to...</button>
                     <div class="dropdown-menu" id="addToDropdown">
                         <div class="dropdown-item" data-action="pool">
                             <img src="images/icon-pools.svg" alt="Pool" class="dropdown-icon">

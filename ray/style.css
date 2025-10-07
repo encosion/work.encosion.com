@@ -1113,27 +1113,37 @@ p.description {
     gap: 8px;
 }
 
-.action-btn {
+/* Filter button - primary styling to match send button */
+.action-btn.edit-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
-    background: var(--bg-secondary-ongray);
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--bg-accent);
     border: none;
     border-radius: 6px;
     padding: 8px 12px;
+    gap: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-primary);
+    box-shadow: 0 2px 4px rgba(73, 47, 244, 0.31);
 }
 
-.action-btn:hover {
-    background: var(--bg-tertiary);
+.action-btn.edit-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(73, 47, 244, 0.4);
 }
 
-.action-btn img {
-    flex-shrink: 0;
+.action-btn.edit-btn:active {
+    background: var(--accent-active);
+    transform: translateY(0);
+}
+
+.action-btn.edit-btn img {
+    filter: brightness(0) saturate(100%) invert(92%) sepia(15%) saturate(200%) hue-rotate(240deg) brightness(120%) contrast(85%);
 }
 
 .delete-btn {
@@ -1408,12 +1418,18 @@ p.description {
 
 .action-button {
     padding: 8px 16px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     border-radius: 6px;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
+}
+
+.action-button:hover {
+    background-color: var(--bg-tertiary);
 }
 
 .action-button.secondary {
@@ -1428,7 +1444,6 @@ p.description {
 
 .action-button.secondary.disabled {
     cursor: not-allowed;
-    opacity: 0.6;
 }
 
 .action-button.secondary.disabled:hover {
@@ -1437,7 +1452,7 @@ p.description {
 
 .action-button.primary {
     background: var(--accent);
-    color: var(--bg-white);
+    color: var(--bg-accent);
 }
 
 .action-button.primary:hover {
@@ -2032,14 +2047,6 @@ button[load-].loaded {
     gap: 24px;
 }
 
-/* Tasks Section */
-.section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-}
-
 .task-count {
     font-size: 16px;
     color: var(--text-secondary);
@@ -2048,6 +2055,10 @@ button[load-].loaded {
 
 .create-task-btn:hover {
     background: var(--accent-hover);
+}
+
+.tasks-status {
+    margin-top: 8px;
 }
 
 .status-box {
@@ -2074,7 +2085,7 @@ button[load-].loaded {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-top: 16px;
+    margin-top: 8px;
 }
 
 .card {
@@ -2087,7 +2098,7 @@ button[load-].loaded {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0 0 8px 0;
+    margin-bottom: 8px;
 }
 
 .card-description {
