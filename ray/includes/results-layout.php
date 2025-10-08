@@ -12,10 +12,14 @@ if (file_exists($jsonFile)) {
 
 // For hover component, always use exact.json data
 $hoverData = null;
-$exactJsonPath = str_replace(['/broad.json', '/close.json'], '/exact.json', $jsonFile);
+// More robust path resolution - replace the filename with exact.json
+$exactJsonPath = dirname($jsonFile) . '/exact.json';
 if (file_exists($exactJsonPath)) {
     $exactJsonContent = file_get_contents($exactJsonPath);
     $hoverData = json_decode($exactJsonContent, true);
+} else {
+    // Debug: show what paths we're trying
+    $hoverData = ['debug' => 'exactJsonPath: ' . $exactJsonPath . ' | original: ' . $jsonFile];
 }
 
 // Fallback data if JSON file doesn't exist or is invalid
@@ -73,15 +77,7 @@ if (!$candidateData) {
                             <div class="criteria-list">
                                 <div class="criteria-item">
                                     <span class="criteria-label">Role:</span>
-                                    <span class="criteria-value"><?php 
-                                        if (isset($hoverData['searchCriteria']['jobRoles'][0])) {
-                                            echo htmlspecialchars($hoverData['searchCriteria']['jobRoles'][0]);
-                                        } else {
-                                            // Debug: show what we actually have
-                                            echo 'Debug: ' . (isset($hoverData['searchCriteria']) ? 'searchCriteria exists' : 'no searchCriteria') . ' | ';
-                                            echo isset($hoverData['searchCriteria']['jobRoles']) ? 'jobRoles exists' : 'no jobRoles';
-                                        }
-                                    ?></span>
+                                    <span class="criteria-value"><?php echo isset($hoverData['searchCriteria']['jobRoles'][0]) ? htmlspecialchars($hoverData['searchCriteria']['jobRoles'][0]) : 'Not specified'; ?></span>
                                 </div>
                                 <div class="criteria-item">
                                     <span class="criteria-label">Seniority:</span>
