@@ -10,6 +10,14 @@ if (file_exists($jsonFile)) {
     $candidateData = json_decode($jsonContent, true);
 }
 
+// For hover component, always use exact.json data
+$hoverData = null;
+$exactJsonPath = str_replace(['/broad.json', '/close.json'], '/exact.json', $jsonFile);
+if (file_exists($exactJsonPath)) {
+    $exactJsonContent = file_get_contents($exactJsonPath);
+    $hoverData = json_decode($exactJsonContent, true);
+}
+
 // Fallback data if JSON file doesn't exist or is invalid
 if (!$candidateData) {
     $candidateData = [
@@ -65,23 +73,31 @@ if (!$candidateData) {
                             <div class="criteria-list">
                                 <div class="criteria-item">
                                     <span class="criteria-label">Role:</span>
-                                    <span class="criteria-value"><?php echo isset($candidateData['searchCriteria']['jobRoles'][0]) ? htmlspecialchars($candidateData['searchCriteria']['jobRoles'][0]) : 'Not specified'; ?></span>
+                                    <span class="criteria-value"><?php 
+                                        if (isset($hoverData['searchCriteria']['jobRoles'][0])) {
+                                            echo htmlspecialchars($hoverData['searchCriteria']['jobRoles'][0]);
+                                        } else {
+                                            // Debug: show what we actually have
+                                            echo 'Debug: ' . (isset($hoverData['searchCriteria']) ? 'searchCriteria exists' : 'no searchCriteria') . ' | ';
+                                            echo isset($hoverData['searchCriteria']['jobRoles']) ? 'jobRoles exists' : 'no jobRoles';
+                                        }
+                                    ?></span>
                                 </div>
                                 <div class="criteria-item">
                                     <span class="criteria-label">Seniority:</span>
-                                    <span class="criteria-value">Mid-Level Senior</span>
+                                    <span class="criteria-value"><?php echo isset($hoverData['searchCriteria']['seniority'][0]) ? htmlspecialchars($hoverData['searchCriteria']['seniority'][0]) : 'Not specified'; ?></span>
                                 </div>
                                 <div class="criteria-item">
                                     <span class="criteria-label">Skills:</span>
-                                    <span class="criteria-value"><?php echo isset($candidateData['searchCriteria']['coreSkills']) ? implode(', ', $candidateData['searchCriteria']['coreSkills']) : 'Not specified'; ?></span>
+                                    <span class="criteria-value"><?php echo isset($hoverData['searchCriteria']['coreSkills']) ? implode(', ', $hoverData['searchCriteria']['coreSkills']) : 'Not specified'; ?></span>
                                 </div>
                                 <div class="criteria-item">
                                     <span class="criteria-label">Industry:</span>
-                                    <span class="criteria-value">Commercial, Electronics, Industrial, Manufacturing</span>
+                                    <span class="criteria-value"><?php echo isset($hoverData['searchCriteria']['industries']) ? implode(', ', $hoverData['searchCriteria']['industries']) : 'Not specified'; ?></span>
                                 </div>
                                 <div class="criteria-item">
                                     <span class="criteria-label">Org size:</span>
-                                    <span class="criteria-value">10,000+</span>
+                                    <span class="criteria-value"><?php echo isset($hoverData['searchCriteria']['orgSize'][0]) ? htmlspecialchars($hoverData['searchCriteria']['orgSize'][0]) : 'Not specified'; ?></span>
                                 </div>
                             </div>
                         </div>

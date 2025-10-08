@@ -31,6 +31,17 @@
       "Aetna",
       "Cigna",
       "Anthem"
+    ],
+    "seniority": [
+      "Mid-Level Senior"
+    ],
+    "industries": [
+      "Enterprise",
+      "Health Care",
+      "Hospital"
+    ],
+    "orgSize": [
+      "+100,000"
     ]
   },
   "candidates": [

@@ -23,6 +23,17 @@
       "Google",
       "Amazon",
       "Salesforce"
+    ],
+    "seniority": [
+      "Mid-Level Senior"
+    ],
+    "industries": [
+      "Technology",
+      "Enterprise",
+      "Finance"
+    ],
+    "orgSize": [
+      "+100,000"
     ]
   },
   "candidates": [

@@ -35,6 +35,15 @@
       "Oracle",
       "Adobe",
       "Tesla"
+    ],
+    "seniority": [
+      "Director and above"
+    ],
+    "industries": [
+      "Media and Entertainment"
+    ],
+    "orgSize": [
+      "+10,000"
     ]
   },
   "candidates": [
