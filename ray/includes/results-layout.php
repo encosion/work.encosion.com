@@ -56,7 +56,37 @@ if (!$candidateData) {
                     <?php endif; ?>
                     <div class="candidate-location"><?php echo htmlspecialchars($candidate['location']); ?></div>
                 </div>
-                <div class="rating"><?php echo htmlspecialchars($candidate['rating']); ?></div>
+                <div class="rating" data-rating-hover>
+                    <?php echo htmlspecialchars($candidate['rating']); ?>
+                    <div class="rating-hover-tooltip">
+                        <div class="tooltip-content">
+                            <h3>Match score explained</h3>
+                            <p>Each candidate is weighed against the following criteria defined by your organisation:</p>
+                            <div class="criteria-list">
+                                <div class="criteria-item">
+                                    <span class="criteria-label">Role:</span>
+                                    <span class="criteria-value"><?php echo isset($candidateData['searchCriteria']['jobRoles'][0]) ? htmlspecialchars($candidateData['searchCriteria']['jobRoles'][0]) : 'Not specified'; ?></span>
+                                </div>
+                                <div class="criteria-item">
+                                    <span class="criteria-label">Seniority:</span>
+                                    <span class="criteria-value">Mid-Level Senior</span>
+                                </div>
+                                <div class="criteria-item">
+                                    <span class="criteria-label">Skills:</span>
+                                    <span class="criteria-value"><?php echo isset($candidateData['searchCriteria']['coreSkills']) ? implode(', ', $candidateData['searchCriteria']['coreSkills']) : 'Not specified'; ?></span>
+                                </div>
+                                <div class="criteria-item">
+                                    <span class="criteria-label">Industry:</span>
+                                    <span class="criteria-value">Commercial, Electronics, Industrial, Manufacturing</span>
+                                </div>
+                                <div class="criteria-item">
+                                    <span class="criteria-label">Org size:</span>
+                                    <span class="criteria-value">10,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="job-history">
                 <?php foreach ($candidate['jobHistory'] as $job): ?>
@@ -292,6 +322,7 @@ if (!$candidateData) {
         document.addEventListener('filterPanelClosed', function() {
             console.log('Filter panel closed on <?php echo $pageName; ?> page');
         });
+        
     })();
     </script>
 </div>
