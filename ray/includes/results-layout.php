@@ -64,7 +64,7 @@ if (!$candidateData) {
                 <div class="candidate-name">
                     <?php echo htmlspecialchars($candidate['name']); ?>
                     <?php if ($candidate['hasAttachment']): ?>
-                    <img src="images/icon-attachment.svg" alt="CV/Resume" class="attachment-icon" width="16" height="16">
+                    <img src="/ray/images/icon-attachment.svg" alt="CV/Resume" class="attachment-icon" width="16" height="16">
                     <?php endif; ?>
                     <div class="candidate-location"><?php echo htmlspecialchars($candidate['location']); ?></div>
                 </div>
@@ -141,6 +141,232 @@ if (!$candidateData) {
                             <span>Send message...</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Overlay -->
+    <div class="profile-overlay" id="profileOverlay">
+        <div class="profile-overlay-content">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-name-section">
+                    <button class="profile-action-btn" id="profileCloseBtn">
+                        <img src="/ray/images/icon-close.svg" alt="Close" width="16" height="16">
+                    </button>
+                    <h1 class="profile-name" id="profileName">Jane Cooper</h1>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="profile-action-btn">
+                        <img src="/ray/images/icon-more.svg" alt="More" width="16" height="16">
+                    </button>
+                    <button class="profile-action-btn">
+                        <img src="/ray/images/icon-tasks.svg" alt="Tasks" width="16" height="16">
+                    </button>
+                    <button class="profile-action-btn">
+                        <img src="/ray/images/icon-download.svg" alt="Download" width="16" height="16">
+                    </button>
+                    <button class="profile-share-btn">Share</button>
+                </div>
+            </div>
+            
+            <!-- Profile Details -->
+            <div class="profile-details">
+                <div class="profile-detail-item">
+                    <span id="profileJobTitle">Backend Developer, Stripe • Berlin, Germany</span>
+                </div>
+                <div class="profile-detail-item">
+                    <span>j.coops+findajob@gmail.com • 962 (6)555 5555 55 ext 123 (Work)</span>
+                </div>
+            </div>
+            
+            <!-- Contact Status Tags -->
+            <div class="profile-tags">
+                <span class="profile-tag">OK to contact</span>
+                <span class="profile-tag">Consent received</span>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="overview">Overview</button>
+                <button class="profile-tab" data-tab="custom-fields">Custom fields</button>
+                <button class="profile-tab" data-tab="resume">Resume</button>
+                <button class="profile-tab" data-tab="linkedin">LinkedIn</button>
+            </div>
+            
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Overview Tab Content -->
+                <div class="profile-tab-content active" id="overview-content">
+                    <!-- About Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>About</h2>
+                        </div>
+                        <div class="profile-subsection">
+                            <div class="profile-subsection-header">
+                                <h3>Summary</h3>
+                                <button class="profile-edit-btn">
+                                    <img src="/ray/images/icon-edit.svg" alt="Edit" width="16" height="16">
+                                </button>
+                            </div>
+                            <p>Experienced in designing and implementing high-impact programs to advance the UN's Sustainable Development Goals. Skilled in project management, policy advisory, and building partnerships with governments, NGOs, and the private sector. Focused on poverty alleviation, economic empowerment, and crisis response, with a passion for creating sustainable change and empowering communities globally.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>Skills</h2>
+                            <button class="profile-add-btn">
+                                <img src="/ray/images/icon-add.svg" alt="Add" width="16" height="16">
+                            </button>
+                        </div>
+                        
+                        <!-- Declared Skills -->
+                        <div class="profile-subsection">
+                            <div class="profile-subsection-header">
+                                <h3>Declared</h3>
+                                <span class="skill-count">18</span>
+                            </div>
+                            <p>Skills declared by the contact in their CV/resume or application.</p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Budget Management</span>
+                                <span class="skill-tag">Capacity Building</span>
+                                <span class="skill-tag">Compliance and Risk Management</span>
+                                <span class="skill-tag">Crisis Management</span>
+                                <span class="skill-tag">Cultural Competency</span>
+                                <span class="skill-tag">Data Analysis and Reporting</span>
+                                <span class="skill-tag">Geopolitical Awareness</span>
+                                <span class="skill-tag">Grant Writing and Fundraising</span>
+                                <span class="skill-tag">Knowledge of International Humanitarian Law</span>
+                                <span class="skill-tag">Language Proficiency</span>
+                                <span class="skill-tag">Monitoring and Evaluation (M&E)</span>
+                                <span class="skill-tag">Needs Assessment</span>
+                                <span class="skill-tag">Policy Analysis and Advocacy</span>
+                                <span class="skill-tag">Program Design and Implementation</span>
+                                <span class="skill-tag">Project Management</span>
+                                <span class="skill-tag">Stakeholder Engagement</span>
+                                <span class="skill-tag">Supply Chain and Logistics</span>
+                                <span class="skill-tag">Technical Expertise</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Suggested Skills -->
+                        <div class="profile-subsection">
+                            <div class="profile-subsection-header">
+                                <h3>Suggested</h3>
+                                <span class="skill-count">8</span>
+                            </div>
+                            <p>Skills suggested by <span class="beamery-ai">Beamery AI</span> based on the contact's primary job title.</p>
+                            <div class="skill-tags suggested">
+                                <span class="skill-tag suggested">Problem-solving</span>
+                                <span class="skill-tag suggested">Program Evaluation</span>
+                                <span class="skill-tag suggested">Project Management</span>
+                                <span class="skill-tag suggested">Report Generation</span>
+                                <span class="skill-tag suggested">Risk Management</span>
+                                <span class="skill-tag suggested">Stakeholder Engagement</span>
+                                <span class="skill-tag suggested">Strategic Planning</span>
+                                <span class="skill-tag suggested">Technical Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>Experience</h2>
+                            <button class="profile-add-btn">
+                                <img src="/ray/images/icon-add.svg" alt="Add" width="16" height="16">
+                            </button>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-company">United Nations</div>
+                            <div class="experience-duration">2013 - Present (11y)</div>
+                            
+                            <div class="experience-role">
+                                <div class="experience-role-header">
+                                    <h4>Senior International Humanitarian Development Specialist</h4>
+                                    <button class="profile-action-btn">
+                                        <img src="/ray/images/icon-more.svg" alt="More" width="16" height="16">
+                                    </button>
+                                </div>
+                                <div class="experience-role-details">Jan 2022 - Present (1y 2m) • Full time</div>
+                                <p>Experienced in designing and implementing high-impact programs to advance the UN's Sustainable Development Goals. Skilled in project management, policy advisory, and building partnerships with governments, NGOs, and the private sector.</p>
+                            </div>
+                            
+                            <div class="experience-role">
+                                <div class="experience-role-header">
+                                    <h4>International Development Specialist</h4>
+                                    <button class="profile-action-btn">
+                                        <img src="/ray/images/icon-more.svg" alt="More" width="16" height="16">
+                                    </button>
+                                </div>
+                                <div class="experience-role-details">Apr 2013 - Jan 2022 (9y 11m) • Full time</div>
+                                <p>Focused on poverty alleviation, economic empowerment, and crisis response, with a passion for creating sustainable change and empowering communities globally.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>Education</h2>
+                            <button class="profile-add-btn">
+                                <img src="/ray/images/icon-add.svg" alt="Add" width="16" height="16">
+                            </button>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="education-institution">Birzeit University</div>
+                            <div class="education-duration">Diplomatic Relations,Master • Jan 2025 - Jan 2028</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Locations Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>Locations</h2>
+                            <button class="profile-add-btn">
+                                <img src="/ray/images/icon-add.svg" alt="Add" width="16" height="16">
+                            </button>
+                        </div>
+                        
+                        <div class="location-item">
+                            <span class="location-tag">Los Angeles, California, USA</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages Section -->
+                    <div class="profile-section">
+                        <div class="profile-section-header">
+                            <h2>Languages</h2>
+                            <button class="profile-add-btn">
+                                <img src="/ray/images/icon-add.svg" alt="Add" width="16" height="16">
+                            </button>
+                        </div>
+                        
+                        <div class="language-tags">
+                            <span class="language-tag">American English • Fluent</span>
+                            <span class="language-tag">French • Proficient</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other tab contents would go here -->
+                <div class="profile-tab-content" id="custom-fields-content">
+                    <p>Custom fields content would go here.</p>
+                </div>
+                
+                <div class="profile-tab-content" id="resume-content">
+                    <p>Resume content would go here.</p>
+                </div>
+                
+                <div class="profile-tab-content" id="linkedin-content">
+                    <p>LinkedIn content would go here.</p>
                 </div>
             </div>
         </div>
@@ -334,6 +560,158 @@ if (!$candidateData) {
         document.addEventListener('filterPanelClosed', function() {
             console.log('Filter panel closed on <?php echo $pageName; ?> page');
         });
+        
+        // Initialize Profile Overlay
+        function initializeProfileOverlay() {
+            const profileOverlay = document.getElementById('profileOverlay');
+            const profileCloseBtn = document.getElementById('profileCloseBtn');
+            const candidateCards = document.querySelectorAll('.candidate-card');
+            const candidateNames = document.querySelectorAll('.candidate-name');
+            const attachmentIcons = document.querySelectorAll('.attachment-icon');
+            const profileTabs = document.querySelectorAll('.profile-tab');
+            const profileTabContents = document.querySelectorAll('.profile-tab-content');
+            
+            // Close overlay function
+            function closeProfileOverlay() {
+                profileOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            
+            // Open overlay function
+            function openProfileOverlay(candidateData) {
+                // Populate overlay with candidate data
+                document.getElementById('profileName').textContent = candidateData.name;
+                
+                // Update the consolidated job title and company info
+                const jobTitleElement = document.getElementById('profileJobTitle');
+                if (jobTitleElement) {
+                    const jobTitle = candidateData.jobTitle || 'Backend Developer';
+                    const company = candidateData.company || 'Stripe';
+                    const location = candidateData.location || 'Berlin, Germany';
+                    jobTitleElement.textContent = `${jobTitle}, ${company} • ${location}`;
+                }
+                
+                // Show overlay
+                profileOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Ensure overlay starts closed
+            profileOverlay.classList.remove('open');
+            
+            // Close button event listener
+            if (profileCloseBtn) {
+                profileCloseBtn.addEventListener('click', closeProfileOverlay);
+            }
+            
+            // Close overlay when clicking outside
+            document.addEventListener('click', function(e) {
+                // Check if overlay is open and click is outside the overlay content
+                if (profileOverlay.classList.contains('open') && 
+                    !profileOverlay.contains(e.target) && 
+                    !e.target.closest('.candidate-name') && 
+                    !e.target.closest('.attachment-icon')) {
+                    closeProfileOverlay();
+                }
+            });
+            
+            // Close overlay with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && profileOverlay.classList.contains('open')) {
+                    closeProfileOverlay();
+                }
+            });
+            
+            // Tab switching functionality
+            profileTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    profileTabs.forEach(t => t.classList.remove('active'));
+                    profileTabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const targetContent = document.getElementById(targetTab + '-content');
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            
+            // Add click handlers to candidate names and attachment icons
+            candidateNames.forEach(nameElement => {
+                nameElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const candidateCard = this.closest('.candidate-card');
+                    const candidateId = candidateCard.getAttribute('data-candidate-id');
+                    
+                    // Find candidate data from the PHP data
+                    const candidateData = <?php echo json_encode($candidateData['candidates']); ?>;
+                    const candidate = candidateData.find(c => c.id == candidateId);
+                    
+                    if (candidate) {
+                        // Extract job title from job history if available
+                        const jobTitle = candidate.jobHistory && candidate.jobHistory.length > 0 
+                            ? candidate.jobHistory[0].title 
+                            : 'Backend Developer';
+                        
+                        // Extract company from job history if available
+                        const company = candidate.jobHistory && candidate.jobHistory.length > 0 
+                            ? candidate.jobHistory[0].company 
+                            : 'Stripe';
+                        
+                        const candidateInfo = {
+                            name: candidate.name,
+                            jobTitle: jobTitle,
+                            company: company,
+                            location: candidate.location
+                        };
+                        
+                        openProfileOverlay(candidateInfo);
+                    }
+                });
+            });
+            
+            attachmentIcons.forEach(iconElement => {
+                iconElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const candidateCard = this.closest('.candidate-card');
+                    const candidateId = candidateCard.getAttribute('data-candidate-id');
+                    
+                    // Find candidate data from the PHP data
+                    const candidateData = <?php echo json_encode($candidateData['candidates']); ?>;
+                    const candidate = candidateData.find(c => c.id == candidateId);
+                    
+                    if (candidate) {
+                        // Extract job title from job history if available
+                        const jobTitle = candidate.jobHistory && candidate.jobHistory.length > 0 
+                            ? candidate.jobHistory[0].title 
+                            : 'Backend Developer';
+                        
+                        // Extract company from job history if available
+                        const company = candidate.jobHistory && candidate.jobHistory.length > 0 
+                            ? candidate.jobHistory[0].company 
+                            : 'Stripe';
+                        
+                        const candidateInfo = {
+                            name: candidate.name,
+                            jobTitle: jobTitle,
+                            company: company,
+                            location: candidate.location
+                        };
+                        
+                        openProfileOverlay(candidateInfo);
+                    }
+                });
+            });
+            
+            console.log('Profile overlay initialized successfully');
+        }
+        
+        // Initialize profile overlay
+        initializeProfileOverlay();
         
     })();
     </script>
