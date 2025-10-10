@@ -1,0 +1,337 @@
+{
+  "searchTitle": "🤔 Broad",
+  "searchDescription": "Registered nurses with RN licenses and critical care experience, including ICU nursing, BLS, and ACLS certifications. These nurses should be located in South Dakota (Sioux Falls, Mitchell, Yankton) or Minnesota (Luverne, Worthington) and ideally work at large hospitals or healthcare organizations with 10,000+ employees. We're targeting mid-level to senior professionals in the hospital and medical practice industries.",
+  "searchCriteria": {
+    "jobRoles": [],
+    "coreSkills": [
+      "RN License",
+      "Registered Nurse",
+      "Critical care",
+      "ICU experience",
+      "BLS",
+      "ACLS"
+    ],
+    "locations": [
+      "Sioux Falls, South Dakota",
+      "Mitchell, South Dakota",
+      "Yankton, South Dakota",
+      "Luverne, Minnesota",
+      "Worthington, Minnesota"
+    ],
+    "idealCompanies": [],
+    "seniority": [
+      "Mid-Level Senior"
+    ],
+    "industries": [
+      "Hospitals",
+      "Hospital & Health Care",
+      "Medical Practice"
+    ],
+    "orgSize": [
+      "+10000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Jennifer Martinez",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Registered Nurse - ICU",
+          "company": "Avera McKennan Hospital",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Staff Nurse - Medical Surgical",
+          "company": "Sanford Health",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Sioux Falls, South Dakota, USA"
+    },
+    {
+      "id": 2,
+      "name": "Christopher Turner",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Critical Care Nurse",
+          "company": "Mayo Clinic Health System",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Registered Nurse - ICU",
+          "company": "Essentia Health",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Mitchell, South Dakota, USA"
+    },
+    {
+      "id": 3,
+      "name": "Michelle Garcia",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "ICU Staff Nurse",
+          "company": "Avera Heart Hospital",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "Critical Care RN",
+          "company": "MercyOne",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Staff Nurse - Emergency Department",
+          "company": "UnityPoint Health",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Yankton, South Dakota, USA"
+    },
+    {
+      "id": 4,
+      "name": "Justin Nguyen",
+      "rating": "★★★☆☆ 3.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "ICU Nurse",
+          "company": "CHI Health",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Critical Care Nurse",
+          "company": "Nebraska Medicine",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Registered Nurse - Med Surg",
+          "company": "Bryan Health",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Luverne, Minnesota, USA"
+    },
+    {
+      "id": 5,
+      "name": "Rachel Adams",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Intensive Care Nurse",
+          "company": "Nebraska Methodist Health System",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "ICU Registered Nurse",
+          "company": "CHI St. Alexius Medical Center",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Staff Nurse - Cardiology",
+          "company": "Sanford Health",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Worthington, Minnesota, USA"
+    },
+    {
+      "id": 6,
+      "name": "Teresa Martinez",
+      "rating": "★★★☆☆ 3.6",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Critical Care Nurse",
+          "company": "Avera Behavioral Health Hospital",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "ICU Staff Nurse",
+          "company": "Sioux Falls VA Medical Center",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Staff Nurse - Telemetry",
+          "company": "Sioux Falls Specialty Hospital",
+          "duration": "4y 1m"
+        }
+      ],
+      "location": "Sioux Falls, South Dakota, USA"
+    },
+    {
+      "id": 7,
+      "name": "Carlos Rodriguez",
+      "rating": "★★★☆☆ 3.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "ICU Nurse",
+          "company": "Avera St. Luke's Hospital",
+          "duration": "2y 10m"
+        },
+        {
+          "title": "Critical Care RN",
+          "company": "Avera Queen of Peace Hospital",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Registered Nurse - Oncology",
+          "company": "Mayo Clinic",
+          "duration": "3y 9m"
+        }
+      ],
+      "location": "Mitchell, South Dakota, USA"
+    },
+    {
+      "id": 8,
+      "name": "Heather Wilson",
+      "rating": "★★★☆☆ 3.5",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Intensive Care Nurse",
+          "company": "Avera Sacred Heart Hospital",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "ICU Staff Nurse",
+          "company": "Avera St. Mary's Hospital",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Staff Nurse - Surgical Unit",
+          "company": "Essentia Health",
+          "duration": "4y 5m"
+        }
+      ],
+      "location": "Yankton, South Dakota, USA"
+    },
+    {
+      "id": 9,
+      "name": "Rajesh Gupta",
+      "rating": "★★★☆☆ 3.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Critical Care Nurse",
+          "company": "MercyOne",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "ICU Registered Nurse",
+          "company": "UnityPoint Health",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Registered Nurse - Critical Care",
+          "company": "Nebraska Medicine",
+          "duration": "4y 3m"
+        }
+      ],
+      "location": "Luverne, Minnesota, USA"
+    },
+    {
+      "id": 10,
+      "name": "Karen Liu",
+      "rating": "★★★☆☆ 3.6",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "ICU Nurse",
+          "company": "CHI Health",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Critical Care Nurse",
+          "company": "Nebraska Methodist Health System",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Staff Nurse - Pediatrics",
+          "company": "Bryan Health",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Worthington, Minnesota, USA"
+    },
+    {
+      "id": 11,
+      "name": "Diana Cooper",
+      "rating": "★★☆☆☆ 3.4",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "ICU Staff Nurse",
+          "company": "Sanford Health",
+          "duration": "1y 9m"
+        },
+        {
+          "title": "Staff Nurse - Medical Surgical",
+          "company": "Mayo Clinic Health System",
+          "duration": "2y 3m"
+        }
+      ],
+      "location": "Sioux Falls, South Dakota, USA"
+    },
+    {
+      "id": 12,
+      "name": "Marcus Thompson",
+      "rating": "★★★☆☆ 3.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Critical Care RN",
+          "company": "Essentia Health",
+          "duration": "7y 10m"
+        }
+      ],
+      "location": "Mitchell, South Dakota, USA"
+    },
+    {
+      "id": 13,
+      "name": "Sophie Wang",
+      "rating": "★★☆☆☆ 3.5",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Intensive Care Nurse",
+          "company": "CHI St. Alexius Medical Center",
+          "duration": "4y 3m"
+        },
+        {
+          "title": "Staff Nurse - Emergency Department",
+          "company": "Avera McKennan Hospital",
+          "duration": "4y 6m"
+        }
+      ],
+      "location": "Yankton, South Dakota, USA"
+    },
+    {
+      "id": 14,
+      "name": "Douglas Mitchell",
+      "rating": "★★☆☆☆ 3.2",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "ICU Nurse",
+          "company": "MercyOne",
+          "duration": "2y 3m"
+        },
+        {
+          "title": "Critical Care Nurse",
+          "company": "UnityPoint Health",
+          "duration": "1y 9m"
+        }
+      ],
+      "location": "Luverne, Minnesota, USA"
+    }
+  ]
+}

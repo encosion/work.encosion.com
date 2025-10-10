@@ -1,0 +1,195 @@
+{
+  "searchTitle": "🎯 Exact",
+  "searchDescription": "Registered Nurses with RN licenses and critical care experience, specifically ICU nurses, critical care nurses, intensive care nurses, and ICU registered nurses with BLS and ACLS certifications. These professionals should work in adult ICU, medical ICU, surgical ICU, MICU, or SICU units. They should be located in South Dakota (Sioux Falls, Mitchell, Yankton) or Minnesota (Luverne, Worthington) and ideally work at major healthcare systems like Avera Health, Mayo Clinic, Sanford Health, or insurance companies like UnitedHealth Group, Aetna, Cigna, or Anthem. We're targeting mid-level to senior professionals at large organizations with 10,000+ employees.",
+  "searchCriteria": {
+    "jobRoles": [
+      "ICU Nurse",
+      "Critical Care Nurse",
+      "Intensive Care Nurse",
+      "ICU Registered Nurse",
+      "Critical Care RN",
+      "ICU Staff Nurse",
+      "Adult ICU Nurse",
+      "Medical ICU Nurse",
+      "Surgical ICU Nurse",
+      "MICU Nurse",
+      "SICU Nurse"
+    ],
+    "coreSkills": [
+      "RN License",
+      "Registered Nurse",
+      "Critical care",
+      "ICU experience",
+      "BLS",
+      "ACLS"
+    ],
+    "locations": [
+      "Sioux Falls, South Dakota",
+      "Mitchell, South Dakota",
+      "Yankton, South Dakota",
+      "Luverne, Minnesota",
+      "Worthington, Minnesota"
+    ],
+    "idealCompanies": [
+      "Avera Health",
+      "Avera McKennan Hospital & University Health Centre",
+      "Avera Heart Hospital of South Dakota",
+      "Avera Behavioral Health Hospital",
+      "Sioux Falls VA Medical Centre",
+      "Sioux Falls Specialty Hospital", 
+      "Avera St. Luke's Hospital",
+      "Avera Queen of Peace Hospital",
+      "Avera Sacred Heart Hospital",
+      "Avera St. Mary's Hospital",
+      "Mayo Clinic",
+      "Mayo Clinic Health System",
+      "Essentia Health",
+      "MercyOne",
+      "UnityPoint Health",   
+      "Nebraska Medicine",
+      "CHI Health",
+      "Nebraska Methodist Health System",
+      "Bryan Health",
+      "Sanford Health",
+      "Essentia Health",
+      "CHI St. Alexius Medical Centre",
+      "UnitedHealth Group",
+      "Aetna",
+      "Cigna",
+      "Anthem"
+    ],
+    "seniority": [
+      "Mid-Level Senior"
+    ],
+    "industries": [
+      "Hospitals",
+      "Hospital & Health Care",
+      "Medical Practice"
+    ],
+    "orgSize": [
+      "+10000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Patricia Nguyen",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "ICU Nurse",
+          "company": "Avera McKennan Hospital",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Critical Care Nurse",
+          "company": "Sanford Health",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Staff Nurse - Medical Surgical",
+          "company": "Mayo Clinic Health System",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Sioux Falls, South Dakota, USA"
+    },
+    {
+      "id": 2,
+      "name": "Marcus Williams",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Intensive Care Nurse",
+          "company": "Essentia Health",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "ICU Registered Nurse",
+          "company": "MercyOne",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Registered Nurse - ICU",
+          "company": "UnityPoint Health",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Mitchell, South Dakota, USA"
+    },
+    {
+      "id": 3,
+      "name": "Samantha Reyes",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Critical Care Nurse",
+          "company": "Avera Heart Hospital",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "ICU Staff Nurse",
+          "company": "CHI Health",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Staff Nurse - Emergency Department",
+          "company": "Nebraska Medicine",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Yankton, South Dakota, USA"
+    },
+    {
+      "id": 4,
+      "name": "David Chen",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Adult ICU Nurse",
+          "company": "Avera St. Luke's Hospital",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Medical ICU Nurse",
+          "company": "Nebraska Methodist Health System",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Registered Nurse - Med Surg",
+          "company": "Bryan Health",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Luverne, Minnesota, USA"
+    },
+    {
+      "id": 5,
+      "name": "Jennifer Park",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Surgical ICU Nurse",
+          "company": "CHI St. Alexius Medical Center",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "MICU Nurse",
+          "company": "Sanford Health",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Staff Nurse - Cardiology",
+          "company": "Mayo Clinic",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Worthington, Minnesota, USA"
+    }
+  ]
+}
