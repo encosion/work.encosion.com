@@ -1,0 +1,173 @@
+{
+  "searchTitle": "🎯 Exact",
+  "searchDescription": "Senior executives with SVP-level corporate development experience in big tech companies, leading full-cycle M&A transactions, strategic partnerships, and West Coast operations across California, Washington, Oregon, Nevada, Arizona, or Utah",
+  "searchCriteria": {
+    "jobRoles": [
+      "SVP Corporate Development",
+      "Senior Vice President Corporate Development", 
+      "VP Corporate Development",
+      "Director of Corporate Development",
+      "Head of Corporate Development",
+      "Chief Corporate Development Officer"
+    ],
+    "coreSkills": [
+      "M&A Transaction Leadership",
+      "Strategic Partnerships",
+      "Due Diligence Management",
+      "Valuation Analysis",
+      "Deal Negotiation",
+      "Big Tech Experience"
+    ],
+    "locations": [
+      "California",
+      "Washington", 
+      "Oregon",
+      "Nevada",
+      "Arizona",
+      "Utah"
+    ],
+    "idealCompanies": [
+      "Google",
+      "Apple",
+      "Microsoft",
+      "Amazon",
+      "Meta",
+      "Netflix",
+      "Salesforce",
+      "Oracle",
+      "Adobe",
+      "Tesla"
+    ],
+    "seniority": [
+      "Director and above"
+    ],
+    "industries": [
+      "Media and Entertainment"
+    ],
+    "orgSize": [
+      "+10,000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Sarah Chen",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "SVP Corporate Development",
+          "company": "Google",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "VP Corporate Development",
+          "company": "Microsoft",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Director Strategic Partnerships",
+          "company": "Salesforce",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "San Francisco, California, USA"
+    },
+    {
+      "id": 2,
+      "name": "Michael Rodriguez",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "SVP Corporate Development",
+          "company": "Apple",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "VP M&A",
+          "company": "Amazon",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Senior Director Corporate Strategy",
+          "company": "Netflix",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Cupertino, California, USA"
+    },
+    {
+      "id": 3,
+      "name": "Jennifer Park",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "SVP Corporate Development",
+          "company": "Meta",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "VP Corporate Development",
+          "company": "Adobe",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Director Strategic Initiatives",
+          "company": "Oracle",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Menlo Park, California, USA"
+    },
+    {
+      "id": 4,
+      "name": "David Kim",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "SVP Corporate Development",
+          "company": "Tesla",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "VP Corporate Development",
+          "company": "Uber",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Senior Director M&A",
+          "company": "Airbnb",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Los Angeles, California, USA"
+    },
+    {
+      "id": 5,
+      "name": "Lisa Thompson",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "SVP Corporate Development",
+          "company": "Microsoft",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "VP Strategic Partnerships",
+          "company": "Google",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Director Corporate Strategy",
+          "company": "Intel",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Seattle, Washington, USA"
+    }
+  ]
+}
