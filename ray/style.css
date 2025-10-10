@@ -2489,11 +2489,11 @@ button[load-].loaded {
     transition: transform 0.2s ease;
     font-size: 12px;
     color: #666;
-    transform: rotate(0deg);
+    transform: rotate(90deg);
 }
 
 .caret.expanded {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 .expandable-content {

@@ -7,7 +7,7 @@
         <div class="loading-spinner-large">
             <img src="images/icon-ray.svg" alt="Loading" class="spinning-ray-icon-large" width="64" height="64">
         </div>
-        <p class="loading-text">Finding candidates...</p>
+        <p class="loading-text">Finding prospects...</p>
     </div>
 </div>
 

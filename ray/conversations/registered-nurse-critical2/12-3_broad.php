@@ -15,7 +15,7 @@ $commands = [
 <li><strong>Core skills:</strong> RN License, Registered Nurse, Critical care, ICU experience, BLS, ACLS</li>
 <li><strong>Location:</strong> Sioux Falls, Mitchell, Yankton (South Dakota) and Luverne, Worthington (Minnesota)</li>
 <li><strong>Ideal companies:</strong> N/A</li>
-<button load-="broad.php">Load results 👉</button>
+<button load-="broad.php">Show prospects 👉</button>
 </ul>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>

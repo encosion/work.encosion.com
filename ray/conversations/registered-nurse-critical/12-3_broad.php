@@ -24,7 +24,7 @@ $content = '<ul>
     </h3>
     <div class="expandable-content">
         <?php echo $content; ?>
-        <button load-="broad.php">Load results 👉</button>
+        <button load-="broad.php">Show prospects 👉</button>
     </div>
 </div>
 

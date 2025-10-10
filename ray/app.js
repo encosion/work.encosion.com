@@ -1024,7 +1024,7 @@ class ChatSystem {
     }
     
     setButtonLoaded(button) {
-        button.innerHTML = '<img src="images/icon-check-complete.svg" alt="Loaded" width="16" height="16"> Loaded';
+        button.innerHTML = '<img src="images/icon-check-complete.svg" alt="Loaded" width="16" height="16"> Showing';
         button.disabled = true;
         button.classList.add('loaded');
     }
