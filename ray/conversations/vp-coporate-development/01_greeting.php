@@ -5,7 +5,6 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
-    'suggestedResponse' => 'I\'m looking for a svp of coporate development on the west coast - who can lead full-cycle m&a transactions',
     'typingDelay' => 10
 ];
 
