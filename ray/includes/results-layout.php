@@ -178,7 +178,7 @@ if (!$candidateData) {
                     <span id="profileJobTitle">Backend Developer, Stripe • Berlin, Germany</span>
                 </div>
                 <div class="profile-detail-item">
-                    <span>j.coops+findajob@gmail.com • 962 (6)555 5555 55 ext 123 (Work)</span>
+                    <span>email.surname@gmail.com • (0)555 555 5555 (Home)</span>
                 </div>
             </div>
             
@@ -212,7 +212,7 @@ if (!$candidateData) {
                                     <img src="/ray/images/icon-edit.svg" alt="Edit" width="16" height="16">
                                 </button>
                             </div>
-                            <p>Experienced in designing and implementing high-impact programs to advance the UN's Sustainable Development Goals. Skilled in project management, policy advisory, and building partnerships with governments, NGOs, and the private sector. Focused on poverty alleviation, economic empowerment, and crisis response, with a passion for creating sustainable change and empowering communities globally.</p>
+                            <p>Proin nec magna dapibus, vestibulum velit et, malesuada nunc. Curabitur posuere nunc eget aliquet commodo. Vestibulum non porta mauris. Nullam in gravida tortor. Sed nunc enim, mattis a magna sit amet, sodales tristique purus. Cras id arcu ultrices, elementum nulla ut, fermentum ante. Pellentesque non nunc molestie, malesuada lectus et, condimentum ipsum. Duis tincidunt porta finibus.</p>
                         </div>
                     </div>
                     
@@ -233,24 +233,24 @@ if (!$candidateData) {
                             </div>
                             <p>Skills declared by the contact in their CV/resume or application.</p>
                             <div class="skill-tags">
-                                <span class="skill-tag">Budget Management</span>
-                                <span class="skill-tag">Capacity Building</span>
-                                <span class="skill-tag">Compliance and Risk Management</span>
-                                <span class="skill-tag">Crisis Management</span>
-                                <span class="skill-tag">Cultural Competency</span>
-                                <span class="skill-tag">Data Analysis and Reporting</span>
-                                <span class="skill-tag">Geopolitical Awareness</span>
-                                <span class="skill-tag">Grant Writing and Fundraising</span>
-                                <span class="skill-tag">Knowledge of International Humanitarian Law</span>
-                                <span class="skill-tag">Language Proficiency</span>
-                                <span class="skill-tag">Monitoring and Evaluation (M&E)</span>
-                                <span class="skill-tag">Needs Assessment</span>
-                                <span class="skill-tag">Policy Analysis and Advocacy</span>
-                                <span class="skill-tag">Program Design and Implementation</span>
-                                <span class="skill-tag">Project Management</span>
-                                <span class="skill-tag">Stakeholder Engagement</span>
-                                <span class="skill-tag">Supply Chain and Logistics</span>
-                                <span class="skill-tag">Technical Expertise</span>
+                                <span class="skill-tag">Lorem ipsum</span>
+                                <span class="skill-tag">Dolor sit amet</span>
+                                <span class="skill-tag">Consectetur adipiscing</span>
+                                <span class="skill-tag">Elit sed do</span>
+                                <span class="skill-tag">Eiusmod tempor</span>
+                                <span class="skill-tag">Incididunt ut labore</span>
+                                <span class="skill-tag">Et dolore magna</span>
+                                <span class="skill-tag">Aliqua ut enim</span>
+                                <span class="skill-tag">Ad minim veniam</span>
+                                <span class="skill-tag">Quis nostrud</span>
+                                <span class="skill-tag">Exercitation ullamco</span>
+                                <span class="skill-tag">Laboris nisi ut</span>
+                                <span class="skill-tag">Aliquip ex ea</span>
+                                <span class="skill-tag">Commodo consequat</span>
+                                <span class="skill-tag">Duis aute irure</span>
+                                <span class="skill-tag">Dolor in reprehenderit</span>
+                                <span class="skill-tag">Voluptate velit</span>
+                                <span class="skill-tag">Esse cillum dolore</span>
                             </div>
                         </div>
                         
@@ -262,14 +262,14 @@ if (!$candidateData) {
                             </div>
                             <p>Skills suggested by <span class="beamery-ai">Beamery AI</span> based on the contact's primary job title.</p>
                             <div class="skill-tags suggested">
-                                <span class="skill-tag suggested">Problem-solving</span>
-                                <span class="skill-tag suggested">Program Evaluation</span>
-                                <span class="skill-tag suggested">Project Management</span>
-                                <span class="skill-tag suggested">Report Generation</span>
-                                <span class="skill-tag suggested">Risk Management</span>
-                                <span class="skill-tag suggested">Stakeholder Engagement</span>
-                                <span class="skill-tag suggested">Strategic Planning</span>
-                                <span class="skill-tag suggested">Technical Writing</span>
+                                <span class="skill-tag suggested">Eu fugiat nulla</span>
+                                <span class="skill-tag suggested">Pariatur excepteur</span>
+                                <span class="skill-tag suggested">Sint occaecat</span>
+                                <span class="skill-tag suggested">Cupidatat non</span>
+                                <span class="skill-tag suggested">Proident sunt</span>
+                                <span class="skill-tag suggested">In culpa qui</span>
+                                <span class="skill-tag suggested">Officia deserunt</span>
+                                <span class="skill-tag suggested">Mollit anim id</span>
                             </div>
                         </div>
                     </div>
@@ -295,7 +295,7 @@ if (!$candidateData) {
                                     </button>
                                 </div>
                                 <div class="experience-role-details">Jan 2022 - Present (1y 2m) • Full time</div>
-                                <p>Experienced in designing and implementing high-impact programs to advance the UN's Sustainable Development Goals. Skilled in project management, policy advisory, and building partnerships with governments, NGOs, and the private sector.</p>
+                                <p>Cras id arcu ultrices, elementum nulla ut, fermentum ante. Pellentesque non nunc molestie, malesuada lectus et, condimentum ipsum. Duis tincidunt porta finibus. Proin nec magna dapibus, vestibulum velit et, malesuada nunc. Curabitur posuere nunc eget aliquet commodo. Vestibulum non porta mauris. Nullam in gravida tortor. Sed nunc enim, mattis a magna sit amet, sodales tristique purus.</p>
                             </div>
                             
                             <div class="experience-role">
@@ -306,7 +306,7 @@ if (!$candidateData) {
                                     </button>
                                 </div>
                                 <div class="experience-role-details">Apr 2013 - Jan 2022 (9y 11m) • Full time</div>
-                                <p>Focused on poverty alleviation, economic empowerment, and crisis response, with a passion for creating sustainable change and empowering communities globally.</p>
+                                <p>Proin nec magna dapibus, vestibulum velit et, malesuada nunc. Curabitur posuere nunc eget aliquet commodo. Vestibulum non porta mauris. Nullam in gravida tortor. Sed nunc enim, mattis a magna sit amet, sodales tristique purus. Cras id arcu ultrices, elementum nulla ut, fermentum ante. Pellentesque non nunc molestie, malesuada lectus et, condimentum ipsum. Duis tincidunt porta finibus.</p>
                             </div>
                         </div>
                     </div>
@@ -322,7 +322,7 @@ if (!$candidateData) {
                         
                         <div class="education-item">
                             <div class="education-institution">Birzeit University</div>
-                            <div class="education-duration">Diplomatic Relations,Master • Jan 2025 - Jan 2028</div>
+                            <div class="education-duration">Diplomatic Relations, Master • Jan 2025 - Jan 2028</div>
                         </div>
                     </div>
                     
