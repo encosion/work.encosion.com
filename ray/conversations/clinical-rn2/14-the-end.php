@@ -9,7 +9,7 @@ $commands = [
 
 // Output the content
 ?>
-<p style="margin-top:-1rem;">Would you like to make any changes?</p>
+<p>This is just a prototype, Sorry! ☺️ Let's pretend I've did what you asked, what would you do next?</p>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>
 </script>

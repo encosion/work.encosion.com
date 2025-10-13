@@ -9,7 +9,7 @@ $commands = [
 
 // Output the content
 ?>
-<p>Great, I've extracted the key criteria and created a comprehensive search starting with the most focused:</p>
+<p>Ok, I've created a three searches for you to review:</p>
 <script type="application/json" id="system-commands">
 <?php echo json_encode($commands); ?>
 </script>

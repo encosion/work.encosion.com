@@ -1,5 +1,5 @@
 <?php
-// centene-close.php
+// results-close.php
 // Dynamic candidate table HTML for recruitment search results
 
 // Load JSON data to get search criteria

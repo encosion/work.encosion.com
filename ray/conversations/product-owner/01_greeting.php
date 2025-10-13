@@ -5,7 +5,6 @@ header('Content-Type: text/html; charset=utf-8');
 $commands = [
     'render' => 'stream',
     'nextAction' => 'wait',
-    'suggestedResponse' => 'I\'m looking for Product Owners near Wilmington, NC',
     'typingDelay' => 10
 ];
 
