@@ -42,7 +42,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     <li>Responsive – Fluid adaptation to variable desktop viewport sizes for corporate SaaS users</li>            
                     <li>Techstack – HTML5, CSS3, JavaScript (ES6+), PHP</li>
                 </ul>
-                <a href="ray?conversation=centene" class="nav-link">Check it out</a>
+                <a href="ray/roles" class="nav-link">Check it out</a>
             </div>
         </div>
     </div>
