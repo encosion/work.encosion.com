@@ -1,0 +1,240 @@
+/* ==========================================================================
+   Header Styles - Clean & Organized
+   ========================================================================== */
+
+/* ==========================================================================
+   Main Header Container
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    transition: padding 0.3s ease;
+    z-index: 100;
+}
+
+.header-content {
+    position: relative;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Header Wrapper & Background
+   ========================================================================== */
+
+.header-wrapper {
+    /* background-color: var(--dark-medium-lightest-30percent); */
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    position: relative;
+}
+
+/* ==========================================================================
+   Site Title
+   ========================================================================== */
+
+.site-title {
+    margin: 0;
+    font-size: var(--font-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: font-size 0.3s ease;
+    display: inline-block;
+    padding: var(--sm) var(--sm);
+    width: 100%;
+    position: relative;
+}
+
+.site-title a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.site-title a:hover {
+    color: var(--accent-base);
+    text-shadow: var(--text-shadow-layered);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.header-nav {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--md);
+    gap: var(--sm);
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-lg);
+    font-weight: 600;
+    display: inline-block;
+    padding: 0 var(--xs);
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: var(--accent-base);
+    transform: translateY(-2px);
+    text-shadow: var(--text-shadow-layered);
+}
+
+/* ==========================================================================
+   Mobile Hamburger Menu
+   ========================================================================== */
+
+.mobile-menu-toggle {
+    position: fixed;
+    right: var(--sm);
+    top: var(--xs);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--xs);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-base);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hamburger Animation */
+.mobile-menu-toggle.is-open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.mobile-menu-toggle.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.is-open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ==========================================================================
+   Desktop Hover Effects
+   ========================================================================== */
+
+@media (hover: hover) and (min-width: 769px) {   
+    header:hover .header-nav {
+        opacity: 1;
+        max-height: 100px;
+        /* Remove absolute positioning to keep nav within wrapper */
+        position: relative;
+        background-color: transparent;
+        backdrop-filter: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 99;
+        padding: 0.5rem 0;
+    }
+    
+    header:hover .site-title {
+        font-size: var(--font-2xl);
+    }
+}
+
+/* ==========================================================================
+   Mobile Styles
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .site-title {
+        font-size: var(--font-lg);
+    }
+    
+    .header-nav {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+        z-index: 99;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        max-height: 200px;
+        padding: var(--sm) 0;
+    }
+    
+    /* Increase site title size when mobile nav is open */
+    .header-nav.is-open ~ .site-title,
+    .site-title:has(+ .header-nav.is-open) {
+        font-size: var(--font-2xl);
+    }
+    
+    /* Remove nav-list background when nav is open to avoid double frosted glass */
+    .header-nav.is-open .nav-list {
+        background-color: transparent;
+        backdrop-filter: none;
+    }
+    
+    .nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: rgba(var(--dark-medium-lightest, 255, 255, 255), 0.3);
+        backdrop-filter: blur(15px);
+        gap: none;
+    }
+    
+    .nav-list li {
+        margin: 0;
+    }
+}
+
+/* ==========================================================================
+   Tablet Styles
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Desktop Styles
+   ========================================================================== */
+
+@media (min-width: 1025px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}

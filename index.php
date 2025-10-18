@@ -13,22 +13,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header" id="header">
-        <div class="header-content">
-            <h1 class="site-title">
-                <a href="/">Tim Ferguson</a>
-            </h1>
-            
-            <p id="description">
-                <a href="https://thoughts.encosion.com" title="Thoughts / Blog">...has&nbsp;thoughts&nbsp;🤔</a>
-                <a href="/tagged/timusic" title="My own music experiments...">...makes&nbsp;🤘</a>
-                <!-- <a href="/tagged/lists" title="Music I obsessed over...">...consumes&nbsp;🎧</a> -->
-                <a href="/tagged/gigphoto" title="Mainly photos taken at gigs...">...shoots&nbsp;💛</a>
-                <a href="https://linkedin.com/in/trferguson" title="Work-focused networking... (External link)">...designs&nbsp;💰</a>
-                <a href="https://issues.encosion.com" title="A collection of comics">...has&nbsp;issues&nbsp;😃</a>
-            </p>
-        </div>
-    </header>
+    <?php include 'bits/header.php'; ?>
 
     <div class="container">
         <div class="description">
@@ -47,6 +32,7 @@ header('Content-Type: text/html; charset=UTF-8');
         </div>
     </div>
     
-    <footer><a href="https://linkedin.com/in/trferguson">Tim Ferguson © 2025</a></footer>
+    <!-- Footer -->
+    <?php include 'bits/footer.php'; ?>
 </body>
 </html>

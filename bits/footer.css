@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Footer Styles - Clean & Organized
+   ========================================================================== */
+
+/* ==========================================================================
+   Main Footer Container
+   ========================================================================== */
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgba(var(--dark-medium-lightest, 255, 255, 255), 0.3); */
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 var(--lg);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sm);
+    align-items: flex-end;
+}
+
+/* ==========================================================================
+   Copyright Link
+   ========================================================================== */
+
+.copyright-link {
+    margin: 0;
+    font-size: var(--font-sm);
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    text-shadow: var(--text-shadow-layered-small);
+    transition: all 0.3s ease;
+}
+
+.copyright-link:hover {
+    color: var(--accent-base);
+    font-size: var(--font-md);
+    text-decoration: none;
+    transform: translateY(-1px);
+    text-shadow: var(--text-shadow-layered-small);
+}
+
+/* ==========================================================================
+   Footer Buttons
+   ========================================================================== */
+
+/* Base button styles */
+.footer-back-to-top,
+.footer-random-link {
+    font-size: var(--font-sm);
+    border-radius: var(--radius);
+    background-color: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(5px);
+    color: var(--dark-medium-darker);
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    text-shadow: var(--text-shadow-layered);
+    min-width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Button hover effects */
+.footer-back-to-top:hover,
+.footer-random-link:hover {
+    transform: translateY(-2px);
+    font-size: var(--font-lg);
+}
+
+/* ==========================================================================
+   Back-to-Top Button
+   ========================================================================== */
+
+.footer-back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.footer-back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

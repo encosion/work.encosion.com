@@ -1,13 +1,42 @@
 :root {
+    /* Greyscale variations */
+    --dark-base: #000000;
+    --dark-medium-darkest: #0a0a0a;
+    --dark-medium-darker: #141414;
+    --dark-medium: #1f1f1f;
+    --dark-medium-lighter: #545454;
+    --dark-medium-lightest: #878787;
+    --dark-medium-lightest-30percent: rgba(84, 84, 84, 0.3);
+    --dark-light: #d1d1d1;
+
     /* Colors */
-    --accent: #ff69b4;
-    --accent-hover: #e55aa0;
-    --dark: #1c1616;
-    --dark-lighter: #5f5050;
     --light: white;
     --light-darker: #f8f9fa;
-    --border-grey: #dee2e6;
-    --input-cursor: hotpink;
+
+    /* Accent variations */
+    --accent-base: crimson;
+    --accent-hover: #dc143c;
+    --accent-muted: #cd5c5c;
+    --accent-light: #ff6b6b;
+    --accent-dark: #8b0000;
+    --accent-darker: #660000;
+    --accent-darkest: #330000;
+
+    /* Typography - Responsive Font Scale using clamp() */
+    --font-xs: clamp(0.7rem, 0.8vw + 0.6rem, 0.8rem);      /* 0.7rem - 0.8rem */
+    --font-sm: clamp(0.75rem, 0.8vw + 0.65rem, 0.85rem); /* 0.75rem - 0.85rem */
+    /* Base */
+    --font-md: clamp(1rem, 1.2vw + 0.8rem, 1.2rem);       /* 1rem - 1.2rem */
+    --font-lg: clamp(1.1rem, 1.4vw + 0.8rem, 1.4rem);     /* 1.1rem - 1.4rem */
+    --font-xl: clamp(1.3rem, 1.6vw + 1rem, 1.6rem);       /* 1.3rem - 1.6rem */
+    --font-2xl: clamp(1.5rem, 2vw + 1.2rem, 2rem);        /* 1.5rem - 2rem */
+    --font-3xl: clamp(2rem, 2.5vw + 1.5rem, 2.5rem);      /* 2rem - 2.5rem */
+    --font-4xl: clamp(2.5rem, 3vw + 2rem, 3rem);         /* 2.5rem - 3rem */
+    --font-5xl: clamp(3rem, 4vw + 2.5rem, 4rem);         /* 3rem - 4rem */
+    
+    /* Text shadows */
+    --text-shadow-layered: 0px 0px 1px rgba(0,0,0,0.6), -1px 1px 2px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.3);
+    --text-shadow-layered-small: 0px 0px 1px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 1);
     
     /* Responsive unified sizing scale */
     --xs: clamp(0.25rem, 0.5vw + 0.25rem, 0.5rem);    /* 4px to 8px */
@@ -21,6 +50,7 @@
     --h2: clamp(1.25rem, 2.5vw + 0.5rem, 1.5rem); /* 1.25rem to 1.5rem */
     --p: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);  /* 1rem to 1.2rem */
     --p-small: clamp(0.875rem, 1vw + 0.5rem, 1rem); /* 0.875rem to 1rem */
+
     
     /* Responsive line-heights using clamp() */
     --tight: clamp(1.1, 0.1vw + 1.0, 1.2);    /* 1.1 to 1.2 */
@@ -47,8 +77,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: var(--light);
-    color: var(--dark);
+    background-color: var(--dark-base);
+    color: var(--dark-light);
     line-height: var(--relaxed);
     margin: 0;
     padding: 0;
@@ -61,14 +91,14 @@ body {
 h1 {
     font-size: var(--h1);
     font-weight: 700;
-    color: var(--accent);
+    color: var(--accent-base);
     margin-bottom: var(--sm);
     line-height: var(--tight);
 }
 
 p {
     font-size: var(--p);
-    color: var(--dark-lighter);
+    color: var(--dark-medium-lightest);
     margin-bottom: var(--lg);
     line-height: var(--relaxed);
 }
@@ -76,7 +106,7 @@ p {
 .nav-link {
     display: inline-block;
     padding: var(--sm) var(--lg);
-    background-color: var(--accent);
+    background-color: var(--accent-base);
     color: var(--light);
     text-decoration: none;
     border-radius: var(--radius);
@@ -90,9 +120,8 @@ p {
 
 .description {
     padding: var(--md);
-    background-color: var(--light-darker);
+    background-color: var(--dark-medium);
     border-radius: var(--radius);
-    border: 1px solid var(--border-grey);
 }
 
 .content-left {
@@ -104,6 +133,7 @@ p {
 .content-left h4 {
     text-align: left;
     margin-bottom: var(--sm);
+    margin-top: 0;
 }
 
 .content-left p {
@@ -124,75 +154,11 @@ p {
 
 .content-left .nav-link {
     display: inline-block;
-    margin-top: var(--md);
 }
 
-footer {
-    margin-top: auto;
-    padding: var(--md) 0;
-    text-align: center;
-    border-top: 1px solid var(--border-grey);
-    width: 100%;
-}
-
-footer a {
-    color: var(--dark-lighter);
-    text-decoration: none;
-    font-size: var(--p-small);
-    transition: color 0.2s ease;
-}
-
-footer a:hover {
-    color: var(--accent);
-}
-
-/* ==========================================================================
-   Header Styles
-   ========================================================================== */
-
-header {
-    position: sticky;
-    top: 0;
-    background-color: var(--light);
-    border-bottom: 1px solid var(--border-grey);
-    padding: 0;
-    transition: padding 0.1s ease-out, border-color 0.1s ease-out;
-    z-index: 100;
-    /* CSS custom properties for smooth scaling */
-    --header-scale: 1;
-    --description-opacity: 1;
-    --description-height: 1.2rem;
-    --button-scale: 1;
-    --title-scale: 1;
-}
-
-.header-content {
-    position: relative;
-    text-align: center;
-}
-
-h1.site-title {
-    position: relative;
-    text-align: center;
-    transform: scale(var(--title-scale));
-    font-size: clamp(1.5rem, calc(6vw + 1rem), 4rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0rem;
-}
-
-h1.site-title a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-h1.site-title a:hover {
-    color: var(--accent-hover);
-    text-decoration: none;
-}
 /* Description text */
 #description {
-    color: var(--dark-lighter);
+    color: var(--dark-medium-lighter);
     text-align: center;
     margin: var(--md) 0 var(--lg) 0;
     font-size: var(--p-small);
@@ -202,14 +168,14 @@ h1.site-title a:hover {
 
 #description a {
     text-decoration: none;
-    color: var(--dark-lighter);
+    color: var(--dark-medium-lighter);
     transition: color 0.3s ease;
 }
 
 #description a:hover {
-    color: var(--accent);
+    color: var(--accent-base);
 }
 
 input, textarea, select {
-    caret-color: var(--input-cursor);
+    caret-color: var(--accent-base);
 }

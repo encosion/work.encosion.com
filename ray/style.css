@@ -44,7 +44,7 @@
     --gradient-bg: linear-gradient(135deg, #67BFFF 0%, #492FF4 25%, #B241DE 50%, #DA886D 100%);
     
     /* Input cursor colors */
-    --input-cursor: hotpink;
+    --accent-base: hotpink;
     
     /* Gradient colors for animated caret */
     --gradient-blue: #67BFFF;
@@ -588,7 +588,7 @@ body {
 }
 
 .message-content a.response-link {
-    color: var(--accent);
+    color: var(--accent-base);
     text-decoration: underline;
     cursor: pointer;
     padding: 4px 8px;
@@ -662,7 +662,7 @@ body {
     line-height: 1.4;
     color: var(--text-primary);
     transition: background-color 0.2s ease;
-    caret-color: var(--input-cursor);
+    caret-color: var(--accent-base);
     animation: caret-rainbow 3s ease-in-out infinite;
 }
 
@@ -686,7 +686,7 @@ body {
 }
 
 .chat-input:focus-within button {
-    background: var(--accent);
+    background: var(--accent-base);
     color: var(--bg-white);
 }
 
@@ -705,7 +705,7 @@ body {
 }
 
 .chat-input button {
-    background-color: var(--accent);
+    background-color: var(--accent-base);
     color: white;
     border: none;
     border-radius: 6px;
@@ -891,7 +891,7 @@ body {
 
 .role-title {
     font-weight: 500;
-    color: var(--accent);
+    color: var(--accent-base);
     font-size: 13px;
 }
 
@@ -942,7 +942,7 @@ body {
 }
 
 .scroll-indicator svg {
-    color: var(--accent);
+    color: var(--accent-base);
     animation: bounce 2s infinite;
 }
 
@@ -987,7 +987,7 @@ body {
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
+    background: var(--accent-base);
 }
 
 /* ==========================================================================
@@ -1009,7 +1009,7 @@ body {
     width: 32px;
     height: 32px;
     border: 4px solid var(--bg-tertiary);
-    border-top: 4px solid var(--accent);
+    border-top: 4px solid var(--accent-base);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 1rem;
@@ -1121,7 +1121,7 @@ p.description {
     justify-content: center;
     font-size: 13px;
     font-weight: 600;
-    background: var(--accent);
+    background: var(--accent-base);
     color: var(--bg-accent);
     border: none;
     border-radius: 6px;
@@ -1156,7 +1156,7 @@ p.description {
 }
 
 .view-people-btn {
-    background: var(--accent);
+    background: var(--accent-base);
     color: white;
     border: none;
     padding: 8px 16px;
@@ -1203,7 +1203,7 @@ p.description {
 }
 
 .candidate-cards::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
+    background: var(--accent-base);
 }
 
 .candidate-card {
@@ -1225,12 +1225,12 @@ p.description {
 
 .candidate-card.selected {
     background: var(--bg-accent);
-    border-left: 4px solid var(--accent);
+    border-left: 4px solid var(--accent-base);
 }
 
 .candidate-card.selected .candidate-checkbox {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-base);
+    border-color: var(--accent-base);
 }
 
 .candidate-checkbox {
@@ -1251,8 +1251,8 @@ p.description {
 }
 
 .candidate-checkbox:checked {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-base);
+    border-color: var(--accent-base);
 }
 
 .candidate-checkbox:checked::after {
@@ -1267,8 +1267,8 @@ p.description {
 }
 
 .candidate-card.selected .candidate-checkbox {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-base);
+    border-color: var(--accent-base);
 }
 
 .candidate-card.selected .candidate-checkbox::after {
@@ -1301,7 +1301,7 @@ p.description {
 }
 
 .candidate-name:hover {
-    color: var(--accent);
+    color: var(--accent-base);
 }
 
 .candidate-location {
@@ -1340,7 +1340,7 @@ p.description {
 
 .rating {
     font-size: 13px;
-    color: var(--accent);
+    color: var(--accent-base);
     font-weight: 500;
     margin: 0;
     flex-shrink: 0;
@@ -1476,8 +1476,8 @@ p.description {
 }
 
 .select-all-checkbox:checked {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-base);
+    border-color: var(--accent-base);
 }
 
 .select-all-checkbox:checked::after {
@@ -1499,7 +1499,7 @@ p.description {
 }
 
 .selection-icon {
-    color: var(--accent);
+    color: var(--accent-base);
 }
 
 .selection-count {
@@ -1547,7 +1547,7 @@ p.description {
 }
 
 .action-button.primary {
-    background: var(--accent);
+    background: var(--accent-base);
     color: var(--bg-accent);
 }
 
@@ -1936,7 +1936,7 @@ body:has(.filter-panel.open) .candidate-table-container {
 .add-filter-input {
     width: 100%;
     background: var(--bg-white);
-    border: 1px solid var(--accent);
+    border: 1px solid var(--accent-base);
     border-radius: 6px;
     padding: 8px 12px;
     font-size: 13px;
@@ -2009,7 +2009,7 @@ body:has(.filter-panel.open) .candidate-table-container {
 
 button[load-] {
     background: var(--bg-accent);
-    color: var(--accent);
+    color: var(--accent-base);
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
@@ -2245,7 +2245,7 @@ button[load-].loaded {
 
 .item-icon {
     margin-right: 4px;
-    color: var(--accent);
+    color: var(--accent-base);
 }
 
 .item-text {
@@ -2356,7 +2356,7 @@ button[load-].loaded {
 }
 
 .role-section-icon {
-    color: var(--accent);
+    color: var(--accent-base);
 }
 
 .role-section-list {
@@ -2383,7 +2383,7 @@ button[load-].loaded {
 .role-cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    background: linear-gradient(135deg, var(--accent-base) 0%, var(--accent-hover) 100%);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -2453,7 +2453,7 @@ button[load-].loaded {
 .role-index-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    border-color: var(--accent);
+    border-color: var(--accent-base);
 }
 
 .role-index-item-title {
@@ -2632,7 +2632,7 @@ button[load-].loaded {
 }
 
 .profile-share-btn {
-    background: var(--accent);
+    background: var(--accent-base);
     color: var(--bg-white);
     border: none;
     border-radius: 6px;
@@ -2703,8 +2703,8 @@ button[load-].loaded {
 }
 
 .profile-tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+    color: var(--accent-base);
+    border-bottom-color: var(--accent-base);
 }
 
 .profile-tab:hover:not(.active) {
@@ -2806,7 +2806,7 @@ button[load-].loaded {
 }
 
 .beamery-ai {
-    color: var(--accent);
+    color: var(--accent-base);
     font-weight: 600;
 }
 
@@ -2840,7 +2840,7 @@ button[load-].loaded {
     transform: translateY(-50%);
     width: 5px;
     height: 5px;
-    background: var(--accent);
+    background: var(--accent-base);
     border-radius: 50%;
 }
 
@@ -3010,7 +3010,7 @@ button[load-].loaded {
 }
 
 .profile-overlay-content::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
+    background: var(--accent-base);
 }
 
 .profile-content::-webkit-scrollbar {
@@ -3027,5 +3027,5 @@ button[load-].loaded {
 }
 
 .profile-content::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
+    background: var(--accent-base);
 }
