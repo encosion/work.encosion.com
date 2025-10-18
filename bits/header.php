@@ -14,10 +14,10 @@
             <!-- Navigation links - styled differently for desktop/mobile -->
             <nav class="header-nav" id="headerNav">
                 <ul class="nav-list">
-                    <li><a href="https://thoughts.encosion.com" title="Product design and development..§.">...has&nbsp;thoughts&nbsp;🤔</a></li>
+                    <li><a href="https://thoughts.encosion.com" title="My blog...">...has&nbsp;thoughts&nbsp;🤔</a></li>
                     <li><a href="https://thoughts.encosion.com/tagged/timusic" title="My own music experiments...">...makes&nbsp;🤘</a></li>
                     <li><a href="https://thoughts.encosion.com/tagged/gigphoto" title="Mainly photos taken at gigs...">...shoots&nbsp;💛</a></li>
-                    <li><a href="https://issues.encosion.com" title="Tim's collection of comics..">...has&nbsp;issues&nbsp;😃</a></li>
+                    <li><a href="https://issues.encosion.com" title="My collection of comics..">...has&nbsp;issues&nbsp;😃</a></li>
                 </ul>
             </nav>
         </div>

@@ -75,6 +75,13 @@ body {
     overflow: hidden;
 }
 
+/* Allow scrolling for role index page */
+.role-index-body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+}
+
 /* Animated caret color keyframes */
 @keyframes caret-rainbow {
     0% { caret-color: var(--gradient-blue); }
