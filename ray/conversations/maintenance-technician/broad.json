@@ -1,0 +1,338 @@
+{
+  "searchTitle": "🤔 Broad",
+  "searchDescription": "Maintenance professionals with 2+ years of equipment maintenance experience, electrical/mechanical skills, and safety compliance, working in any maintenance-related role across Texas and surrounding states.",
+  "searchCriteria": {
+    "jobRoles": [],
+    "coreSkills": [
+      "Equipment maintenance",
+      "Electrical troubleshooting",
+      "Mechanical repair",
+      "Safety compliance",
+      "Preventive maintenance",
+      "Equipment diagnostics",
+      "Hydraulic systems",
+      "Pneumatic systems"
+    ],
+    "locations": [
+      "Texas",
+      "Louisiana", 
+      "Oklahoma",
+      "Arkansas",
+      "New Mexico",
+      "Mississippi"
+    ],
+    "idealCompanies": [],
+    "seniority": [
+      "Mid-Level"
+    ],
+    "industries": [
+      "Manufacturing",
+      "Automotive",
+      "Aerospace",
+      "Heavy Machinery",
+      "Industrial Equipment",
+      "Facilities Management"
+    ],
+    "orgSize": [
+      "+1,000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Jennifer Martinez",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Technician",
+          "company": "UnitedHealth Group",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Equipment Maintenance Tech",
+          "company": "Kaiser Permanente",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Austin, Texas, USA"
+    },
+    {
+      "id": 2,
+      "name": "Christopher Turner",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "General Motors",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "Ford Motor Company",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "San Antonio, Texas, USA"
+    },
+    {
+      "id": 3,
+      "name": "Michelle Garcia",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Industrial Maintenance Tech",
+          "company": "Caterpillar",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "Production Technician",
+          "company": "John Deere",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Equipment Maintenance Tech",
+          "company": "Cummins",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Houston, Texas, USA"
+    },
+    {
+      "id": 4,
+      "name": "Justin Nguyen",
+      "rating": "★★★☆☆ 3.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Toyota",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "Tesla",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Dallas, Texas, USA"
+    },
+    {
+      "id": 5,
+      "name": "Rachel Adams",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Tech",
+          "company": "Lockheed Martin",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Equipment Maintenance Tech",
+          "company": "Boeing",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Industrial Technician",
+          "company": "Raytheon",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Fort Worth, Texas, USA"
+    },
+    {
+      "id": 6,
+      "name": "Teresa Martinez",
+      "rating": "★★★☆☆ 3.6",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Intel",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "Equipment Tech",
+          "company": "AMD",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Facilities Tech",
+          "company": "NVIDIA",
+          "duration": "4y 1m"
+        }
+      ],
+      "location": "New Orleans, Louisiana, USA"
+    },
+    {
+      "id": 7,
+      "name": "Carlos Rodriguez",
+      "rating": "★★★☆☆ 3.7",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Maintenance Coordinator",
+          "company": "General Electric",
+          "duration": "2y 10m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "Siemens",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Industrial Tech",
+          "company": "ABB",
+          "duration": "3y 9m"
+        }
+      ],
+      "location": "Oklahoma City, Oklahoma, USA"
+    },
+    {
+      "id": 8,
+      "name": "Heather Wilson",
+      "rating": "★★★☆☆ 3.5",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Case New Holland",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Production Tech",
+          "company": "AGCO",
+          "duration": "4y 5m"
+        }
+      ],
+      "location": "Little Rock, Arkansas, USA"
+    },
+    {
+      "id": 9,
+      "name": "Rajesh Gupta",
+      "rating": "★★★☆☆ 3.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Tech",
+          "company": "SpaceX",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "Blue Origin",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Industrial Tech",
+          "company": "Virgin Galactic",
+          "duration": "4y 3m"
+        }
+      ],
+      "location": "Albuquerque, New Mexico, USA"
+    },
+    {
+      "id": 10,
+      "name": "Karen Liu",
+      "rating": "★★★☆☆ 3.6",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Tech",
+          "company": "Apple",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Equipment Tech",
+          "company": "Google",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Maintenance Tech",
+          "company": "Microsoft",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Jackson, Mississippi, USA"
+    },
+    {
+      "id": 11,
+      "name": "Diana Cooper",
+      "rating": "★★☆☆☆ 3.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Walmart",
+          "duration": "4y 9m"
+        },
+        {
+          "title": "Equipment Tech",
+          "company": "Target",
+          "duration": "4y 9m"
+        }
+      ],
+      "location": "El Paso, Texas, USA"
+    },
+    {
+      "id": 12,
+      "name": "Marcus Thompson",
+      "rating": "★★★☆☆ 3.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Tech",
+          "company": "Amazon",
+          "duration": "7y 10m"
+        }
+      ],
+      "location": "Corpus Christi, Texas, USA"
+    },
+    {
+      "id": 13,
+      "name": "Sophie Wang",
+      "rating": "★★☆☆☆ 3.5",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "FedEx",
+          "duration": "4y 3m"
+        },
+        {
+          "title": "Equipment Tech",
+          "company": "UPS",
+          "duration": "4y 6m"
+        }
+      ],
+      "location": "Lubbock, Texas, USA"
+    },
+    {
+      "id": 14,
+      "name": "Douglas Mitchell",
+      "rating": "★★☆☆☆ 3.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Tech",
+          "company": "Home Depot",
+          "duration": "2y 3m"
+        },
+        {
+          "title": "Maintenance Supervisor",
+          "company": "Lowe's",
+          "duration": "3y 9m"
+        },
+        {
+          "title": "Equipment Tech",
+          "company": "Menards",
+          "duration": "4y 4m"
+        }
+      ],
+      "location": "Amarillo, Texas, USA"
+    }
+  ]
+}

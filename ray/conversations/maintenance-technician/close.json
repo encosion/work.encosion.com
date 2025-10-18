@@ -1,0 +1,379 @@
+{
+  "searchTitle": "📏 Close",
+  "searchDescription": "Maintenance Technicians with 3+ years of industrial equipment experience, electrical/mechanical troubleshooting, preventive maintenance, and safety compliance, working in manufacturing, automotive, aerospace, or heavy machinery industries across Texas and surrounding states",
+  "searchCriteria": {
+    "jobRoles": [
+      "Industrial Equipment Technician",
+      "Manufacturing Technician",
+      "Production Technician",
+      "Facilities Maintenance Technician",
+      "Equipment Maintenance Specialist"
+    ],
+    "coreSkills": [
+      "Industrial equipment maintenance",
+      "Electrical troubleshooting",
+      "Mechanical repair",
+      "Preventive maintenance",
+      "Safety compliance",
+      "Equipment diagnostics",
+      "Hydraulic systems",
+      "Pneumatic systems"
+    ],
+    "locations": [
+      "Texas",
+      "Louisiana", 
+      "Oklahoma",
+      "Arkansas",
+      "New Mexico",
+      "Mississippi"
+    ],
+    "idealCompanies": [
+      "Caterpillar",
+      "John Deere",
+      "Cummins",
+      "General Motors",
+      "Ford",
+      "Toyota",
+      "Honda",
+      "Tesla",
+      "Lockheed Martin",
+      "Boeing"
+    ],
+    "seniority": [
+      "Mid-Level"
+    ],
+    "industries": [
+      "Manufacturing",
+      "Automotive",
+      "Aerospace",
+      "Heavy Machinery",
+      "Industrial Equipment"
+    ],
+    "orgSize": [
+      "+5,000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Kevin Walsh",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "John Deere",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Production Technician",
+          "company": "Cummins",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Equipment Maintenance Tech",
+          "company": "General Motors",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Austin, Texas, USA"
+    },
+    {
+      "id": 2,
+      "name": "Daniel Morrison",
+      "rating": "★★★★☆ 4.3",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Industrial Equipment Technician",
+          "company": "Toyota Motor Manufacturing",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Manufacturing Technician",
+          "company": "Honda Manufacturing",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Facilities Maintenance Tech",
+          "company": "Ford Motor Company",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "San Antonio, Texas, USA"
+    },
+    {
+      "id": 3,
+      "name": "Nicole Chen",
+      "rating": "★★★★☆ 4.4",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician I",
+          "company": "Tesla",
+          "duration": "4y 1m"
+        },
+        {
+          "title": "Production Maintenance Tech",
+          "company": "Caterpillar",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Equipment Specialist",
+          "company": "Lockheed Martin",
+          "duration": "3y 3m"
+        }
+      ],
+      "location": "Houston, Texas, USA"
+    },
+    {
+      "id": 4,
+      "name": "Andrew Kim",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Industrial Maintenance Technician",
+          "company": "Cummins",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Manufacturing Technician",
+          "company": "John Deere",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Production Equipment Tech",
+          "company": "General Electric",
+          "duration": "4y 0m"
+        }
+      ],
+      "location": "Dallas, Texas, USA"
+    },
+    {
+      "id": 5,
+      "name": "Stephanie Davis",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Equipment Maintenance Specialist",
+          "company": "Caterpillar",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Manufacturing Technician",
+          "company": "Toyota",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Industrial Equipment Tech",
+          "company": "Honda",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Fort Worth, Texas, USA"
+    },
+    {
+      "id": 6,
+      "name": "Jessica Lopez",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician I",
+          "company": "Boeing",
+          "duration": "3y 8m"
+        },
+        {
+          "title": "Facilities Maintenance Tech",
+          "company": "Lockheed Martin",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "Raytheon",
+          "duration": "4y 1m"
+        }
+      ],
+      "location": "New Orleans, Louisiana, USA"
+    },
+    {
+      "id": 7,
+      "name": "Ryan Johnson",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Production Technician",
+          "company": "General Motors",
+          "duration": "2y 10m"
+        },
+        {
+          "title": "Manufacturing Technician",
+          "company": "Ford",
+          "duration": "3y 3m"
+        },
+        {
+          "title": "Industrial Equipment Tech",
+          "company": "Chrysler",
+          "duration": "3y 9m"
+        }
+      ],
+      "location": "Oklahoma City, Oklahoma, USA"
+    },
+    {
+      "id": 8,
+      "name": "Melanie Foster",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Equipment Maintenance Specialist",
+          "company": "Caterpillar",
+          "duration": "2y 7m"
+        },
+        {
+          "title": "Manufacturing Technician",
+          "company": "John Deere",
+          "duration": "3y 1m"
+        },
+        {
+          "title": "Production Technician",
+          "company": "Case New Holland",
+          "duration": "4y 5m"
+        }
+      ],
+      "location": "Little Rock, Arkansas, USA"
+    },
+    {
+      "id": 9,
+      "name": "Bradley Singh",
+      "rating": "★★★★☆ 4.2",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Industrial Maintenance Technician",
+          "company": "Tesla",
+          "duration": "3y 5m"
+        },
+        {
+          "title": "Equipment Technician",
+          "company": "SpaceX",
+          "duration": "2y 9m"
+        },
+        {
+          "title": "Manufacturing Tech",
+          "company": "Apple",
+          "duration": "4y 3m"
+        }
+      ],
+      "location": "Albuquerque, New Mexico, USA"
+    },
+    {
+      "id": 10,
+      "name": "Ashley Taylor",
+      "rating": "★★★★☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Technician",
+          "company": "Intel",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Production Technician",
+          "company": "AMD",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Equipment Maintenance Tech",
+          "company": "NVIDIA",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "Jackson, Mississippi, USA"
+    },
+    {
+      "id": 11,
+      "name": "Brandon Carter",
+      "rating": "★★★☆☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician I",
+          "company": "Caterpillar",
+          "duration": "3y 6m"
+        },
+        {
+          "title": "Industrial Equipment Tech",
+          "company": "John Deere",
+          "duration": "4y 7m"
+        }
+      ],
+      "location": "El Paso, Texas, USA"
+    },
+    {
+      "id": 12,
+      "name": "Amanda Wright",
+      "rating": "★★★★☆ 4.1",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Manufacturing Technician",
+          "company": "Toyota",
+          "duration": "4y 2m"
+        },
+        {
+          "title": "Production Equipment Tech",
+          "company": "Honda",
+          "duration": "3y 11m"
+        }
+      ],
+      "location": "Corpus Christi, Texas, USA"
+    },
+    {
+      "id": 13,
+      "name": "Nathaniel Brown",
+      "rating": "★★★★☆ 3.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Equipment Maintenance Specialist",
+          "company": "General Motors",
+          "duration": "4y 6m"
+        },
+        {
+          "title": "Industrial Maintenance Tech",
+          "company": "Ford",
+          "duration": "4y 2m"
+        }
+      ],
+      "location": "Lubbock, Texas, USA"
+    },
+    {
+      "id": 14,
+      "name": "Vanessa Miller",
+      "rating": "★★★☆☆ 4.0",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Facilities Maintenance Technician",
+          "company": "Cummins",
+          "duration": "2y 4m"
+        },
+        {
+          "title": "Production Technician",
+          "company": "Caterpillar",
+          "duration": "3y 7m"
+        },
+        {
+          "title": "Manufacturing Tech",
+          "company": "John Deere",
+          "duration": "4y 4m"
+        }
+      ],
+      "location": "Amarillo, Texas, USA"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "searchTitle": "🎯 Exact",
+  "searchDescription": "Maintenance Technicians with 4+ years of industrial electrical/electronic production equipment experience, lockout/tagout procedures, OSHA compliance, blueprint reading, and mechanical systems knowledge, currently working in manufacturing, automotive, or industrial maintenance roles in Texas and surrounding states",
+  "searchCriteria": {
+    "jobRoles": [
+      "Maintenance Technician",
+      "Senior Maintenance Technician", 
+      "Industrial Maintenance Technician",
+      "Production Maintenance Technician",
+      "Manufacturing Maintenance Technician"
+    ],
+    "coreSkills": [
+      "Industrial electrical/electronic equipment maintenance",
+      "Lockout/tagout procedures",
+      "OSHA compliance",
+      "Blueprint and schematic reading",
+      "Mechanical systems knowledge",
+      "Preventive maintenance",
+      "CMMS systems",
+      "Cutting and welding"
+    ],
+    "locations": [
+      "Texas",
+      "Louisiana", 
+      "Oklahoma",
+      "Arkansas",
+      "New Mexico",
+      "Mississippi"
+    ],
+    "idealCompanies": [
+      "Caterpillar",
+      "John Deere",
+      "Cummins",
+      "General Motors",
+      "Ford",
+      "Toyota",
+      "Honda",
+      "Tesla"
+    ],
+    "seniority": [
+      "Mid-Level Senior"
+    ],
+    "industries": [
+      "Manufacturing",
+      "Automotive",
+      "Industrial Equipment",
+      "Heavy Machinery"
+    ],
+    "orgSize": [
+      "+10,000"
+    ]
+  },
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Michael Rodriguez",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "John Deere",
+          "duration": "3y 4m"
+        },
+        {
+          "title": "Industrial Maintenance Technician",
+          "company": "Cummins",
+          "duration": "1y 7m"
+        }
+      ],
+      "location": "Austin, Texas, USA"
+    },
+    {
+      "id": 2,
+      "name": "James Thompson",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Maintenance Technician",
+          "company": "Toyota Motor Manufacturing",
+          "duration": "9m"
+        },
+        {
+          "title": "Manufacturing Maintenance Tech",
+          "company": "Honda Manufacturing",
+          "duration": "2y 1m"
+        },
+        {
+          "title": "Industrial Equipment Technician",
+          "company": "Ford Motor Company",
+          "duration": "3y 8m"
+        }
+      ],
+      "location": "San Antonio, Texas, USA"
+    },
+    {
+      "id": 3,
+      "name": "Robert Garcia",
+      "rating": "★★★★★ 4.9",
+      "hasAttachment": false,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Tesla",
+          "duration": "1y 1m"
+        },
+        {
+          "title": "Maintenance Technician",
+          "company": "Caterpillar",
+          "duration": "2y 5m"
+        },
+        {
+          "title": "Industrial Maintenance Tech",
+          "company": "Lockheed Martin",
+          "duration": "1y 3m"
+        }
+      ],
+      "location": "Houston, Texas, USA"
+    },
+    {
+      "id": 4,
+      "name": "David Martinez",
+      "rating": "★★★★★ 4.7",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Maintenance Technician",
+          "company": "Cummins",
+          "duration": "2y 11m"
+        },
+        {
+          "title": "Industrial Maintenance Technician",
+          "company": "John Deere",
+          "duration": "3y 6m"
+        }
+      ],
+      "location": "Dallas, Texas, USA"
+    },
+    {
+      "id": 5,
+      "name": "Christopher Lee",
+      "rating": "★★★★★ 4.8",
+      "hasAttachment": true,
+      "jobHistory": [
+        {
+          "title": "Senior Maintenance Technician",
+          "company": "Caterpillar",
+          "duration": "3y 2m"
+        },
+        {
+          "title": "Manufacturing Maintenance Tech",
+          "company": "Toyota",
+          "duration": "2y 8m"
+        },
+        {
+          "title": "Industrial Equipment Technician",
+          "company": "Honda",
+          "duration": "3y 7m"
+        }
+      ],
+      "location": "Fort Worth, Texas, USA"
+    }
+  ]
+}
