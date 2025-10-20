@@ -13,7 +13,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php include 'bits/header.php'; ?>
+    <?php include '../bits/header.php'; ?>
 
     <div class="container">
         <div class="description">
@@ -33,6 +33,6 @@ header('Content-Type: text/html; charset=UTF-8');
     </div>
     
     <!-- Footer -->
-    <?php include 'bits/footer.php'; ?>
+    <?php include '../bits/footer.php'; ?>
 </body>
 </html>
