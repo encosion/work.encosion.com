@@ -19,3 +19,16 @@ $pageName = 'close';
 // Include the common layout
 include '../../includes/results-layout.php';
 ?>
+
+<script>
+// Auto-open filter panel for VP Corporate Development conversation
+// This runs after the results layout is loaded
+(function() {
+    // Wait for loading to complete (1.3 seconds total: 1000ms spinner + 300ms fade)
+    setTimeout(() => {
+        if (window.openFilterPanel) {
+            window.openFilterPanel();
+        }
+    }, 1400);
+})();
+</script>
