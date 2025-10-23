@@ -122,6 +122,26 @@ p {
     padding: var(--md);
     background-color: var(--dark-medium);
     border-radius: var(--radius);
+    margin-bottom: var(--lg);
+}
+
+.clickable-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.clickable-card:hover {
+    background-color: var(--dark-medium-darker);
+    border-color: var(--accent-base);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.2);
+}
+
+.clickable-card:hover h2 {
+    color: var(--accent-base);
 }
 
 .content-left {

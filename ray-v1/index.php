@@ -7,6 +7,52 @@ header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 
+// Set content type to HTML
+header('Content-Type: text/html; charset=UTF-8');
+
+// Lightweight PIN gate for Work area (no username)
+session_start();
+const WORK_PIN = 'ray'; // change for production
+if (($_POST['work_pin'] ?? null) !== null) {
+    if (hash_equals(WORK_PIN, (string)$_POST['work_pin'])) {
+        $_SESSION['work_authed'] = true;
+        header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?'));
+        exit;
+    } else {
+        $pin_error = 'Incorrect password';
+    }
+}
+if (!(isset($_SESSION['work_authed']) && $_SESSION['work_authed'] === true)) {
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enter password</title>
+        <style>
+            body { display:flex; align-items:center; justify-content:center; min-height:100vh; background:#000; color:#ddd; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,Cantarell,sans-serif; }
+            .card { background:#111; padding:2rem; border:1px solid #333; border-radius:8px; width:min(90vw,360px); box-shadow:0 10px 30px rgba(0,0,0,0.5); }
+            h1 { margin:0 0 1rem 0; font-size:1.25rem; color:#fff; }
+            .error { color:#f88; margin:0 0 0.5rem 0; font-size:0.9rem; }
+            input[type=password]{ width:100%; padding:0.75rem; background:#000; color:#eee; border:1px solid #444; border-radius:6px; }
+            button { margin-top:0.75rem; width:100%; padding:0.75rem; background:gold; color:#000; border:none; border-radius:6px; font-weight:600; cursor:pointer; }
+            button:hover { filter:brightness(1.05); }
+        </style>
+    </head>
+    <body>
+        <form method="post" class="card" autocomplete="off">
+            <h1>Enter password</h1>
+            <?php if (!empty($pin_error)) { echo '<p class=\"error\">' . htmlspecialchars($pin_error) . '</p>'; } ?>
+            <input type="password" name="work_pin" placeholder="Password" autofocus>
+            <button type="submit">Let's go!</button>
+        </form>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
 // Simple configuration
 $site_title = "Chat Prototype";
 $site_url = "https://work.encosion.com";
