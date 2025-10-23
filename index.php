@@ -18,16 +18,28 @@ header('Content-Type: text/html; charset=UTF-8');
     <div class="container">
         <div class="description">
             <div class="content-left">
-                <h2>Sourcing Agent – Conversational Prototype</h2>
+                <h2>Sourcing Agent v2 – Conversational Prototype</h2>
                 <p>An interactive chat simulation for rapid validation of realistic top-of-funnel sourcing.</p>
                 <ul>
-                    <li>Interactive chat interface – Realistic conversation flow with typing indicators and auto-cued responses</li>
-                    <li>Dynamic candidate results – Shows synthetic candidates for different searches (powered by JSON files) with loading spinner, smooth scrolling and multi-selection next actions</li>
-                    <li>Easy to test multiple different conversations and approaches using folders and simple URL parameters</li>
-                    <li>Responsive – Fluid adaptation to variable desktop viewport sizes for corporate SaaS users</li>            
+                    <li>Interactive chat interface – Realistic conversation flow with typing indicators (optional auto-cued responses)</li>
+                    <li>Dynamic candidate results – Synthetic candidates for different search strategies (powered by JSON files) with loading states and multi-selection next actions</li>
+                    <li>Easy to test different conversations and approaches using folders and simple URL params</li>
                     <li>Techstack – HTML5, CSS3, JavaScript (ES6+), PHP</li>
                 </ul>
                 <a href="ray/roles" class="nav-link">Check it out</a>
+            </div>
+        </div>
+        
+        <div class="description">
+            <div class="content-left">
+                <h2>Sourcing Agent v1 – Markdown-Driven Concept</h2>
+                <p>The original concept exploration driven by structured markdown files and conversation flows.</p>
+                <ul>
+                    <li>Markdown-based conversation structure – Organized step-by-step recruitment conversations in markdown files</li>
+                    <li>Simple folder-based organization – Easy to iterate on different conversation approaches and flows</li>
+                    <li>Foundation for v2 development – Provided the conversational framework that evolved into the more interactive prototype</li>
+                </ul>
+                <a href="ray-v1/" class="nav-link">Check it out</a>
             </div>
         </div>
     </div>
